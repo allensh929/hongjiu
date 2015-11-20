@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProductLabel">Create or edit a Product</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                    ng-model="product.number"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="product.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="product.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_produceDate">ProduceDate</label>
+            <input type="date" class="form-control" name="produceDate" id="field_produceDate"
+                    ng-model="product.produceDate"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_producer">Producer</label>
+            <input type="text" class="form-control" name="producer" id="field_producer"
+                    ng-model="product.producer"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_image">Image</label>
+            <input type="text" class="form-control" name="image" id="field_image"
+                    ng-model="product.image"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_favorate">Favorate</label>
+            <input type="text" class="form-control" name="favorate" id="field_favorate"
+                    ng-model="product.favorate"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_news">News</label>
+            <input type="text" class="form-control" name="news" id="field_news"
+                    ng-model="product.news"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

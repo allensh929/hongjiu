@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "hongjie",
+    "packageName": "com.hongjie",
+    "packageFolder": "com/hongjie",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "28bbac6213b61ae91c016984a10ded36289c8723",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}

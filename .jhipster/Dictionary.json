@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "xref",
+            "otherEntityName": "xref",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "dictionary"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "identifer",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "ovalue",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151120074754",
+    "dto": "no",
+    "pagination": "pagination"
+}

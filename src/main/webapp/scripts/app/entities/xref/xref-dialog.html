@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myXrefLabel">Create or edit a Xref</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="xref.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="xref.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_ovalue">Ovalue</label>
+            <input type="text" class="form-control" name="ovalue" id="field_ovalue"
+                    ng-model="xref.ovalue"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_dictionary">dictionary</label>
+            <select class="form-control" id="field_dictionary" name="dictionary" ng-model="xref.dictionary" ng-options="dictionary as dictionary.ovalue for dictionary in dictionarys | orderBy:'id' track by dictionary.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_product">product</label>
+            <select class="form-control" id="field_product" name="product" ng-model="xref.product" ng-options="product as product.name for product in products track by product.name">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

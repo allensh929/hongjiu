@@ -1,0 +1,35 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "dictionary",
+            "otherEntityName": "dictionary",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "ovalue",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "xref"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "ovalue",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151120075341",
+    "dto": "no",
+    "pagination": "pagination"
+}

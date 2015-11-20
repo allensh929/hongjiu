@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span>Product</span> {{product.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Number</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.number}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Price</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.price}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>ProduceDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.produceDate | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Producer</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.producer}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Image</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.image}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Favorate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.favorate}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>News</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.news}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
