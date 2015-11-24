@@ -35,7 +35,8 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+	config.language = 'zh-CN';
 	
 	config.image_previewText=' '; //预览区域显示内容
-	config.filebrowserImageUploadUrl= "admin/UserArticleFileUpload.do"; //待会要上传的action或servlet
+	config.filebrowserImageUploadUrl= "products"; //待会要上传的action或servlet
 };

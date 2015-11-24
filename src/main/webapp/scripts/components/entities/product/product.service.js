@@ -15,7 +15,7 @@ angular.module('hongjieApp')
             'update': {
                 method: 'PUT',
                 transformRequest: function (data) {
-                    data.produceDate = DateUtils.convertLocaleDateToServer(data.produceDate);
+//                    data.produceDate = DateUtils.convertLocaleDateToServer(data.produceDate);
                     return angular.toJson(data);
                 }
             },

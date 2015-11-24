@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()">
+<form name="editForm"  id="editForm" role="form" novalidate ng-submit="save()">
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -60,6 +60,22 @@
             <input type="text" class="form-control" name="news" id="field_news"
                     ng-model="product.news"
                      />
+        </div>
+        
+        <div class="form-group">
+
+            <label for="field_upload">Upload image</label>
+
+			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select ng-model="files" ngf-multiple="true">
+                        <button >ssss</button>
+                    </div>
+                    
+            <img ng-repeat="file in files" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+           
+
         </div>
 
     </div>

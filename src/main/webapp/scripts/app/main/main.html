@@ -37,18 +37,7 @@
              <span>If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank">Github</a>!
             </p>
             
-            <!-- toolbar with suitable buttons and dialogues -->
-			<div class="toolbar">
-			  <a data-wysihtml5-command="createLink">link</a>
-			  <div data-wysihtml5-dialog="createLink" style="display: none;">
-			    Link: <input data-wysihtml5-dialog-field="href" value="http://">
-			    <a data-wysihtml5-dialog-action="save">OK</a>
-			    <a data-wysihtml5-dialog-action="cancel">Cancel</a>
-			  </div>
-			</div>
-			
-			<!-- element to edit -->
-			<textarea class="editor" placeholder="Go on, start editing..."></textarea>
+          
 
 
 			<textarea name="editor1" id="editor1" rows="10" cols="80">
@@ -62,9 +51,4 @@
         </div>
     </div>
 </div>
-<script>
-  var editor = new wysihtml5.Editor(document.querySelector('.editor'), {
-    toolbar: document.querySelector('.toolbar'),
-    parserRules:  wysihtml5ParserRules // defined in file parser rules javascript
-  });
-</script>
+
