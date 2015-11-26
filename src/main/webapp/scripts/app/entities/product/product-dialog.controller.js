@@ -29,7 +29,7 @@ angular.module('hongjieApp').controller('ProductDialogController',
             	 Upload.upload({
 
                      url: '/api/postImage',
-                     fields: { productId: 1 },
+                     fields: { productId: $scope.product.id },
                      file: $scope.files[0],
                      method: 'POST'
 
@@ -39,7 +39,8 @@ angular.module('hongjieApp').controller('ProductDialogController',
                      console.log('progress: ' + progressPercentage + '% ');
 
                  }).success(function (data, status, headers, config) {
-
+                	 
+                	 $scope.product.image = data.image;
                 	 Product.update($scope.product, onSaveSuccess, onSaveError);
 
                  }).error(function (data, status, headers, config) {

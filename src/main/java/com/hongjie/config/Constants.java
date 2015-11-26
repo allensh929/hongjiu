@@ -16,7 +16,7 @@ public final class Constants {
 
     public static final String SYSTEM_ACCOUNT = "system";
 
-    public static final String USER_UPLOADED_FILE_ROOT_PATH = "E:/upload/";
+    public static final String USER_UPLOADED_FILE_ROOT_PATH = "/upload/";
     private Constants() {
     }
 }

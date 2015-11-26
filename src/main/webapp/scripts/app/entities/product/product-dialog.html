@@ -46,9 +46,10 @@
         <div class="form-group">
             <label for="field_image">Image</label>
             <input type="text" class="form-control" name="image" id="field_image"
-                    ng-model="product.image"
+                    ng-model="product.image" readonly = "true"
                      />
-        </div>
+        </div> 
+        
         <div class="form-group">
             <label for="field_favorate">Favorate</label>
             <input type="text" class="form-control" name="favorate" id="field_favorate"
@@ -64,7 +65,7 @@
         
         <div class="form-group">
 
-            <label for="field_upload">Upload image</label>
+            <label for="field_upload">Upload image {{$scope.product.image}}</label>
 
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select ng-model="files" ngf-multiple="true">
@@ -75,7 +76,6 @@
 
             <br>
            
-
         </div>
 
     </div>

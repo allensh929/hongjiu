@@ -6,10 +6,12 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +31,8 @@ public class PostService {
     @Inject
     private ProductRepository productRepository;
     
+    @Autowired
+    ServletContext servletContext;
 //    public void createNewPost(UserPost userPost, MultipartFile[] images) throws IOException {
 //    	
 //    	if (userPost.getId() == null) {
@@ -73,7 +77,8 @@ public class PostService {
     	
     	String imageFileName = System.currentTimeMillis() + "_"+ UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
     	String rootPath = Constants.USER_UPLOADED_FILE_ROOT_PATH;
-		String fileName = rootPath + productId;
+    	
+		String fileName = servletContext.getRealPath(File.separator) + rootPath + productId;
 		
 		log.debug("new saving file folder -> " + fileName);
 		
@@ -86,9 +91,13 @@ public class PostService {
 
 		IOUtils.copy(file.getInputStream(), fileOutputStream);
 		
-		product.setImage(imageFileName);
-		product = productRepository.save(product);
-		
+		log.debug("lichen test -> ");
+		log.debug("lichen test -> product name:" + product.getName());
+		log.debug("lichen test -> product image before:" + product.getImage());
+		product.setImage("test");
+		log.debug("lichen test -> product image after:" + product.getImage());
+		product = productRepository.saveAndFlush(product);
+		log.debug("lichen test -> product image after:" + product.getImage());
 		PostImageDTO image = new PostImageDTO(product.getId(), fileName + "/" + imageFileName);
 		
 		return image;

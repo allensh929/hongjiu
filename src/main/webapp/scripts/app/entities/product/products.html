@@ -35,7 +35,7 @@
                     <td>{{product.price}}</td>
                         <td>{{product.produceDate | date:'mediumDate'}}</td>
                     <td>{{product.producer}}</td>
-                    <td>{{product.image}}</td>
+                    <td> <img ng-show="product.image != ''" src="{{product.image}}" class="" alt="author"></td>
                     <td>{{product.favorate}}</td>
                     <td>{{product.news}}</td>
                     <td>

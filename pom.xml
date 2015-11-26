@@ -593,7 +593,7 @@
                     <url>jdbc:mysql://localhost:3306/hongjie</url>
                     <defaultSchemaName>hongjie</defaultSchemaName>
                     <username>root</username>
-                    <password />
+                    <password>root</password>
                     <referenceUrl>hibernate:spring:com.hongjie.domain?dialect=org.hibernate.dialect.MySQLInnoDBDialect</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>

@@ -1,12 +1,15 @@
 package com.hongjie.web.rest;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,9 @@ public class PostImageResource {
 
     @Inject 
     private PostService postService;
+    @Autowired
+    ServletContext servletContext;
+    
     /**
 	 * POST /userPosts -> Create a new userPost.
 	 * 
@@ -39,6 +45,8 @@ public class PostImageResource {
 			@RequestParam(value = "file", required = false) MultipartFile file) throws URISyntaxException, IOException {
 
 		log.debug("REST request to save single image for post id = : {}", productId);
+		log.debug("path:"+ servletContext.getContextPath() + servletContext.getRealPath(File.separator));
+		
 		
 		if (productId != null) {
 			PostImageDTO postImage = postService.saveSingleImageForPost(productId, file);
