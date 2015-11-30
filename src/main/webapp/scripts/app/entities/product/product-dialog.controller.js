@@ -17,7 +17,7 @@ angular.module('hongjieApp').controller('ProductDialogController',
             $modalInstance.close(result);
             $scope.isSaving = false;
         };
-
+        
         var onSaveError = function (result) {
             $scope.isSaving = false;
         };
@@ -25,34 +25,60 @@ angular.module('hongjieApp').controller('ProductDialogController',
         $scope.save = function () {
             $scope.isSaving = true;
             if ($scope.product.id != null) {
-            	
-            	 Upload.upload({
+            	alert($scope.files.length);
+            	if ($scope.files.length > 0){
+            		Upload.upload({
 
-                     url: '/api/postImage',
-                     fields: { productId: $scope.product.id },
-                     file: $scope.files[0],
-                     method: 'POST'
+                        url: '/api/postImage',
+                        fields: { productId: $scope.product.id },
+                        file: $scope.files[0],
+                        method: 'POST'
 
-                 }).progress(function (evt) {
+                    }).progress(function (evt) {
 
-                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                     console.log('progress: ' + progressPercentage + '% ');
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                        console.log('progress: ' + progressPercentage + '% ');
 
-                 }).success(function (data, status, headers, config) {
-                	 
-                	 $scope.product.image = data.image;
-                	 Product.update($scope.product, onSaveSuccess, onSaveError);
+                    }).success(function (data, status, headers, config) {
+                   	 
+                   	 $scope.product.image = data.image;
+                   	 Product.update($scope.product, onSaveSuccess, onSaveError);
 
-                 }).error(function (data, status, headers, config) {
+                    }).error(function (data, status, headers, config) {
 
-                     console.log('error status: ' + status);
-                 });
-           
+                        console.log('error status: ' + status);
+                    });
+            	}else{
+            		Product.update($scope.product, onSaveSuccess, onSaveError);
+            	}           	 
                
-            } else {
+            } else {            	
             	
-            	
-                Product.save($scope.product, onSaveSuccess, onSaveError);
+            	if ($scope.files.length > 0){
+            		Upload.upload({
+
+                        url: '/api/postImage',
+                        fields: { productId: 0 },
+                        file: $scope.files[0],
+                        method: 'POST'
+
+                    }).progress(function (evt) {
+
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                        console.log('progress: ' + progressPercentage + '% ');
+
+                    }).success(function (data, status, headers, config) {
+                   	 
+                   	 $scope.product.image = data.image;
+                   	 Product.save($scope.product, onSaveSuccess, onSaveError);
+
+                    }).error(function (data, status, headers, config) {
+
+                        console.log('error status: ' + status);
+                    });
+            	}else{
+            		Product.save($scope.product, onSaveSuccess, onSaveError);
+            	} 
             }
         };
 

@@ -7,7 +7,7 @@ angular.module('hongjieApp').controller('XrefDialogController',
         $scope.xref = entity;
         $scope.dictionarys = Dictionary.query({filter: 'xref-is-null'});
         $q.all([$scope.xref.$promise, $scope.dictionarys.$promise]).then(function() {
-            if (!$scope.xref.dictionary.id) {
+            if (!$scope.xref.id || !$scope.xref.dictionary.id) {
                 return $q.reject();
             }
             return Dictionary.get({id : $scope.xref.dictionary.id}).$promise;

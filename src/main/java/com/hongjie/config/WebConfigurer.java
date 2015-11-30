@@ -20,6 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.io.File;
 import java.util.*;
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -46,6 +47,9 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
     public void onStartup(ServletContext servletContext) throws ServletException {
         log.info("Web application configuration, using profiles: {}", Arrays.toString(env.getActiveProfiles()));
         EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC);
+        
+        log.info("lichen:" + servletContext.getRealPath(File.separator));
+        log.info("lichen:" + servletContext.getContextPath());
         if (!env.acceptsProfiles(Constants.SPRING_PROFILE_FAST)) {
             initMetrics(servletContext, disps);
         }
