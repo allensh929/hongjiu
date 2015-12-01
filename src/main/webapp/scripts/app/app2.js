@@ -63,7 +63,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
             views: {
                 'front-navbar@': {
                     templateUrl: 'scripts/app/front/navbar.html',
-                    controller: 'FrontNavbarController'
+                    controller: 'NavbarController'
                 }
             },
             resolve: {

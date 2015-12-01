@@ -15,17 +15,16 @@
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
         <link rel="stylesheet" href="assets/styles/main.css">
-        <link rel="stylesheet" href="assets/styles/hongjie.css">
         <!-- endbuild -->
     </head>
     <body ng-app="hongjieApp">
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <!-- <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div> -->
-        <div ui-view="front-navbar" ng-cloak=""></div>
+        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+        <div ui-view="navbar" ng-cloak=""></div>
         <div class="container">
-            <div class="well" ui-view="front-content"></div>
+            <div class="well" ui-view="content"></div>
 
             <div class="footer">
                 <p translate="footer">This is your footer</p>
@@ -68,13 +67,6 @@
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
-    
-    <script src="scripts/app/front/front.main.controller.js"></script>
-    <script src="scripts/app/front/front.main.js"></script>
-    <script src="scripts/app/front/front.navbar.controller.js"></script>
-    <script src="scripts/app/front/front.navbar.directive.js"></script>
-    
-    
     <script src="scripts/components/auth/auth.service.js"></script>
     <script src="scripts/components/auth/principal.service.js"></script>
     <script src="scripts/components/auth/authority.directive.js"></script>

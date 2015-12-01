@@ -46,6 +46,8 @@ liquibase:
 server:
     port: 8080
     contextPath: 
+    tomcat:
+        uri-encoding:UTF-8
 
 # ===================================================================
 # JHipster specific properties
