@@ -61,8 +61,8 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $stateProvider.state('site', {
             'abstract': true,
             views: {
-                'front-navbar@': {
-                    templateUrl: 'scripts/app/front/navbar.html',
+                'navbar@': {
+                    templateUrl: 'scripts/components/navbar/navbar.html',
                     controller: 'NavbarController'
                 }
             },

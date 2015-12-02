@@ -1,12 +1,68 @@
 .hj-top-container {
 	
 	background-color:#303030;
-	height:10px;
+	height:30px;
+}
+
+.hj-container {
+	
+	background-color:#FFFFFF;
+}
+
+.hj-shop-dropdown-menu {
+  margin-top:25px !important;
+  min-width: 910px;
+  min-height: 400px;
+  list-style: none;
+  /* background-image: url("../images/shop-bg.png");
+  background-repeat: no-repeat; */
+}
+
+.hj-nav-font{
+  font-weight: bold;
+  font-size:14px;
+}
+
+
+.hj-shop-dropdown-menu > li {
+  /* display: block; */
+  float: left;
+  font-weight: bold;
+  font-size:14px;
+  margin-left:20px;
+  margin-top:30px;
+  margin-right:10px;
+  width:30%;
+}
+
+.hj-shop-dropdown-menu > li > ul > li {
+  /* display: block; */
+  /* padding: 3px 20px; */
+  /* clear: both; */
+  list-style: none;
+  margin-left:-40px;
+  margin-top:15px;
+  font-weight: normal;
+  font-size:12px;
+  line-height: 1.42857143;
+  color: #333;
+  /* white-space: nowrap; */
+}
+.hj-shop-dropdown-menu > li > a:hover,
+.hj-shop-dropdown-menu > li > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
 }
 
 .hj-margin-bottom-0 {
 	
 	margin-bottom: 0;
+}
+
+.hj-margin-left-50 {
+	
+	margin-left: 50px;
 }
 
 .hj-brand {
@@ -16,9 +72,13 @@
 }
 
 .hj-brand-title {
+	float:left;
 	font-size:18px;
-	padding:2px 2px;
+	font-weight: bold;
 	color:black;
+	margin-top:10px;
+	margin-left:10px;
+	
 }
 
 .hj-social-icon-padding {
