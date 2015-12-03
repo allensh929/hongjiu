@@ -104,9 +104,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .disable()
         .and()
             .authorizeRequests()
+            .antMatchers("/").permitAll()
             .antMatchers("/api/register").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/authenticate").permitAll()
+            .antMatchers("/api/products").permitAll()
+            .antMatchers("/api/account").permitAll()
             .antMatchers("/api/account/reset_password/init").permitAll()
             .antMatchers("/api/account/reset_password/finish").permitAll()
             .antMatchers("/api/logs/**").hasAuthority(AuthoritiesConstants.ADMIN)
@@ -128,6 +131,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/v2/api-docs/**").permitAll()
             .antMatchers("/configuration/security").permitAll()
             .antMatchers("/configuration/ui").permitAll()
+            .antMatchers("/admin.html").permitAll()
             .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/protected/**").authenticated() ;
 

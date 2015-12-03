@@ -1,53 +1,46 @@
 <div ng-cloak>
-    <div class="row">
+
+	<div id="myCarousel" class="carousel slide">
+		<!-- 轮播（Carousel）指标 -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<!-- 轮播（Carousel）项目 -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="/assets/images/carousel-001.png" alt="First slide">
+			</div>
+			<div class="item">
+				<img src="/assets/images/carousel-002.png" alt="Second slide">
+			</div>
+			<div class="item">
+				<img src="/assets/images/carousel-003.png" alt="Third slide">
+			</div>
+		</div>
+		<!-- 轮播（Carousel）导航 -->
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+	<BR>
+	<div class="row">
         <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
+            <span class="hj-wine-title"> 新款推荐 NEW ARRIVALS</span>
         </div>
         <div class="col-md-8">
-            <h1>Welcome, Java Hipster!</h1>
-            <p class="lead">This is your homepage</p>
-
-            <div ng-switch="isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true">
-                    You are logged in as user "{{account.login}}".
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" href="#/register">Register a new account</a>
-                </div>
-            </div>
-
-            <p>
-                If you have any question on JHipster:
-            </p>
-
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank" >contact @java_hipster on Twitter</a></li>
-            </ul>
-
-            <p>
-             <span>If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank">Github</a>!
-            </p>
-            
-          
-
-
-			<textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-repeat="product in products track by product.id">
+            <div>ssss</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <span class="hj-wine-title"> 畅销酒款 BEST SELLING WINES</span>
+        </div>
+        <div class="col-md-8">
         </div>
     </div>
 </div>

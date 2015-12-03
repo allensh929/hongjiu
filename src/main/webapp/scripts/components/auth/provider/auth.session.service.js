@@ -20,6 +20,7 @@ angular.module('hongjieApp')
                 $http.post('api/logout').success(function (response) {
                     localStorageService.clearAll();
                     // to get a new csrf token call the api
+                    console.debug('come here to AuthServerProvider logout');
                     $http.get('api/account');
                     return response;
                 });

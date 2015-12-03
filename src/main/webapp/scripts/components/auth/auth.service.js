@@ -31,6 +31,7 @@ angular.module('hongjieApp')
             },
 
             authorize: function(force) {
+            	console.debug('come to auth service');
                 return Principal.identity(force)
                     .then(function() {
                         var isAuthenticated = Principal.isAuthenticated();

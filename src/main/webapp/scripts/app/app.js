@@ -2,7 +2,7 @@
 
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION) {
         
@@ -11,13 +11,14 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
-
+            console.debug('run auth');
             if (Principal.isIdentityResolved()) {
+            	console.debug('run authorize');
                 Auth.authorize();
             }
             
         });
-
+        
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
             var titleKey = 'hongjie' ;
 
@@ -45,8 +46,9 @@ angular.module('hongjieApp', ['LocalStorageModule',
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,  httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
         //AlertServiceProvider.showAsToast(true);
 
@@ -55,8 +57,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
         //Cache everything except rest api requests
-        httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
-
+        //httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
@@ -67,16 +68,12 @@ angular.module('hongjieApp', ['LocalStorageModule',
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ]
+            
             }
         });
 
-        $httpProvider.interceptors.push('errorHandlerInterceptor');
-        $httpProvider.interceptors.push('authExpiredInterceptor');
+//        $httpProvider.interceptors.push('errorHandlerInterceptor');
+//        $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
         
     })

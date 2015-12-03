@@ -2,6 +2,7 @@
 
 angular.module('hongjieApp')
     .factory('Principal', function Principal($q, Account) {
+    	console.debug('come to principal');
         var _identity,
             _authenticated = false;
 
