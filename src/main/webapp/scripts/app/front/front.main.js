@@ -13,6 +13,14 @@ angular.module('hongjieApp')
                     'front-content@': {
                         templateUrl: 'scripts/app/front/main.html',
                         controller: 'FrontMainController'
+                    },
+                    'front-footer@': {
+                        templateUrl: 'scripts/app/front/footer.html',
+                        controller: 'FrontFooterController'
+                    },
+                    'front-slides@': {
+                        templateUrl: 'scripts/app/front/slides.html',
+                        controller: 'FrontMainController'
                     }
                 },
                 resolve: {

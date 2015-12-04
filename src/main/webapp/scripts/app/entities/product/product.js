@@ -20,14 +20,14 @@ angular.module('hongjieApp')
                 }
             })
             .state('product.detail', {
-                parent: 'entity',
+                parent: 'front-home',
                 url: '/product/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Product'
                 },
                 views: {
-                    'content@': {
+                    'front-content@': {
                         templateUrl: 'scripts/app/entities/product/product-detail.html',
                         controller: 'ProductDetailController'
                     }

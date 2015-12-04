@@ -2,6 +2,7 @@
 
 angular.module('hongjieApp')
     .factory('Product', function ($resource, DateUtils) {
+    	console.debug('come to product service');
         return $resource('api/products/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {

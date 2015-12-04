@@ -25,8 +25,8 @@ angular.module('hongjieApp').controller('ProductDialogController',
         $scope.save = function () {
             $scope.isSaving = true;
             if ($scope.product.id != null) {
-            	alert($scope.files.length);
-            	if ($scope.files.length > 0){
+            	alert($scope.files);
+            	if ($scope.files != null && $scope.files.length > 0){
             		Upload.upload({
 
                         url: '/api/postImage',
@@ -54,7 +54,7 @@ angular.module('hongjieApp').controller('ProductDialogController',
                
             } else {            	
             	
-            	if ($scope.files.length > 0){
+            	if ($scope.files != null && $scope.files.length > 0){
             		Upload.upload({
 
                         url: '/api/postImage',

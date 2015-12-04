@@ -24,13 +24,11 @@
         <![endif]-->
         <!-- <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div> -->
         <div ui-view="front-navbar" ng-cloak=""></div>
+        <div ui-view="front-slides" ng-cloak=""></div>
         <div class="container">
             <div class="" ui-view="front-content"></div>
-
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
-            </div>
         </div>
+         <div id="footer" ui-view="front-footer"></div>
 
         <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
         <script>

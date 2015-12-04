@@ -8,16 +8,16 @@ angular.module('hongjieApp', ['LocalStorageModule',
         
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
-        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
-            $rootScope.toState = toState;
-            $rootScope.toStateParams = toStateParams;
-            console.debug('run auth');
-            if (Principal.isIdentityResolved()) {
-            	console.debug('run authorize');
-                Auth.authorize();
-            }
-            
-        });
+//        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+//            $rootScope.toState = toState;
+//            $rootScope.toStateParams = toStateParams;
+//            console.debug('run auth');
+//            if (Principal.isIdentityResolved()) {
+//            	console.debug('run authorize');
+//                Auth.authorize();
+//            }
+//            
+//        });
         
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
             var titleKey = 'hongjie' ;
@@ -72,8 +72,8 @@ angular.module('hongjieApp', ['LocalStorageModule',
             }
         });
 
-//        $httpProvider.interceptors.push('errorHandlerInterceptor');
-//        $httpProvider.interceptors.push('authExpiredInterceptor');
+        $httpProvider.interceptors.push('errorHandlerInterceptor');
+        $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
         
     })
