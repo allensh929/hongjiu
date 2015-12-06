@@ -38,5 +38,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'zh-CN';
 	
 	config.image_previewText=' '; //预览区域显示内容
-	config.filebrowserImageUploadUrl= "products"; //待会要上传的action或servlet
+	config.filebrowserImageUploadUrl= "api/postImage"; //待会要上传的action或servlet
 };

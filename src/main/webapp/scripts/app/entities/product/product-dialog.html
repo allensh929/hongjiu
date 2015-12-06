@@ -20,15 +20,51 @@
                      />
         </div>
         <div class="form-group">
+            <label for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="product.title"
+                     />
+        </div>
+        <div class="form-group">
             <label for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="product.name"
                      />
         </div>
         <div class="form-group">
+            <label for="field_full_name">Full Name</label>
+            <input type="text" class="form-control" name="title" id="field_full_name"
+                    ng-model="product.fullName"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_tag">Tag</label>
+            <input type="text" class="form-control" name="tag" id="field_tag"
+                    ng-model="product.tag"
+                     />
+        </div>
+        <div class="form-group">
             <label for="field_price">Price</label>
             <input type="number" class="form-control" name="price" id="field_price"
                     ng-model="product.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_description_title">Description title</label>
+            <input type="text" class="form-control" name="description_title" id="field_description_title"
+                    ng-model="product.descriptionTitle"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="product.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_jdurl">JD url</label>
+            <input type="text" class="form-control" name="jdurl" id="field_jdurl"
+                    ng-model="product.jdurl"
                      />
         </div>
         <div class="form-group">
@@ -43,12 +79,12 @@
                     ng-model="product.producer"
                      />
         </div>
-        <div class="form-group">
+ <!--        <div class="form-group">
             <label for="field_image">Image</label>
             <input type="text" class="form-control" name="image" id="field_image"
                     ng-model="product.image" readonly = "true"
                      />
-        </div> 
+        </div>  -->
         
         <div class="form-group">
             <label for="field_favorate">Favorate</label>
@@ -66,18 +102,87 @@
         <div class="form-group">
 
             <label for="field_upload">Upload image</label>
-
+			<input type="text" class="form-control" name="image" id="field_image"
+                    ng-model="product.image" />
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
-                         ngf-keep-distinct="true" ngf-select ng-model="files" ngf-multiple="true">
-                        <button >ssss</button>
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(images, 'image')" ng-model="images" ngf-multiple="true">
+                        <button >选择图片</button>
                     </div>
                     
-            <img ng-repeat="file in files" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+            <img ng-repeat="file in images" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>
            
         </div>
+        
+        <div class="form-group">
 
+            <label for="field_upload">Upload detail image</label>
+			<input type="text" class="form-control" name="image1" id="field_image1"
+                    ng-model="product.image1" />
+			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(image1s, 'imageDetail')" ng-model="image1s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in image1s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+           
+        </div>
+        <div class="form-group">
+
+            <label for="field_upload">Upload award1 image</label>
+			<input type="text" class="form-control" name="award1" id="field_award1"
+                    ng-model="product.award1" />
+			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(award1s, 'award1')" ng-model="award1s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in award1s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+           
+        </div>
+        <div class="form-group">
+
+            <label for="field_upload">Upload award2 image</label>
+			<input type="text" class="form-control" name="award2" id="field_award2"
+                    ng-model="product.award2" />
+			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(award2s, 'award2')" ng-model="award2s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in award2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+           
+        </div>
+        <div class="form-group">
+
+            <label for="field_upload">Upload award3 image</label>
+			<input type="text" class="form-control" name="award3" id="field_award3"
+                    ng-model="product.award3" />
+			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(award3s, 'award3')" ng-model="award3s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in award3s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+           
+        </div>
+		<div class="form-group">
+			<textarea name="detailInfo" id="detailInfo" rows="50" cols="100" ng-model="product.detailInfo" ckeditor>
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+            
+		</div>
+		
+            
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

@@ -57,6 +57,39 @@ public class Product implements Serializable {
     @Column(name = "news")
     private String news;
 
+    @Column(name = "title")
+    private String title;
+    
+    @Column(name = "tag")
+    private String tag;
+    
+    @Column(name = "full_name")
+    private String fullName;
+    
+    @Column(name = "image1")
+    private String image1;
+    
+    @Column(name = "award1")
+    private String award1;
+    
+    @Column(name = "award2")
+    private String award2;
+    
+    @Column(name = "award3")
+    private String award3;
+    
+    @Column(name = "description_title")
+    private String descriptionTitle;
+    
+    @Column(name = "description")
+    private String description;
+    
+    @Column(name = "detail_info")
+    private String detailInfo;
+    
+    @Column(name = "jdurl")
+    private String jdurl;
+    
     @OneToMany(mappedBy = "product", cascade={CascadeType.REMOVE})
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -142,7 +175,95 @@ public class Product implements Serializable {
         this.xrefs = xrefs;
     }
 
-    @Override
+    public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getImage1() {
+		return image1;
+	}
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+	public String getAward1() {
+		return award1;
+	}
+
+	public void setAward1(String award1) {
+		this.award1 = award1;
+	}
+
+	public String getAward2() {
+		return award2;
+	}
+
+	public void setAward2(String award2) {
+		this.award2 = award2;
+	}
+
+	public String getAward3() {
+		return award3;
+	}
+
+	public void setAward3(String award3) {
+		this.award3 = award3;
+	}
+
+	public String getDescriptionTitle() {
+		return descriptionTitle;
+	}
+
+	public void setDescriptionTitle(String descriptionTitle) {
+		this.descriptionTitle = descriptionTitle;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDetailInfo() {
+		return detailInfo;
+	}
+
+	public void setDetailInfo(String detailInfo) {
+		this.detailInfo = detailInfo;
+	}
+
+	public String getJdurl() {
+		return jdurl;
+	}
+
+	public void setJdurl(String jdurl) {
+		this.jdurl = jdurl;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

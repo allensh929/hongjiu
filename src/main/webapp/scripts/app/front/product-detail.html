@@ -1,0 +1,47 @@
+
+<div class="container">
+	<div ng-cloak>
+		
+		<BR>
+		<div class="row">
+	        <div class="col-md-4">
+	            <div class="hj-h1"> 商店 SHOP</div>
+	        </div>
+	        <div class="col-md-8">
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-md-6">
+	            <div class="hj-p-d-container"> 
+	            	<img class="hj-wine-img1" ng-show="product.image1 !=''" ng-src="/assets/images/upload/{{product.image1}}" style="width:470px;heiht:640px"  alt="wine">
+	            </div>
+	        </div>
+	        <div class="col-md-6">
+	        	<div class="hj-p-d-container">
+	        		<div class="hj-p-d-margin-5 hj-h2">{{product.title}}</div>
+	        		<div class="hj-p-d-margin-5 hj-h3">{{product.fullName}}</div>
+	        		<div class="hj-p-d-margin-5 hj-h2">RMB: {{product.price}}</div>
+	        		<div class="">
+						<img class="hj-wine-img1" ng-show="product.award1 !=''" ng-src="/assets/images/upload/{{product.award1}}" style="width:115px;heiht:115px"  alt="wine">
+						<img class="hj-wine-img1" ng-show="product.award2 !=''" ng-src="/assets/images/upload/{{product.award2}}" style="width:115px;heiht:115px"  alt="wine">
+						<img class="hj-wine-img1" ng-show="product.award3 !=''" ng-src="/assets/images/upload/{{product.award3}}" style="width:115px;heiht:115px"  alt="wine">
+					</div>
+					
+					<div class="hj-p-d-margin-5 hj-h2">{{product.descriptionTitle}}</div>
+					<div class="hj-p-d-margin-5 hj-h3">{{product.description}}</div>
+					
+					<hr>
+					<div class="hj-p-d-margin-5 hj-h3">{{product.jdurl}}</div>
+	        	</div>
+	        	
+	        </div>
+	    </div>
+	    <div class="row">
+	       	<div class="col-md-4">
+	            <div class="hj-h2"> 商品详情</div>
+	        </div>
+	        <div class="col-md-8">
+	        </div>
+	    </div>
+	</div>
+</div>

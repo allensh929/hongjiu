@@ -73,13 +73,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf()
-            .ignoringAntMatchers("/websocket/**")
-        .and()
-            .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
-            .exceptionHandling()
-            .authenticationEntryPoint(authenticationEntryPoint)
-        .and()
+//            .csrf()
+//            .ignoringAntMatchers("/websocket/**")
+//        .and()
+//            .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
+//            .exceptionHandling()
+//            .authenticationEntryPoint(authenticationEntryPoint)
+//        .and()
             .rememberMe()
             .rememberMeServices(rememberMeServices)
             .rememberMeParameter("remember-me")
@@ -109,6 +109,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/products").permitAll()
+            .antMatchers("/api/products/**").permitAll()
             .antMatchers("/api/account").permitAll()
             .antMatchers("/api/account/reset_password/init").permitAll()
             .antMatchers("/api/account/reset_password/finish").permitAll()

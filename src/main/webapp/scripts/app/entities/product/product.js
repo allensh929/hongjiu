@@ -20,7 +20,7 @@ angular.module('hongjieApp')
                 }
             })
             .state('product.detail', {
-                parent: 'front-home',
+                parent: 'entity',
                 url: '/product/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
@@ -38,6 +38,7 @@ angular.module('hongjieApp')
                     }]
                 }
             })
+            
             .state('product.new', {
                 parent: 'product',
                 url: '/new',

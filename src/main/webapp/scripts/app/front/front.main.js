@@ -26,5 +26,25 @@ angular.module('hongjieApp')
                 resolve: {
                     
                 }
-            });
+            })
+            .state('product.fdetail', {
+                parent: 'front-home',
+                url: 'product/front/{id}',
+                data: {
+                   
+                    pageTitle: 'Product'
+                },
+                views: {
+                    'front-content@': {
+                        templateUrl: 'scripts/app/front/product-detail.html',
+                        controller: 'ProductDetailController'
+                    }
+                },
+                resolve: {
+                    entity: ['$stateParams', 'Product', function($stateParams, Product) {
+                        return Product.get({id : $stateParams.id});
+                    }]
+                }
+            })
+            ;
     });

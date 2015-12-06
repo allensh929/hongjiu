@@ -51,8 +51,8 @@ angular.module('hongjieApp', ['LocalStorageModule',
         //AlertServiceProvider.showAsToast(true);
 
         //enable CSRF
-        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
-        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
+//        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
+//        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
         //Cache everything except rest api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);

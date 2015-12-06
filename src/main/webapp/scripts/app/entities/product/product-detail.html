@@ -20,6 +20,14 @@
             </tr>
             <tr>
                 <td>
+                    <span>Title</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.title}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span>Name</span>
                 </td>
                 <td>
@@ -28,10 +36,50 @@
             </tr>
             <tr>
                 <td>
+                    <span>Full Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.fullName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Tag</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.tag}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span>Price</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.price}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Description title</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.descriptionTitle}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Description</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.description}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>JD url</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.jdurl}}</span>
                 </td>
             </tr>
             <tr>
@@ -60,6 +108,24 @@
             </tr>
             <tr>
                 <td>
+                    <span>Image Detail</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="product.image1 != ''" ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Image award</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="product.award1 != ''" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-show="product.award2 != ''" ng-src="/assets/images/upload/{{product.award2}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-show="product.award3 != ''" ng-src="/assets/images/upload/{{product.award3}}" style="height:100px;width:100px" alt="wine"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span>Favorate</span>
                 </td>
                 <td>
@@ -72,6 +138,15 @@
                 </td>
                 <td>
                     <span class="form-control-static">{{product.news}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>detail info</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.detailInfo}}</span>
+                     <textarea data-ng-model="product.detailInfo" ckeditor></textarea>
                 </td>
             </tr>
             </tbody>
