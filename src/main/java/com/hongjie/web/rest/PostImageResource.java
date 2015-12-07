@@ -1,9 +1,12 @@
 package com.hongjie.web.rest;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +54,37 @@ public class PostImageResource {
 
 		if (productId != null) {
 			PostImageDTO postImage = postService.saveSingleImageForPost(productId, file);
+
+			return ResponseEntity.ok(postImage);
+		} else {
+
+			return ResponseEntity.badRequest().body(null);
+		}
+
+	}
+	
+	@RequestMapping(value = "/ckuploadImage", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<PostImageDTO> ckuploadImage(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(value = "CKEditorFuncNum", required = false) String CKEditorFuncNum,
+			@RequestParam(value = "uploadContentType", required = false) String uploadContentType,
+			@RequestParam(value = "fileName", required = false) String fileName,			
+			@RequestParam(value = "uploadFileName", required = false) String uploadFileName,
+			@RequestParam(value = "upload", required = false) MultipartFile upload) throws URISyntaxException, IOException {
+
+		log.debug("REST request to save single image for post id = : {}");
+		log.debug("path:" + System.getProperty("user.dir"));
+
+
+		if (upload != null) {
+			PostImageDTO postImage = postService.ckuploadImage(upload);
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script type=\"text/javascript\">");  
+	        out.println("window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum  
+	                + ",'" + request.getContextPath() + "/assets/images/upload/" + postImage.getImage() + "','')");  
+	        out.println("</script>");
 
 			return ResponseEntity.ok(postImage);
 		} else {

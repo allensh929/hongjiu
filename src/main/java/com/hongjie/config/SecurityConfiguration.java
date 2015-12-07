@@ -73,7 +73,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-//            .csrf()
+            .csrf().disable()
 //            .ignoringAntMatchers("/websocket/**")
 //        .and()
 //            .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)

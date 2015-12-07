@@ -125,4 +125,28 @@ public class PostService {
 		return image;
 	}
 
+	public PostImageDTO ckuploadImage(MultipartFile file) throws IOException {
+
+		String imageFileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + "_"
+				+ file.getOriginalFilename();
+		String rootPath = Constants.USER_UPLOADED_FILE_ROOT_PATH;
+
+		String fileName = rootPath;
+
+		log.debug("new saving file folder -> " + fileName);
+
+		File newSavedFile = new File(fileName);
+
+		if (!newSavedFile.exists()) {
+			newSavedFile.mkdir();
+		}
+		FileOutputStream fileOutputStream = new FileOutputStream(new File(fileName + "/" + imageFileName));
+
+		IOUtils.copy(file.getInputStream(), fileOutputStream);
+
+		PostImageDTO image = new PostImageDTO(null, imageFileName);
+		
+
+		return image;
+	}
 }
