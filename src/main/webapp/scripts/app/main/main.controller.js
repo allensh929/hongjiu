@@ -8,3 +8,10 @@ angular.module('hongjieApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
     });
+
+angular.module('hongjieApp')
+.filter('trustHtml', function ($sce) {
+    return function (input) {
+        return $sce.trustAsHtml(input);
+    }
+});

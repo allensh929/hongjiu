@@ -145,8 +145,8 @@
                     <span>detail info</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{product.detailInfo}}</span>
-                     <textarea data-ng-model="product.detailInfo" ckeditor></textarea>
+                    <span class="form-control-static" ng-bind-html="product.detailInfo|trustHtml"></span>
+                    <!--  <textarea data-ng-model="product.detailInfo" ckeditor></textarea> -->
                 </td>
             </tr>
             </tbody>

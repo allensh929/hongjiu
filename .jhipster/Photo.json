@@ -1,0 +1,23 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "note",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151208091058",
+    "dto": "no",
+    "pagination": "pagination"
+}

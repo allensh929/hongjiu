@@ -21,6 +21,7 @@ angular.module('hongjieApp')
             });
     });
 
+
 angular.module('hongjieApp')
 	.directive('ckeditor', function() {
     return {

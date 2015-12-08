@@ -6,6 +6,7 @@ angular.module('hongjieApp')
         $scope.load = function (id) {
             Product.get({id: id}, function(result) {
                 $scope.product = result;
+                alert($scope.product);
             });
         };
         var unsubscribe = $rootScope.$on('hongjieApp:productUpdate', function(event, result) {

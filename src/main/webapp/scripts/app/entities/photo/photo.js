@@ -3,116 +3,110 @@
 angular.module('hongjieApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('product', {
+            .state('photo', {
                 parent: 'entity',
-                url: '/products',
+                url: '/photos',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'Products'
+                    pageTitle: 'Photos'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/product/products.html',
-                        controller: 'ProductController'
+                        templateUrl: 'scripts/app/entities/photo/photos.html',
+                        controller: 'PhotoController'
                     }
                 },
                 resolve: {
                 }
             })
-            .state('product.detail', {
+            .state('photo.detail', {
                 parent: 'entity',
-                url: '/product/{id}',
+                url: '/photo/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'Product'
+                    pageTitle: 'Photo'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/product/product-detail.html',
-                        controller: 'ProductDetailController'
+                        templateUrl: 'scripts/app/entities/photo/photo-detail.html',
+                        controller: 'PhotoDetailController'
                     }
                 },
                 resolve: {
-                    entity: ['$stateParams', 'Product', function($stateParams, Product) {
-                        return Product.get({id : $stateParams.id});
+                    entity: ['$stateParams', 'Photo', function($stateParams, Photo) {
+                        return Photo.get({id : $stateParams.id});
                     }]
                 }
             })
-            
-            .state('product.new', {
-                parent: 'product',
+            .state('photo.new', {
+                parent: 'photo',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts/app/entities/product/product-dialog.html',
-                        controller: 'ProductDialogController',
+                        templateUrl: 'scripts/app/entities/photo/photo-dialog.html',
+                        controller: 'PhotoDialogController',
                         size: 'lg',
                         resolve: {
                             entity: function () {
                                 return {
-                                    number: null,
                                     name: null,
-                                    price: null,
-                                    produceDate: null,
-                                    producer: null,
-                                    image: null,
-                                    favorate: null,
-                                    news: null,
+                                    url: null,
+                                    note: null,
                                     id: null
                                 };
                             }
                         }
                     }).result.then(function(result) {
-                        $state.go('product', null, { reload: true });
+                        $state.go('photo', null, { reload: true });
                     }, function() {
-                        $state.go('product');
+                        $state.go('photo');
                     })
                 }]
             })
-            .state('product.edit', {
-                parent: 'product',
+            .state('photo.edit', {
+                parent: 'photo',
                 url: '/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts/app/entities/product/product-dialog.html',
-                        controller: 'ProductDialogController',
+                        templateUrl: 'scripts/app/entities/photo/photo-dialog.html',
+                        controller: 'PhotoDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: ['Product', function(Product) {
-                                return Product.get({id : $stateParams.id});
+                            entity: ['Photo', function(Photo) {
+                                return Photo.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('product', null, { reload: true });
+                        $state.go('photo', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
                 }]
             })
-            .state('product.delete', {
-                parent: 'product',
+            .state('photo.delete', {
+                parent: 'photo',
                 url: '/{id}/delete',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
-                        templateUrl: 'scripts/app/entities/product/product-delete-dialog.html',
-                        controller: 'ProductDeleteController',
+                        templateUrl: 'scripts/app/entities/photo/photo-delete-dialog.html',
+                        controller: 'PhotoDeleteController',
                         size: 'md',
                         resolve: {
-                            entity: ['Product', function(Product) {
-                                return Product.get({id : $stateParams.id});
+                            entity: ['Photo', function(Photo) {
+                                return Photo.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('product', null, { reload: true });
+                        $state.go('photo', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
