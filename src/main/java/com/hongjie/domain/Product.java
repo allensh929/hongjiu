@@ -94,7 +94,21 @@ public class Product implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Xref> xrefs = new HashSet<>();
+    
+    @OneToMany(mappedBy = "product", cascade={CascadeType.REMOVE})
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ProductRelate> productRelates = new HashSet<>();
 
+    public Set<ProductRelate> getProductRelates() {
+        return productRelates;
+    }
+
+    public void setProductRelates(Set<ProductRelate> productRelates) {
+        this.productRelates = productRelates;
+    }
+
+    
     public Long getId() {
         return id;
     }

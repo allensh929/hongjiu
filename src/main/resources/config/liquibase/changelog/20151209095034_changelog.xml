@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="ali (generated)" id="1449654668518-1">
+      <createTable tableName="product_relate">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="product_relatePK"/>
+         </column>
+         <column name="name" type="VARCHAR(255)"/>
+         <column name="product_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1449654668518-2">
+      <addForeignKeyConstraint baseColumnNames="product_id"
+                               baseTableName="xref"
+                               constraintName="FK_4mjiahumhebv4m2afggkwp4dd"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1449654668518-3">
+      <addForeignKeyConstraint baseColumnNames="product_id"
+                               baseTableName="product_relate"
+                               constraintName="FK_83hvd1t76o4ffebil9rgxofwm"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1449654668518-4">
+      <dropUniqueConstraint constraintName="dictionary_id" tableName="xref"/>
+   </changeSet>
+</databaseChangeLog>
