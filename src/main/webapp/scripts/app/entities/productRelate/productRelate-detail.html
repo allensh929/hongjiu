@@ -23,7 +23,15 @@
                     <span>product</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.id}}</a>
+                    <a class="form-control-static" ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.name}}</a>
+                </td>
+            </tr>
+              <tr>
+                <td>
+                    <span>relate product</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="product.detail({id:productRelate.relateProduct.id})">{{productRelate.relateProduct.name}}</a>
                 </td>
             </tr>
             </tbody>

@@ -18,6 +18,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>product</th>
+                    <th>relate product</th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,7 +27,10 @@
                     <td><a ui-sref="productRelate.detail({id:productRelate.id})">{{productRelate.id}}</a></td>
                     <td>{{productRelate.name}}</td>
                     <td>
-                        <a ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.id}}</a>
+                        <a ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.name}}</a>
+                    </td>
+                    <td>
+                   		<a ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.relateProduct.name}}</a> 
                     </td>
                     <td>
                         <button type="submit"

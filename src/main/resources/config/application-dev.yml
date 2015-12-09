@@ -44,7 +44,7 @@ liquibase:
     contexts: dev
 
 server:
-    port: 8080
+    port: 8081
     contextPath: 
     tomcat:
         uri-encoding:UTF-8

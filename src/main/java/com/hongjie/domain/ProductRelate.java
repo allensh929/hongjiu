@@ -26,6 +26,16 @@ public class ProductRelate implements Serializable {
 
     @ManyToOne
     private Product product;
+    
+    @OneToOne    private Product relateProduct;
+
+    public Product getRelateProduct() {
+		return relateProduct;
+	}
+
+	public void setRelateProduct(Product relateProduct) {
+		this.relateProduct = relateProduct;
+	}
 
     public Long getId() {
         return id;
