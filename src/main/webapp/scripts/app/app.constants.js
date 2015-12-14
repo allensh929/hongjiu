@@ -6,5 +6,5 @@ angular.module('hongjieApp')
 
 .constant('VERSION', '0.0.1-SNAPSHOT')
 
-.constant('PHOTOBASEURL', 'http://localhost:8081/assets/images/upload/')
+.constant('PHOTOBASEURL', 'http://localhost:8080/assets/images/upload/')
 ;

@@ -4,39 +4,15 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	// Define changes to default configuration here.
-	// For complete reference see:
-	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-
-	// The toolbar groups arrangement, optimized for two toolbar rows.
-	config.toolbarGroups = [
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'links' },
-		{ name: 'insert' },
-		{ name: 'forms' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'others' },
-		'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'about' }
-	];
-
-	// Remove some buttons provided by the standard plugins, which are
-	// not needed in the Standard(s) toolbar.
-	config.removeButtons = 'Underline,Subscript,Superscript';
-
-	// Set the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
-
-	// Simplify the dialog windows.
-	config.removeDialogTabs = 'image:advanced;link:advanced';
-	config.language = 'zh-CN';
-	
-	config.image_previewText=' '; //预览区域显示内容
-	config.filebrowserImageUploadUrl= "api/ckuploadImage"; //待会要上传的action或servlet
+	// Define changes to default configuration here. For example:
+	 config.language = 'zh-CN';
+//	 config.uiColor = '#AADC6E';
+	 
+	 
+	 config.font_defaultLabel = 'Microsoft YaHei';
+	 config.font_names = '宋体/宋体;黑体/黑体;仿宋/仿宋_GB2312;楷体/楷体_GB2312;隶书/隶书;幼圆/幼圆;微软雅黑/微软雅黑' + config.font_names;
+	 
+	 
+	 config.image_previewText=' '; //预览区域显示内容
+	 config.filebrowserImageUploadUrl= "api/ckuploadImage"; //待会要上传的action或servlet
 };
