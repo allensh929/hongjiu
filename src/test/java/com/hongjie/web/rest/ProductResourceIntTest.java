@@ -60,8 +60,8 @@ public class ProductResourceIntTest {
     private static final String UPDATED_IMAGE = "BBBBB";
     private static final String DEFAULT_FAVORATE = "AAAAA";
     private static final String UPDATED_FAVORATE = "BBBBB";
-    private static final String DEFAULT_NEWS = "AAAAA";
-    private static final String UPDATED_NEWS = "BBBBB";
+    private static final boolean DEFAULT_NEWS = Boolean.TRUE.booleanValue();
+    private static final boolean UPDATED_NEWS = Boolean.TRUE.booleanValue();
 
     @Inject
     private ProductRepository productRepository;
@@ -143,7 +143,7 @@ public class ProductResourceIntTest {
                 .andExpect(jsonPath("$.[*].producer").value(hasItem(DEFAULT_PRODUCER.toString())))
                 .andExpect(jsonPath("$.[*].image").value(hasItem(DEFAULT_IMAGE.toString())))
                 .andExpect(jsonPath("$.[*].favorate").value(hasItem(DEFAULT_FAVORATE.toString())))
-                .andExpect(jsonPath("$.[*].news").value(hasItem(DEFAULT_NEWS.toString())));
+                .andExpect(jsonPath("$.[*].news").value(hasItem(DEFAULT_NEWS)));
     }
 
     @Test
@@ -164,7 +164,7 @@ public class ProductResourceIntTest {
             .andExpect(jsonPath("$.producer").value(DEFAULT_PRODUCER.toString()))
             .andExpect(jsonPath("$.image").value(DEFAULT_IMAGE.toString()))
             .andExpect(jsonPath("$.favorate").value(DEFAULT_FAVORATE.toString()))
-            .andExpect(jsonPath("$.news").value(DEFAULT_NEWS.toString()));
+            .andExpect(jsonPath("$.news").value(DEFAULT_NEWS));
     }
 
     @Test

@@ -27,6 +27,9 @@ public class Xref implements Serializable {
     @Column(name = "ovalue")
     private String ovalue;
 
+    @Column(name = "active")
+    private String active;
+    
     @OneToOne    private Dictionary dictionary;
 
     @ManyToOne
@@ -54,6 +57,14 @@ public class Xref implements Serializable {
 
     public void setOvalue(String ovalue) {
         this.ovalue = ovalue;
+    }
+    
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
     }
 
     public Dictionary getDictionary() {

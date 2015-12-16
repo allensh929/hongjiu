@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="field_full_name">Full Name</label>
-            <input type="text" class="form-control" name="title" id="field_full_name"
+            <input type="text" class="form-control" name="fullName" id="field_full_name"
                     ng-model="product.fullName"
                      />
         </div>
@@ -43,10 +43,67 @@
                     ng-model="product.tag"
                      />
         </div>
+        
+        <div class="form-group">
+            <label for="field_types">types</label>
+            <input type="text" class="form-control" name="types" id="field_types"
+                    ng-model="product.types"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_variety">variety</label>
+            <input type="text" class="form-control" name="variety" id="field_variety"
+                    ng-model="product.variety"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_level">level</label>
+            <input type="text" class="form-control" name="level" id="field_level"
+                    ng-model="product.level"
+                     />
+        </div>
+        
+        <div class="form-group">
+            <label for="field_origin_country">origin Country</label>
+            <input type="text" class="form-control" name="origin_country" id="field_origin_country"
+                    ng-model="product.originCountry"
+                     />
+        </div>
+         <div class="form-group">
+            <label for="field_zone">zone</label>
+            <input type="text" class="form-control" name="zone" id="field_zone"
+                    ng-model="product.zone"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_pick_year">pick year</label>
+            <input type="text" class="form-control" name="pick_year" id="field_pick_year"
+                    ng-model="product.pickYear"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_alcohol">alcohol</label>
+            <input type="text" class="form-control" name="alcohol" id="field_alcohol"
+                    ng-model="product.alcohol"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_wakeup_time">wakeup Time</label>
+            <input type="text" class="form-control" name="wakeup_time" id="field_wakeup_time"
+                    ng-model="product.wakeupTime"
+                     />
+        </div>        
+        
         <div class="form-group">
             <label for="field_price">Price</label>
             <input type="number" class="form-control" name="price" id="field_price"
                     ng-model="product.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_weight">weight</label>
+            <input type="number" class="form-control" name="weight" id="field_weight"
+                    ng-model="product.weight"
                      />
         </div>
         <div class="form-group">
@@ -94,9 +151,7 @@
         </div>
         <div class="form-group">
             <label for="field_news">News</label>
-            <input type="text" class="form-control" name="news" id="field_news"
-                    ng-model="product.news"
-                     />
+            <input type="checkbox" name="news" ng-model="product.news" ng-checked="product.news" ng-disabled="false" id="field_news"> 
         </div>
         
         <div class="form-group">

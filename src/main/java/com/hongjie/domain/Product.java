@@ -29,167 +29,193 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Product implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @Column(name = "number")
-    private String number;
+	@Column(name = "number")
+	private String number;
 
-    @Column(name = "name")
-    private String name;
+	@Column(name = "name")
+	private String name;
 
-    @Column(name = "price", precision=10, scale=2)
-    private BigDecimal price;
+	@Column(name = "price", precision = 10, scale = 2)
+	private BigDecimal price;
 
-    @Column(name = "produce_date")
-    private LocalDate produceDate;
+	@Column(name = "produce_date")
+	private LocalDate produceDate;
 
-    @Column(name = "producer")
-    private String producer;
+	@Column(name = "producer")
+	private String producer;
 
-    @Column(name = "image")
-    private String image;
+	@Column(name = "image")
+	private String image;
 
-    @Column(name = "favorate")
-    private String favorate;
+	@Column(name = "favorate")
+	private String favorate;
 
-    @Column(name = "news")
-    private String news;
+	@Column(name = "news")
+	private Boolean news = true;
 
-    @Column(name = "title")
-    private String title;
-    
-    @Column(name = "tag")
-    private String tag;
-    
-    @Column(name = "full_name")
-    private String fullName;
-    
-    @Column(name = "image1")
-    private String image1;
-    
-    @Column(name = "award1")
-    private String award1;
-    
-    @Column(name = "award2")
-    private String award2;
-    
-    @Column(name = "award3")
-    private String award3;
-    
-    @Column(name = "description_title")
-    private String descriptionTitle;
-    
-    @Column(name = "description")
-    private String description;
-    
-    @Column(name = "detail_info")
-    private String detailInfo;
-    
-    @Column(name = "jdurl")
-    private String jdurl;
-    
-    @OneToMany(mappedBy = "product", cascade={CascadeType.REMOVE})
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Xref> xrefs = new HashSet<>();
-    
-    @OneToMany(mappedBy = "product", cascade={CascadeType.REMOVE})
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<ProductRelate> productRelates = new HashSet<>();
+	@Column(name = "title")
+	private String title;
 
-    public Set<ProductRelate> getProductRelates() {
-        return productRelates;
-    }
+	@Column(name = "tag")
+	private String tag;
 
-    public void setProductRelates(Set<ProductRelate> productRelates) {
-        this.productRelates = productRelates;
-    }
+	@Column(name = "full_name")
+	private String fullName;
 
-    
-    public Long getId() {
-        return id;
-    }
+	@Column(name = "image1")
+	private String image1;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Column(name = "award1")
+	private String award1;
 
-    public String getNumber() {
-        return number;
-    }
+	@Column(name = "award2")
+	private String award2;
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+	@Column(name = "award3")
+	private String award3;
 
-    public String getName() {
-        return name;
-    }
+	@Column(name = "description_title")
+	private String descriptionTitle;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	@Column(name = "description")
+	private String description;
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+	@Column(name = "detail_info")
+	private String detailInfo;
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+	@Column(name = "jdurl")
+	private String jdurl;
 
-    public LocalDate getProduceDate() {
-        return produceDate;
-    }
+	@Column(name = "types")
+	private String types;
 
-    public void setProduceDate(LocalDate produceDate) {
-        this.produceDate = produceDate;
-    }
+	@Column(name = "variety")
+	private String variety;
 
-    public String getProducer() {
-        return producer;
-    }
+	@Column(name = "level")
+	private String level;
 
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
+	@Column(name = "origin_country")
+	private String originCountry;
 
-    public String getImage() {
-        return image;
-    }
+	@Column(name = "zone")
+	private String zone;
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+	@Column(name = "weight", precision = 10, scale = 2)
+	private BigDecimal weight;
 
-    public String getFavorate() {
-        return favorate;
-    }
+	@Column(name = "pick_year")
+	private String pickYear;
 
-    public void setFavorate(String favorate) {
-        this.favorate = favorate;
-    }
+	@Column(name = "alcohol")
+	private String alcohol;
 
-    public String getNews() {
-        return news;
-    }
+	@Column(name = "wakeup_time")
+	private String wakeupTime;
 
-    public void setNews(String news) {
-        this.news = news;
-    }
+	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE })
+	@JsonIgnore
+	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+	private Set<Xref> xrefs = new HashSet<>();
 
-    public Set<Xref> getXrefs() {
-        return xrefs;
-    }
+	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE })
+	@JsonIgnore
+	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+	private Set<ProductRelate> productRelates = new HashSet<>();
 
-    public void setXrefs(Set<Xref> xrefs) {
-        this.xrefs = xrefs;
-    }
+	public Set<ProductRelate> getProductRelates() {
+		return productRelates;
+	}
 
-    public String getTitle() {
+	public void setProductRelates(Set<ProductRelate> productRelates) {
+		this.productRelates = productRelates;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public LocalDate getProduceDate() {
+		return produceDate;
+	}
+
+	public void setProduceDate(LocalDate produceDate) {
+		this.produceDate = produceDate;
+	}
+
+	public String getProducer() {
+		return producer;
+	}
+
+	public void setProducer(String producer) {
+		this.producer = producer;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getFavorate() {
+		return favorate;
+	}
+
+	public void setFavorate(String favorate) {
+		this.favorate = favorate;
+	}
+
+	public Boolean getNews() {
+		return news;
+	}
+
+	public void setNews(Boolean news) {
+		this.news = news;
+	}
+
+	public Set<Xref> getXrefs() {
+		return xrefs;
+	}
+
+	public void setXrefs(Set<Xref> xrefs) {
+		this.xrefs = xrefs;
+	}
+
+	public String getTitle() {
 		return title;
 	}
 
@@ -277,39 +303,122 @@ public class Product implements Serializable {
 		this.jdurl = jdurl;
 	}
 
+	public String getTypes() {
+
+		return types;
+	}
+
+	public void setTypes(String types) {
+
+		this.types = types;
+	}
+
+	public String getVariety() {
+
+		return variety;
+	}
+
+	public void setVariety(String variety) {
+
+		this.variety = variety;
+	}
+
+	public String getLevel() {
+
+		return level;
+	}
+
+	public void setLevel(String level) {
+
+		this.level = level;
+	}
+
+	public String getOriginCountry() {
+
+		return originCountry;
+	}
+
+	public void setOriginCountry(String originCountry) {
+
+		this.originCountry = originCountry;
+	}
+
+	public String getZone() {
+
+		return zone;
+	}
+
+	public void setZone(String zone) {
+
+		this.zone = zone;
+	}
+
+	public BigDecimal getWeight() {
+
+		return weight;
+	}
+
+	public void setWeight(BigDecimal weight) {
+
+		this.weight = weight;
+	}
+
+	public String getPickYear() {
+
+		return pickYear;
+	}
+
+	public void setPickYear(String pickYear) {
+
+		this.pickYear = pickYear;
+	}
+
+	public String getAlcohol() {
+
+		return alcohol;
+	}
+
+	public void setAlcohol(String alcohol) {
+
+		this.alcohol = alcohol;
+	}
+
+	public String getWakeupTime() {
+
+		return wakeupTime;
+	}
+
+	public void setWakeupTime(String wakeupTime) {
+
+		this.wakeupTime = wakeupTime;
+	}
+
 	@Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 
-        Product product = (Product) o;
+		Product product = (Product) o;
 
-        if ( ! Objects.equals(id, product.id)) return false;
+		if (!Objects.equals(id, product.id))
+			return false;
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(id);
+	}
 
-    @Override
-    public String toString() {
-        return "Product{" +
-            "id=" + id +
-            ", number='" + number + "'" +
-            ", name='" + name + "'" +
-            ", price='" + price + "'" +
-            ", produceDate='" + produceDate + "'" +
-            ", producer='" + producer + "'" +
-            ", image='" + image + "'" +
-            ", favorate='" + favorate + "'" +
-            ", news='" + news + "'" +
-            '}';
-    }
+	@Override
+	public String toString() {
+		return "Product{" + "id=" + id + ", number='" + number + "'" + ", name='" + name + "'" + ", price='" + price
+				+ "'" + ", produceDate='" + produceDate + "'" + ", producer='" + producer + "'" + ", image='" + image
+				+ "'" + ", favorate='" + favorate + "'" + ", news='" + news + "'" + '}';
+	}
 }
