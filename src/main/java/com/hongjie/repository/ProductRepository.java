@@ -17,4 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	@Query("select p from Product AS p where p.favo = 1 order by p.favorate desc ")
 	public List<Product> findAllFavoProducts();
+	
+	@Query("select p from Product AS p order by p.originCountry desc ")
+	public List<Product> findByRegionsProducts();
 }

@@ -56,8 +56,16 @@ angular.module('hongjieApp')
   
 	console.debug('FrontProductByRegionsController start');
 	
-	wineService.findAllFavoWines(function(result){
-		$scope.byregionsProducts = result;
+	wineService.findByRegionsWines(function(result){
+		
+		var regions = [[]];
+		var index = 0;
+		for (var key in result){
+			regions[index] = result[key];
+			index ++;
+			console.log("key" + key + ",value"+ result[key]); 
+		}
+		$scope.byregionsProducts = regions;
 	});
 	
     console.debug('FrontProductByRegionsController end');

@@ -22,6 +22,13 @@ angular.module('hongjieApp')
                     return done(response.data);
                 });
             },
+            
+            findByRegionsWines: function (done) {
+            	console.debug('find by regions wines');
+                return $http.get('api/products/byregions').then(function (response) {
+                    return done(response.data);
+                });
+            },
                      
             getProductRelatesByProductId: function (product_id, done) {
             	console.debug('getProductRelatesByProductId:'+product_id);

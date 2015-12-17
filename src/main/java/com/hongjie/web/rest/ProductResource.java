@@ -1,10 +1,16 @@
 package com.hongjie.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.hongjie.domain.Product;
-import com.hongjie.repository.ProductRepository;
-import com.hongjie.web.rest.util.HeaderUtil;
-import com.hongjie.web.rest.util.PaginationUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.inject.Inject;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -13,13 +19,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import com.codahale.metrics.annotation.Timed;
+import com.hongjie.domain.Product;
+import com.hongjie.repository.ProductRepository;
+import com.hongjie.web.rest.util.HeaderUtil;
+import com.hongjie.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Product.
@@ -136,5 +146,36 @@ public class ProductResource {
         throws URISyntaxException {
         List<Product> news = productRepository.findAllFavoProducts();
         return new ResponseEntity<>(news, HttpStatus.OK);
+    }
+    
+    /**
+     * GET  /products -> get all the products.
+     */
+    @RequestMapping(value = "/products/byregions",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Map<String,List<Product>>> getByRegionsProducts()
+        throws URISyntaxException {
+        List<Product> products = productRepository.findByRegionsProducts();
+        Map<String,List<Product>> result = new HashMap<String,List<Product>>();
+        
+        if(products!= null && products.size() > 0){
+        	for(Product p : products){
+        		if (StringUtils.isEmpty(p.getOriginCountry())){
+    				p.setOriginCountry("others");
+    			}
+        		if (!result.containsKey(p.getOriginCountry())){
+        			List<Product> list = new ArrayList<Product>();
+        			list.add(p);
+        			result.put(p.getOriginCountry(), list);
+        		}else{
+        			List<Product> list = result.get(p.getOriginCountry());
+        			list.add(p);
+        		}
+        	}
+        }
+        
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
