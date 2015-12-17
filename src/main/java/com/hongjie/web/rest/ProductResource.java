@@ -111,4 +111,30 @@ public class ProductResource {
         productRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("product", id.toString())).build();
     }
+    
+    /**
+     * GET  /products -> get all the products.
+     */
+    @RequestMapping(value = "/products/news",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Product>> getAllNewsProducts()
+        throws URISyntaxException {
+        List<Product> news = productRepository.findAllNewsProducts();
+        return new ResponseEntity<>(news, HttpStatus.OK);
+    }
+    
+    /**
+     * GET  /products -> get all the products.
+     */
+    @RequestMapping(value = "/products/favo",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Product>> getAllFavoProducts()
+        throws URISyntaxException {
+        List<Product> news = productRepository.findAllFavoProducts();
+        return new ResponseEntity<>(news, HttpStatus.OK);
+    }
 }

@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,8 +53,11 @@ public class Product implements Serializable {
 	private String image;
 
 	@Column(name = "favorate")
-	private String favorate;
+	private Integer favorate;
 
+	@Column(name = "favo")
+	private Boolean favo = true;
+	
 	@Column(name = "news")
 	private Boolean news = true;
 
@@ -122,7 +126,7 @@ public class Product implements Serializable {
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<Xref> xrefs = new HashSet<>();
 
-	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE })
+	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE },  fetch = FetchType.EAGER)
 	@JsonIgnore
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<ProductRelate> productRelates = new HashSet<>();
@@ -191,14 +195,22 @@ public class Product implements Serializable {
 		this.image = image;
 	}
 
-	public String getFavorate() {
+	public Integer getFavorate() {
 		return favorate;
 	}
 
-	public void setFavorate(String favorate) {
+	public void setFavorate(Integer favorate) {
 		this.favorate = favorate;
 	}
+	
+	public Boolean getFavo() {
+		return favo;
+	}
 
+	public void setFavo(Boolean favo) {
+		this.favo = favo;
+	}
+	
 	public Boolean getNews() {
 		return news;
 	}

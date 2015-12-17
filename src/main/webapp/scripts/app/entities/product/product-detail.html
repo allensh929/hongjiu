@@ -206,12 +206,32 @@
             </tr>
             <tr>
                 <td>
+                    <span>Favor or not</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><input type="checkbox" name="favo" ng-model="product.favo" ng-checked="product.favo" ng-disabled="true" id="field_favo" readonly></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span>News</span>
                 </td>
                 <td>
                     <span class="form-control-static"><input type="checkbox" name="news" ng-model="product.news" ng-checked="product.news" ng-disabled="true" id="field_news" readonly></span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>relates</span>
+                </td>
+                <td>
+                    <span class="form-control-static" ng-repeat="r in product.productRelates track by product.productRelates.id">
+                    
+                    {{r.name}}
+                    </span>
+                </td>
+            </tr>
+            
             <tr>
                 <td>
                     <span>detail info</span>

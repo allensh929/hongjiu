@@ -58,8 +58,8 @@ public class ProductResourceIntTest {
     private static final String UPDATED_PRODUCER = "BBBBB";
     private static final String DEFAULT_IMAGE = "AAAAA";
     private static final String UPDATED_IMAGE = "BBBBB";
-    private static final String DEFAULT_FAVORATE = "AAAAA";
-    private static final String UPDATED_FAVORATE = "BBBBB";
+    private static final Integer DEFAULT_FAVORATE = new Integer(0);
+    private static final Integer UPDATED_FAVORATE = new Integer(0);
     private static final boolean DEFAULT_NEWS = Boolean.TRUE.booleanValue();
     private static final boolean UPDATED_NEWS = Boolean.TRUE.booleanValue();
 
@@ -163,7 +163,7 @@ public class ProductResourceIntTest {
             .andExpect(jsonPath("$.produceDate").value(DEFAULT_PRODUCE_DATE.toString()))
             .andExpect(jsonPath("$.producer").value(DEFAULT_PRODUCER.toString()))
             .andExpect(jsonPath("$.image").value(DEFAULT_IMAGE.toString()))
-            .andExpect(jsonPath("$.favorate").value(DEFAULT_FAVORATE.toString()))
+            .andExpect(jsonPath("$.favorate").value(DEFAULT_FAVORATE))
             .andExpect(jsonPath("$.news").value(DEFAULT_NEWS));
     }
 
