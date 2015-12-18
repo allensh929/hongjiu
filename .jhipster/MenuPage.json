@@ -1,0 +1,42 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "slide",
+            "otherEntityName": "slide",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "menuPage"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "pageId",
+            "fieldType": "Integer",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "detailInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20151218085301",
+    "dto": "no",
+    "pagination": "pagination"
+}

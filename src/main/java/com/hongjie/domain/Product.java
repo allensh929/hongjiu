@@ -126,7 +126,7 @@ public class Product implements Serializable {
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<Xref> xrefs = new HashSet<>();
 
-	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE },  fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "product", cascade = { CascadeType.REMOVE })
 	@JsonIgnore
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Set<ProductRelate> productRelates = new HashSet<>();

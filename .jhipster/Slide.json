@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "menuPage",
+            "otherEntityName": "menuPage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151218085445",
+    "dto": "no",
+    "pagination": "pagination"
+}

@@ -2,23 +2,25 @@
 
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar', 'ahdin'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL) {
         
+    	console.debug('run');
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
-        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
-            $rootScope.toState = toState;
-            $rootScope.toStateParams = toStateParams;
-
-            if (Principal.isIdentityResolved()) {
-                Auth.authorize();
-            }
-            
-        });
-
+//        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+//            $rootScope.toState = toState;
+//            $rootScope.toStateParams = toStateParams;
+//            console.debug('run auth');
+//            if (Principal.isIdentityResolved()) {
+//            	console.debug('run authorize');
+//                Auth.authorize();
+//            }
+//            
+//        });
+        
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
             var titleKey = 'hongjie' ;
 
@@ -46,33 +48,29 @@ angular.module('hongjieApp', ['LocalStorageModule',
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,  httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
         //AlertServiceProvider.showAsToast(true);
 
         //enable CSRF
-//        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
-//        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
-
+        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
+        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
+        console.debug('config state');
         //Cache everything except rest api requests
-        httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
-
+        //httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
             views: {
-                'navbar@': {
-                    templateUrl: 'scripts/components/navbar/navbar.html',
-                    controller: 'NavbarController'
+                'front-navbar@': {
+                    templateUrl: 'scripts/app/front/navbar.html',
+                    controller: 'FrontNavbarController'
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ]
+            
             }
         });
 
@@ -91,5 +89,4 @@ angular.module('hongjieApp', ['LocalStorageModule',
             pattern: /bool|true|0|1/
         });
     }]);;
-
-
+    
