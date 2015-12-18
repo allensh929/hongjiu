@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('hongjieApp').controller('PhotoDialogController',
-    ['$scope', '$stateParams', '$modalInstance', 'entity', 'Photo', 'Upload',
-        function($scope, $stateParams, $modalInstance, entity, Photo, Upload) {
+    ['$scope', '$stateParams', '$modalInstance', 'entity', 'Photo', 'Upload', 'Ahdin',
+        function($scope, $stateParams, $modalInstance, entity, Photo, Upload, Ahdin) {
 
         $scope.photo = entity;
         $scope.load = function(id) {
@@ -36,26 +36,41 @@ angular.module('hongjieApp').controller('PhotoDialogController',
 
         $scope.onFileSelect = function(uploadFile){
         	
-        	Upload.upload({
+        	var uploadImageFile = function(compressedBlob) {
+        		Upload.upload({
 
-                url: '/api/postPhoto',
-                fields: {},
-                file: uploadFile[0],
-                method: 'POST'
+                    url: '/api/postPhoto',
+                    fields: {},
+                    file: compressedBlob,
+                    method: 'POST'
 
-            }).progress(function (evt) {
+                }).progress(function (evt) {
 
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ');
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progress: ' + progressPercentage + '% ');
 
-            }).success(function (data, status, headers, config) {
-           	 
-            	//update the url
-            	$scope.photo.url = data.image;
-           	
-            }).error(function (data, status, headers, config) {
+                }).success(function (data, status, headers, config) {
+               	 
+                	//update the url
+                	$scope.photo.url = data.image;
+               	
+                }).error(function (data, status, headers, config) {
 
-                console.log('error status: ' + status);
-            });
+                    console.log('error status: ' + status);
+                });
+        	};
+        	
+        	
+        	//TODO gif no compress
+        	 Ahdin.compress({
+	              sourceFile: uploadFile[0],
+	              maxWidth: 1280,
+	              maxHeight:800,
+	              quality: 0.7
+	          }).then(function(compressedBlob) {
+	        	  console.log('compressed image by ahdin.');
+	              uploadImageFile(compressedBlob);
+	          });
+	         
         };
 }]);

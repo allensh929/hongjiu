@@ -28,6 +28,10 @@ spring:
 security:
     basic:
         enabled: false
+        
+hongjie:
+    upload:
+        path: E:\\hongjie\\src\\main\\webapp\\assets\\images\\upload
 
 # ===================================================================
 # JHipster specific properties

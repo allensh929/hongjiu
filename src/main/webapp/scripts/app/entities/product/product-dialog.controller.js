@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('hongjieApp').controller('ProductDialogController',
-    ['$scope', '$stateParams', '$modalInstance', 'entity', 'Product', 'Xref','Upload',
-        function($scope, $stateParams, $modalInstance, entity, Product, Xref, Upload) {
+    ['$scope', '$stateParams', '$modalInstance', 'entity', 'Product', 'Xref','Upload', 'Ahdin',
+        function($scope, $stateParams, $modalInstance, entity, Product, Xref, Upload, Ahdin) {
 
         $scope.product = entity;
         $scope.xrefs = Xref.query();
@@ -42,41 +42,55 @@ angular.module('hongjieApp').controller('ProductDialogController',
         	if ($scope.product.id != null){
         		productId = $scope.product.id;
         	}
-        	Upload.upload({
+        	var uploadImageFile = function(compressedBlob) {
+        		Upload.upload({
 
-                url: '/api/postImage',
-                fields: { productId: productId },
-                file: uploadFile[0],
-                method: 'POST'
+                    url: '/api/postImage',
+                    fields: { productId: productId },
+                    file: compressedBlob,
+                    method: 'POST'
 
-            }).progress(function (evt) {
+                }).progress(function (evt) {
 
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ');
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progress: ' + progressPercentage + '% ');
 
-            }).success(function (data, status, headers, config) {
-           	 
-           	 if (name == "image"){
-           		$scope.product.image = data.image;
-           	 }
-           	 if (name == "imageDetail"){
-           		$scope.product.image1 = data.image;
-           	 }
-           	 if (name == "award1"){
-           		$scope.product.award1 = data.image;
-           	 }
-           	if (name == "award2"){
-           		$scope.product.award2 = data.image;
-           	 }
-           	if (name == "award3"){
-           		$scope.product.award3 = data.image;
-           	 }
-           	
-            }).error(function (data, status, headers, config) {
+                }).success(function (data, status, headers, config) {
+               	 
+               	 if (name == "image"){
+               		$scope.product.image = data.image;
+               	 }
+               	 if (name == "imageDetail"){
+               		$scope.product.image1 = data.image;
+               	 }
+               	 if (name == "award1"){
+               		$scope.product.award1 = data.image;
+               	 }
+               	if (name == "award2"){
+               		$scope.product.award2 = data.image;
+               	 }
+               	if (name == "award3"){
+               		$scope.product.award3 = data.image;
+               	 }
+               	
+                }).error(function (data, status, headers, config) {
 
-                console.log('error status: ' + status);
-            });
+                    console.log('error status: ' + status);
+                });
+        	};
+        	
+        	//TODO gif no compress
+       	 	Ahdin.compress({
+	              sourceFile: uploadFile[0],
+	              maxWidth: 1280,
+	              maxHeight:800,
+	              quality: 0.7
+	          }).then(function(compressedBlob) {
+	        	  console.log('compressed image by ahdin.');
+	              uploadImageFile(compressedBlob);
+	          });
         };
+        
 //        $scope.justPostIt = function (product) {
 //
 //            var successCallback = function(productId) {

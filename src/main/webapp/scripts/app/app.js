@@ -6,6 +6,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL) {
         
+    	console.debug('run');
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
@@ -56,7 +57,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
-
+        console.debug('config state');
         //Cache everything except rest api requests
         //httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
         $urlRouterProvider.otherwise('/');
