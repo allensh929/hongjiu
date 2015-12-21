@@ -3,6 +3,8 @@ package com.hongjie.domain;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -30,8 +32,6 @@ public class Xref implements Serializable {
     @Column(name = "active")
     private String active;
     
-    @OneToOne    private Dictionary dictionary;
-
     @ManyToOne
     private Product product;
 
@@ -65,14 +65,6 @@ public class Xref implements Serializable {
 
     public void setActive(String active) {
         this.active = active;
-    }
-
-    public Dictionary getDictionary() {
-        return dictionary;
-    }
-
-    public void setDictionary(Dictionary dictionary) {
-        this.dictionary = dictionary;
     }
 
     public Product getProduct() {

@@ -2,7 +2,7 @@
 
 describe('Xref Detail Controller', function() {
     var $scope, $rootScope;
-    var MockEntity, MockXref, MockDictionary, MockProduct;
+    var MockEntity, MockXref, MockProduct;
     var createController;
 
     beforeEach(inject(function($injector) {
@@ -10,7 +10,6 @@ describe('Xref Detail Controller', function() {
         $scope = $rootScope.$new();
         MockEntity = jasmine.createSpy('MockEntity');
         MockXref = jasmine.createSpy('MockXref');
-        MockDictionary = jasmine.createSpy('MockDictionary');
         MockProduct = jasmine.createSpy('MockProduct');
         
 
@@ -19,7 +18,6 @@ describe('Xref Detail Controller', function() {
             '$rootScope': $rootScope,
             'entity': MockEntity ,
             'Xref': MockXref,
-            'Dictionary': MockDictionary,
             'Product': MockProduct
         };
         createController = function() {

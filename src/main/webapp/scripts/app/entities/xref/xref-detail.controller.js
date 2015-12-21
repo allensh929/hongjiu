@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hongjieApp')
-    .controller('XrefDetailController', function ($scope, $rootScope, $stateParams, entity, Xref, Dictionary, Product) {
+    .controller('XrefDetailController', function ($scope, $rootScope, $stateParams, entity, Xref, Product) {
         $scope.xref = entity;
         $scope.load = function (id) {
             Xref.get({id: id}, function(result) {

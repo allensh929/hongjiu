@@ -27,12 +27,6 @@
         </div>
 
         <div class="form-group">
-            <label for="field_dictionary">dictionary</label>
-            <select class="form-control" id="field_dictionary" name="dictionary" ng-model="xref.dictionary" ng-options="dictionary as dictionary.ovalue for dictionary in dictionarys | orderBy:'id' track by dictionary.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label for="field_product">product</label>
             <select class="form-control" id="field_product" name="product" ng-model="xref.product" ng-options="product as product.name for product in products track by product.name">
                 <option value=""></option>

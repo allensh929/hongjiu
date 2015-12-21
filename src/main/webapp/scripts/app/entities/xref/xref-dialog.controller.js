@@ -1,19 +1,10 @@
 'use strict';
 
 angular.module('hongjieApp').controller('XrefDialogController',
-    ['$scope', '$stateParams', '$modalInstance', '$q', 'entity', 'Xref', 'Dictionary', 'Product',
-        function($scope, $stateParams, $modalInstance, $q, entity, Xref, Dictionary, Product) {
+    ['$scope', '$stateParams', '$modalInstance', '$q', 'entity', 'Xref', 'Product',
+        function($scope, $stateParams, $modalInstance, $q, entity, Xref, Product) {
 
         $scope.xref = entity;
-        $scope.dictionarys = Dictionary.query({filter: 'xref-is-null'});
-        $q.all([$scope.xref.$promise, $scope.dictionarys.$promise]).then(function() {
-            if (!$scope.xref.id || !$scope.xref.dictionary.id) {
-                return $q.reject();
-            }
-            return Dictionary.get({id : $scope.xref.dictionary.id}).$promise;
-        }).then(function(dictionary) {
-            $scope.dictionarys.push(dictionary);
-        });
         $scope.products = Product.query();
         $scope.load = function(id) {
             Xref.get({id : id}, function(result) {

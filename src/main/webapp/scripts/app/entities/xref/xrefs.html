@@ -18,7 +18,6 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Value</th>
-                    <th>dictionary</th>
                     <th>product</th>
                     <th></th>
                 </tr>
@@ -28,9 +27,6 @@
                     <td><a ui-sref="xref.detail({id:xref.id})">{{xref.id}}</a></td>
                     <td>{{xref.name}}</td>
                     <td>{{xref.ovalue}}</td>
-                    <td>
-                        <a ui-sref="dictionary.detail({id:xref.dictionary.id})">{{xref.dictionary.ovalue}}</a>
-                    </td>
                     <td>
                         <a ui-sref="product.detail({id:xref.product.id})">{{xref.product.name}}</a>
                     </td>
