@@ -17,7 +17,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>PageId</th>
                     <th>Url</th>
                     <th>DetailInfo</th>
                     <th>Active</th>
@@ -28,7 +27,6 @@
                 <tr ng-repeat="menuPage in menuPages track by menuPage.id">
                     <td><a ui-sref="menuPage.detail({id:menuPage.id})">{{menuPage.id}}</a></td>
                     <td>{{menuPage.name}}</td>
-                    <td>{{menuPage.pageId}}</td>
                     <td>{{menuPage.url}}</td>
                     <td>{{menuPage.detailInfo}}</td>
                     <td>{{menuPage.active}}</td>

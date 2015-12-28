@@ -26,7 +26,6 @@ angular.module('hongjieApp')
         $scope.clear = function () {
             $scope.menuPage = {
                 name: null,
-                pageId: null,
                 url: null,
                 detailInfo: null,
                 active: null,

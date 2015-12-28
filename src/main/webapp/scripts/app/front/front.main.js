@@ -17,10 +17,6 @@ angular.module('hongjieApp')
                     'front-footer@': {
                         templateUrl: 'scripts/app/front/footer.html',
                         controller: 'FrontFooterController'
-                    },
-                    'front-slides@': {
-                        templateUrl: 'scripts/app/front/slides.html',
-                        controller: 'FrontMainController'
                     }
                 },
                 resolve: {

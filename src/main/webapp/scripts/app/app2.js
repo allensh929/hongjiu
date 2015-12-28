@@ -4,12 +4,21 @@ angular.module('hongjieApp', ['LocalStorageModule',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPage, Slide) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
+        MenuPage.query(function(result){
+        	$rootScope.MENUS = result;
+        	console.debug('menus:' + $rootScope.MENUS.length);
+        });
+        Slide.query(function(result){
+        	$rootScope.SLIDES = result;
+        	console.debug('slides:' + $rootScope.SLIDES.length);
+        });
+        
 //        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
 //            $rootScope.toState = toState;
 //            $rootScope.toStateParams = toStateParams;

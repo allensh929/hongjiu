@@ -1,14 +1,23 @@
 package com.hongjie.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A MenuPage.
@@ -25,9 +34,6 @@ public class MenuPage implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "page_id")
-    private Integer pageId = new Integer(0);
-
     @Column(name = "url")
     private String url;
 
@@ -37,7 +43,7 @@ public class MenuPage implements Serializable {
     @Column(name = "active")
     private Boolean active;
 
-    @OneToMany(mappedBy = "menuPage")
+    @OneToMany(mappedBy = "menuPage", cascade = { CascadeType.REMOVE })
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Slide> slides = new HashSet<>();
@@ -56,14 +62,6 @@ public class MenuPage implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getPageId() {
-        return pageId;
-    }
-
-    public void setPageId(Integer pageId) {
-        this.pageId = pageId;
     }
 
     public String getUrl() {
@@ -124,7 +122,6 @@ public class MenuPage implements Serializable {
         return "MenuPage{" +
             "id=" + id +
             ", name='" + name + "'" +
-            ", pageId='" + pageId + "'" +
             ", url='" + url + "'" +
             ", detailInfo='" + detailInfo + "'" +
             ", active='" + active + "'" +

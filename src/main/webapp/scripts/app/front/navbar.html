@@ -70,24 +70,16 @@
 						</li>
                     </ul>
                 </li>
-                <li ng-class="active">
+                <li ng-class="active" ng-repeat="menu in MENUS">
                     <a class="" href="">
                         <span>
                             <span class="hj-nav-font">
-                                	酒庄探索
+                                	{{menu.name}}
                             </span>
                         </span>
                     </a>
                 </li>
-                <li ng-class="active">
-                    <a class="" href="">
-                        <span>
-                            <span class="hj-nav-font">
-                                	红酒知识
-                            </span>
-                        </span>
-                    </a>
-                </li>
+               
             </ul>
         </div>
     </div>
