@@ -33,7 +33,7 @@
 
 
 .hj-slide1 {
-    background: url("../images/carousel-001.png") center;
+    background: url("../images/"+$rootScope.HOME_SLIDES[0].url) center;
     background-size: cover;
     height: 600px;
     width: 100%;
@@ -101,13 +101,13 @@
   margin-top:15px;
   font-weight: bold;
   font-size:16px;
-  font-family:"·½ÕýÀ¼Í¤ÖÐºÚ";
+  font-family:"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ðºï¿½";
 }
 
 .hj-h3{
   font-weight: normal;
   font-size:16px;
-  font-family:"·½ÕýÀ¼Í¤ÖÐºÚ";
+  font-family:"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ðºï¿½";
 }
 
 .hj-wine-img1{

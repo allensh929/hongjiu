@@ -9,5 +9,7 @@ angular.module('hongjieApp')
 .constant('PHOTOBASEURL', 'http://localhost:8080/assets/images/upload/')
 
 .constant('MENUS', '')
+.constant('HOME_MENU_ID', '')
+.constant('HOME_SLIDES', '')
 .constant('SLIDES', '')
 ;

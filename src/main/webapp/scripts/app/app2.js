@@ -1,23 +1,37 @@
 'use strict';
-
+var  home_menu_id = 0;
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPage, Slide) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, SlideExt) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
-        MenuPage.query(function(result){
+        
+        MenuPageExt.findAllActiveMenuPage(function(result){
+        	//remove 首页 menu
+        	if (result.length > 0){
+        		for (var i=0; i<result.length; i++){
+        			if (result[i].name =='首页'){
+        				home_menu_id = result[i].id;
+        				result.splice(i,1);
+        			}
+        		}
+        	}
         	$rootScope.MENUS = result;
         	console.debug('menus:' + $rootScope.MENUS.length);
-        });
-        Slide.query(function(result){
-        	$rootScope.SLIDES = result;
-        	console.debug('slides:' + $rootScope.SLIDES.length);
-        });
+        	
+        	console.debug('HOME_MENU_ID:' + home_menu_id);
+            SlideExt.findAllSlideByPageId(home_menu_id, function(result){
+    	    	$rootScope.HOME_SLIDES = result;
+    	    	console.debug('home slides:' + $rootScope.HOME_SLIDES.length);
+    	    });
+    	});
+        
+        
         
 //        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
 //            $rootScope.toState = toState;
@@ -62,7 +76,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
         //AlertServiceProvider.showAsToast(true);
-
+    	
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';

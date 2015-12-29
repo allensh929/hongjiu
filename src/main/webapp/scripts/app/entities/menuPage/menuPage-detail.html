@@ -26,15 +26,7 @@
                     <span class="form-control-static">{{menuPage.url}}</span>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <span>DetailInfo</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{menuPage.detailInfo}}</span>
-                </td>
-            </tr>
-            <tr>
+             <tr>
                 <td>
                     <span>Active</span>
                 </td>
@@ -42,6 +34,15 @@
                     <span class="form-control-static">{{menuPage.active}}</span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>DetailInfo</span>
+                </td>
+                <td>
+                    <span class="form-control-static" ng-bind-html="menuPage.detailInfo|trustHtml"></span>
+                </td>
+            </tr>
+           
             </tbody>
         </table>
     </div>

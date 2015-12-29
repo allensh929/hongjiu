@@ -42,6 +42,9 @@ public class MenuPage implements Serializable {
 
     @Column(name = "active")
     private Boolean active;
+    
+    @Column(name = "order_tag")
+    private String orderTag;
 
     @OneToMany(mappedBy = "menuPage", cascade = { CascadeType.REMOVE })
     @JsonIgnore
@@ -64,6 +67,14 @@ public class MenuPage implements Serializable {
         this.name = name;
     }
 
+    public String getOrderTag() {
+        return orderTag;
+    }
+
+    public void setOrderTag(String orderTag) {
+        this.orderTag = orderTag;
+    }
+    
     public String getUrl() {
         return url;
     }

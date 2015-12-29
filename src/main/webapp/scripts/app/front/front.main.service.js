@@ -2,6 +2,8 @@
 
 angular.module('hongjieApp')
     .factory('wineService', function ($http) {
+    	
+    	console.debug('load wine service');
         return {
             findAllWines: function (done) {
             	console.debug('find all wines');

@@ -74,6 +74,23 @@ angular.module('hongjieApp')
                 resolve: {
                 }
             })
+            
+            .state('menuPage.fdetail', {
+                parent: 'front-home',
+                url: 'front/menuPage/{id}',
+                data: {
+                   
+                    pageTitle: 'Menu page'
+                },
+                views: {
+                    'front-content@': {
+                        templateUrl: 'scripts/app/front/menu-page.html',
+                        controller: 'FrontMenuPageController'
+                    }
+                },
+                resolve: {
+                }
+            })
             ;
     });
 angular.module('hongjieApp')

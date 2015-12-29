@@ -26,9 +26,9 @@
                      />
         </div>
         <div class="form-group">
-            <label for="field_detailInfo">DetailInfo</label>
-            <input type="text" class="form-control" name="detailInfo" id="field_detailInfo"
-                    ng-model="menuPage.detailInfo"
+            <label for="field_order_tag">Order</label>
+            <input type="text" class="form-control" name="orderTag" id="field_order_tag"
+                    ng-model="menuPage.orderTag"
                      />
         </div>
         <div class="form-group">
@@ -37,6 +37,12 @@
                     ng-model="menuPage.active"
                      />
         </div>
+        <div class="form-group">
+			<textarea name="detailInfo" id="detailInfo" rows="50" cols="100" ng-model="menuPage.detailInfo" ckeditor>
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+            
+		</div>
 
     </div>
     <div class="modal-footer">

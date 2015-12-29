@@ -1,6 +1,7 @@
 package com.hongjie.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hongjie.domain.Product;
 import com.hongjie.domain.Slide;
 import com.hongjie.repository.SlideRepository;
 import com.hongjie.web.rest.util.HeaderUtil;
@@ -110,5 +111,18 @@ public class SlideResource {
         log.debug("REST request to delete Slide : {}", id);
         slideRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("slide", id.toString())).build();
+    }
+    
+    /**
+     * GET  /slides/bypageid/{page_id} -> get all the slides.
+     */
+    @RequestMapping(value = "/slides/bypageid/{page_id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Slide>> getSlidesByPageId(@PathVariable Long page_id)
+        throws URISyntaxException {
+        List<Slide> relates = slideRepository.findSlidesByPageId(page_id);
+        return new ResponseEntity<>(relates, HttpStatus.OK);
     }
 }

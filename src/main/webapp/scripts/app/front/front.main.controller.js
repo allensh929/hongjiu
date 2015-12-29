@@ -83,7 +83,20 @@ angular.module('hongjieApp')
     console.debug('FrontProductDetailController end');
 }]);
 
-
+angular.module('hongjieApp')
+.controller('FrontMenuPageController', ["$scope", "$rootScope", "$stateParams", function ($scope, $rootScope, $stateParams) {
+	
+	console.debug('FrontMenuPageController start');
+	for (var index in $rootScope.MENUS){
+		if ($stateParams.id == $rootScope.MENUS[index].id){
+			$scope.menuPage = $rootScope.MENUS[index];
+			console.debug('the menu:' + $scope.menuPage.name);
+			break;
+		}
+	}
+        
+    console.debug('FrontMenuPageController end');
+}]);
 
 
 angular.module('ui.bootstrap.carousel', [ 'ui.bootstrap.transition' ])

@@ -71,7 +71,7 @@
                     </ul>
                 </li>
                 <li ng-class="active" ng-repeat="menu in MENUS">
-                    <a class="" href="">
+                    <a ui-sref="menuPage.fdetail({id:menu.id})">
                         <span>
                             <span class="hj-nav-font">
                                 	{{menu.name}}

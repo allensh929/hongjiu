@@ -18,8 +18,9 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Url</th>
-                    <th>DetailInfo</th>
+                  <!--   <th>DetailInfo</th> -->
                     <th>Active</th>
+                    <th>Order</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,8 +29,9 @@
                     <td><a ui-sref="menuPage.detail({id:menuPage.id})">{{menuPage.id}}</a></td>
                     <td>{{menuPage.name}}</td>
                     <td>{{menuPage.url}}</td>
-                    <td>{{menuPage.detailInfo}}</td>
+                    <!--  <td>{{menuPage.detailInfo}}</td>-->
                     <td>{{menuPage.active}}</td>
+                    <td>{{menuPage.orderTag}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="menuPage.detail({id:menuPage.id})"
