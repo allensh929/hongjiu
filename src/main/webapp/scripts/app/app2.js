@@ -10,6 +10,9 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
+        $rootScope.slideStyle1 = '';
+        $rootScope.slideStyle2 = '';
+        $rootScope.slideStyle3 = '';
         
         MenuPageExt.findAllActiveMenuPage(function(result){
         	//remove 首页 menu
@@ -27,6 +30,16 @@ angular.module('hongjieApp', ['LocalStorageModule',
         	console.debug('HOME_MENU_ID:' + home_menu_id);
             SlideExt.findAllSlideByPageId(home_menu_id, function(result){
     	    	$rootScope.HOME_SLIDES = result;
+    	    	if (result.length > 0){
+    	    		$rootScope.slideStyle1= {'background': 'url(/assets/images/upload/'+result[0].url+') center'};
+    	    	}
+    	    	if (result.length > 1){
+    	    		$rootScope.slideStyle2= {'background': 'url(/assets/images/upload/'+result[1].url+') center'};
+    	    	}
+    	    	if (result.length > 2){
+    	    		$rootScope.slideStyle3= {'background': 'url(/assets/images/upload/'+result[2].url+') center'};
+    	    	}
+    	    	
     	    	console.debug('home slides:' + $rootScope.HOME_SLIDES.length);
     	    });
     	});
