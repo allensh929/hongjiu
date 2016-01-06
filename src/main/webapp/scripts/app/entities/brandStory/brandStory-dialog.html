@@ -1,0 +1,105 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myBrandStoryLabel">Create or edit a BrandStory</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="brandStory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="brandStory.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="brandStory.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_slide1">Slide1</label>
+            <input type="text" class="form-control" name="slide1" id="field_slide1"
+                    ng-model="brandStory.slide1"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(slide1s, 'slide1')" ng-model="slide1s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in slide1s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+            
+        </div>
+        <div class="form-group">
+            <label for="field_slide2">Slide2</label>
+            <input type="text" class="form-control" name="slide2" id="field_slide2"
+                    ng-model="brandStory.slide2"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(slide2s, 'slide2')" ng-model="slide2s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in slide2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+        </div>
+        <div class="form-group">
+            <label for="field_slide3">Slide3</label>
+            <input type="text" class="form-control" name="slide3" id="field_slide3"
+                    ng-model="brandStory.slide3"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(slide3s, 'slide3')" ng-model="slide3s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in slide3s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+        </div>
+        <div class="form-group">
+            <label for="field_detailInfo">DetailInfo</label>
+             <textarea name="detailInfo" id="field_detailInfo" rows="50" cols="100" ng-model="brandStory.detailInfo" ckeditor>
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="field_active">Active</label>
+            <input type="checkbox" class="form-control" name="active" id="field_active"
+                    ng-model="brandStory.active"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_orderTag">OrderTag</label>
+            <input type="text" class="form-control" name="orderTag" id="field_orderTag"
+                    ng-model="brandStory.orderTag"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder1">Placeholder1</label>
+            <input type="text" class="form-control" name="placeholder1" id="field_placeholder1"
+                    ng-model="brandStory.placeholder1"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder2">Placeholder2</label>
+            <input type="text" class="form-control" name="placeholder2" id="field_placeholder2"
+                    ng-model="brandStory.placeholder2"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

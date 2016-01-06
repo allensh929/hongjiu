@@ -39,13 +39,6 @@
                     ng-model="slide.description"
                      />
         </div>
-
-        <div class="form-group">
-            <label for="field_menuPage">menuPage</label>
-            <select class="form-control" id="field_menuPage" name="menuPage" ng-model="slide.menuPage" ng-options="menuPage as menuPage.name for menuPage in menupages track by menuPage.id">
-                <option value=""></option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

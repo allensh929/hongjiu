@@ -1,10 +1,9 @@
 'use strict';
-var  home_menu_id = 0;
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, SlideExt) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
@@ -15,20 +14,11 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.slideStyle3 = '';
         
         MenuPageExt.findAllActiveMenuPage(function(result){
-        	//remove 首页 menu
-        	if (result.length > 0){
-        		for (var i=0; i<result.length; i++){
-        			if (result[i].name =='首页'){
-        				home_menu_id = result[i].id;
-        				result.splice(i,1);
-        			}
-        		}
-        	}
+        	
         	$rootScope.MENUS = result;
         	console.debug('menus:' + $rootScope.MENUS.length);
         	
-        	console.debug('HOME_MENU_ID:' + home_menu_id);
-            SlideExt.findAllSlideByPageId(home_menu_id, function(result){
+            Slide.query(function(result){
     	    	$rootScope.HOME_SLIDES = result;
     	    	if (result.length > 0){
     	    		$rootScope.slideStyle1= {'background': 'url(/assets/images/upload/'+result[0].url+') center'};

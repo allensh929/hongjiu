@@ -1,0 +1,93 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myInfoLabel">Create or edit a Info</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="info.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_qrCode">QrCode</label>
+            <input type="text" class="form-control" name="qrCode" id="field_qrCode"
+                    ng-model="info.qrCode"
+                     />
+                     
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(qrCodes, 'qrCode')" ng-model="qrCodes" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in qrCodes" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_wechatSubscribeCode">WechatSubscribeCode</label>
+            <input type="text" class="form-control" name="wechatSubscribeCode" id="field_wechatSubscribeCode"
+                    ng-model="info.wechatSubscribeCode"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(wechatSubscribeCodes, 'subscribeCode')" ng-model="wechatSubscribeCodes" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in wechatSubscribeCodes" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_wechatServiceCode">WechatServiceCode</label>
+            <input type="text" class="form-control" name="wechatServiceCode" id="field_wechatServiceCode"
+                    ng-model="info.wechatServiceCode"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(wechatServiceCodes, 'serviceCode')" ng-model="wechatServiceCodes" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in wechatServiceCodes" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_weiboUrl">WeiboUrl</label>
+            <input type="text" class="form-control" name="weiboUrl" id="field_weiboUrl"
+                    ng-model="info.weiboUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_qqUrl">QqUrl</label>
+            <input type="text" class="form-control" name="qqUrl" id="field_qqUrl"
+                    ng-model="info.qqUrl"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder1">Placeholder1</label>
+            <input type="text" class="form-control" name="placeholder1" id="field_placeholder1"
+                    ng-model="info.placeholder1"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder2">Placeholder2</label>
+            <input type="text" class="form-control" name="placeholder2" id="field_placeholder2"
+                    ng-model="info.placeholder2"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -30,8 +30,6 @@ public class Slide implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    private MenuPage menuPage;
 
     public Long getId() {
         return id;
@@ -63,14 +61,6 @@ public class Slide implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public MenuPage getMenuPage() {
-        return menuPage;
-    }
-
-    public void setMenuPage(MenuPage menuPage) {
-        this.menuPage = menuPage;
     }
 
     @Override

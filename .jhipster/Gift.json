@@ -1,0 +1,59 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "price",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "image",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "detailInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "orderTag",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "placeholder1",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "placeholder2",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160106071525",
+    "dto": "no",
+    "pagination": "pagination"
+}

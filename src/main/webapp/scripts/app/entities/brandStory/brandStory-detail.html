@@ -1,0 +1,102 @@
+
+<div>
+    <h2><span>BrandStory</span> {{brandStory.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Title</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.title}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Slide1</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="brandStory.slide1 != null" ng-src="/assets/images/upload/{{brandStory.slide1}}" style="height:100px;width:100px" alt="slide1"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Slide2</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="brandStory.slide2 != null" ng-src="/assets/images/upload/{{brandStory.slide2}}" style="height:100px;width:100px" alt="slide2"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Slide3</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="brandStory.slide3 != null" ng-src="/assets/images/upload/{{brandStory.slide3}}" style="height:100px;width:100px" alt="slide3"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>DetailInfo</span>
+                </td>
+                <td>
+                      <span class="form-control-static" ng-bind-html="brandStory.detailInfo|trustHtml"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Active</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.active}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>OrderTag</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.orderTag}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Placeholder1</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.placeholder1}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Placeholder2</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{brandStory.placeholder2}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

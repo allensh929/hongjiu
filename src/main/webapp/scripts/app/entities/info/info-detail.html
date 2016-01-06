@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span>Info</span> {{info.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>QrCode</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>WechatSubscribeCode</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>WechatServiceCode</span>
+                </td>
+                <td>
+                    <span class="form-control-static"><img ng-show="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>WeiboUrl</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{info.weiboUrl}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>QqUrl</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{info.qqUrl}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Placeholder1</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{info.placeholder1}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Placeholder2</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{info.placeholder2}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

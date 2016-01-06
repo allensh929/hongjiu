@@ -1,0 +1,102 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myWineSideLabel">Create or edit a WineSide</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="wineSide.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="wineSide.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="wineSide.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="wineSide.price"
+                    required />
+            <div ng-show="editForm.price.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.price.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.price.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_image">Image</label>
+            <input type="text" class="form-control" name="image" id="field_image"
+                    ng-model="wineSide.image"
+                     />
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(images)" ng-model="images" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in images" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+        </div>
+        <div class="form-group">
+            <label for="field_description">Description</label>
+            <textarea name="description" id="field_description" rows="50" cols="100" ng-model="wineSide.description" ckeditor>
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="field_detailInfo">DetailInfo</label>
+            <textarea name="detailInfo" id="field_detailInfo" rows="50" cols="100" ng-model="wineSide.detailInfo" ckeditor>
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="field_active">Active</label>
+            <input type="checkbox" class="form-control" name="active" id="field_active"
+                    ng-model="wineSide.active"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_orderTag">OrderTag</label>
+            <input type="text" class="form-control" name="orderTag" id="field_orderTag"
+                    ng-model="wineSide.orderTag"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder1">Placeholder1</label>
+            <input type="text" class="form-control" name="placeholder1" id="field_placeholder1"
+                    ng-model="wineSide.placeholder1"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_placeholder2">Placeholder2</label>
+            <input type="text" class="form-control" name="placeholder2" id="field_placeholder2"
+                    ng-model="wineSide.placeholder2"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

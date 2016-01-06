@@ -25,13 +25,6 @@ angular.module('hongjieApp')
               return $http.get('api/menuPages/active').then(function (response) {
                   return done(response.data);
               });
-          },
-                   
-          getProductRelatesByProductId: function (product_id, done) {
-          	console.debug('getProductRelatesByProductId:'+product_id);
-              return $http.get('api/'+product_id+'/productRelates').then(function (response) {
-                  return done(response.data);
-              });
           }
       };
 });

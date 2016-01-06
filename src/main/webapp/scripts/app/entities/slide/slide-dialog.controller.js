@@ -5,7 +5,6 @@ angular.module('hongjieApp').controller('SlideDialogController',
         function($scope, $stateParams, $modalInstance, entity, Slide, MenuPage, Upload, Ahdin) {
 
         $scope.slide = entity;
-        $scope.menupages = MenuPage.query();
         $scope.load = function(id) {
             Slide.get({id : id}, function(result) {
                 $scope.slide = result;

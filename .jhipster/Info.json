@@ -1,0 +1,43 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "qrCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "wechatSubscribeCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "wechatServiceCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "weboUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "qqUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "placeholder1",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "placeholder2",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160106070523",
+    "dto": "no",
+    "pagination": "pagination"
+}

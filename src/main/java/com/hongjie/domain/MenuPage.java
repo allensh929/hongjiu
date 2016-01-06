@@ -1,23 +1,17 @@
 package com.hongjie.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A MenuPage.
@@ -36,6 +30,15 @@ public class MenuPage implements Serializable {
 
     @Column(name = "url")
     private String url;
+    
+    @Column(name = "slide1")
+    private String slide1;
+    
+    @Column(name = "slide2")
+    private String slide2;
+    
+    @Column(name = "slide3")
+    private String slide3;
 
     @Column(name = "detail_info")
     private String detailInfo;
@@ -45,11 +48,6 @@ public class MenuPage implements Serializable {
     
     @Column(name = "order_tag")
     private String orderTag;
-
-    @OneToMany(mappedBy = "menuPage", cascade = { CascadeType.REMOVE })
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Slide> slides = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -83,6 +81,30 @@ public class MenuPage implements Serializable {
         this.url = url;
     }
 
+    public String getSlide1() {
+        return slide1;
+    }
+
+    public void setSlide1(String slide1) {
+        this.slide1 = slide1;
+    }
+    
+    public String getSlide2() {
+        return slide2;
+    }
+
+    public void setSlide2(String slide2) {
+        this.slide2 = slide2;
+    }
+    
+    public String getSlide3() {
+        return slide3;
+    }
+
+    public void setSlide3(String slide3) {
+        this.slide3 = slide3;
+    }
+    
     public String getDetailInfo() {
         return detailInfo;
     }
@@ -97,14 +119,6 @@ public class MenuPage implements Serializable {
 
     public void setActive(Boolean active) {
         this.active = active;
-    }
-
-    public Set<Slide> getSlides() {
-        return slides;
-    }
-
-    public void setSlides(Set<Slide> slides) {
-        this.slides = slides;
     }
 
     @Override

@@ -81,7 +81,6 @@ public class MenuPageResourceIntTest {
     public void initTest() {
         menuPage = new MenuPage();
         menuPage.setName(DEFAULT_NAME);
-        menuPage.setPageId(DEFAULT_PAGE_ID);
         menuPage.setUrl(DEFAULT_URL);
         menuPage.setDetailInfo(DEFAULT_DETAIL_INFO);
         menuPage.setActive(DEFAULT_ACTIVE);
@@ -104,7 +103,6 @@ public class MenuPageResourceIntTest {
         assertThat(menuPages).hasSize(databaseSizeBeforeCreate + 1);
         MenuPage testMenuPage = menuPages.get(menuPages.size() - 1);
         assertThat(testMenuPage.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testMenuPage.getPageId()).isEqualTo(DEFAULT_PAGE_ID);
         assertThat(testMenuPage.getUrl()).isEqualTo(DEFAULT_URL);
         assertThat(testMenuPage.getDetailInfo()).isEqualTo(DEFAULT_DETAIL_INFO);
         assertThat(testMenuPage.getActive()).isEqualTo(DEFAULT_ACTIVE);
@@ -164,7 +162,6 @@ public class MenuPageResourceIntTest {
 
         // Update the menuPage
         menuPage.setName(UPDATED_NAME);
-        menuPage.setPageId(UPDATED_PAGE_ID);
         menuPage.setUrl(UPDATED_URL);
         menuPage.setDetailInfo(UPDATED_DETAIL_INFO);
         menuPage.setActive(UPDATED_ACTIVE);
@@ -179,7 +176,6 @@ public class MenuPageResourceIntTest {
         assertThat(menuPages).hasSize(databaseSizeBeforeUpdate);
         MenuPage testMenuPage = menuPages.get(menuPages.size() - 1);
         assertThat(testMenuPage.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testMenuPage.getPageId()).isEqualTo(UPDATED_PAGE_ID);
         assertThat(testMenuPage.getUrl()).isEqualTo(UPDATED_URL);
         assertThat(testMenuPage.getDetailInfo()).isEqualTo(UPDATED_DETAIL_INFO);
         assertThat(testMenuPage.getActive()).isEqualTo(UPDATED_ACTIVE);
