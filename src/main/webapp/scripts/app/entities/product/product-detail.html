@@ -175,7 +175,7 @@
                     <span>Image</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:100px;width:100px" alt="wine"></span>
                 </td>
             </tr>
             <tr>
@@ -183,7 +183,7 @@
                     <span>Image Detail</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
                 </td>
             </tr>
             <tr>
@@ -191,9 +191,9 @@
                     <span>Image award</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
-                    <span class="form-control-static"><img ng-show="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="height:100px;width:100px" alt="wine"></span>
-                    <span class="form-control-static"><img ng-show="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="height:100px;width:100px" alt="wine"></span>
                 </td>
             </tr>
             <tr>

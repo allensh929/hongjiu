@@ -35,7 +35,7 @@
                     <td>{{gift.name}}</td>
                     <td>{{gift.title}}</td>
                     <td>{{gift.price}}</td>
-                    <td><img ng-show="gift.image != null" ng-src="/assets/images/upload/{{gift.image}}" style="height:80px;width:80px" alt="qr code"></td>
+                    <td><img ng-if="gift.image != null" ng-src="/assets/images/upload/{{gift.image}}" style="height:80px;width:80px" alt="qr code"></td>
                     <!--<td>{{gift.description}}</td>
                     <td>{{gift.detailInfo}}</td>-->
                     <td>{{gift.active}}</td>

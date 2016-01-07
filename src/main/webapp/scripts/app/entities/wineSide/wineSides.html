@@ -35,7 +35,7 @@
                     <td>{{wineSide.name}}</td>
                     <td>{{wineSide.title}}</td>
                     <td>{{wineSide.price}}</td>
-                    <td><img ng-show="wineSide。image != null" ng-src="/assets/images/upload/{{wineSide.image}}" style="height:80px;width:80px" alt="wine side"></td>
+                    <td><img ng-if="wineSide.image != null" ng-src="/assets/images/upload/{{wineSide.image}}" style="height:80px;width:80px" alt="wine side"></td>
                    <!-- <td>{{wineSide.description}}</td>
                     <td>{{wineSide.detailInfo}}</td>-->
                     <td>{{wineSide.active}}</td>

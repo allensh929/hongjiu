@@ -83,59 +83,12 @@ angular.module('hongjieApp').controller('ProductDialogController',
        	 	Ahdin.compress({
 	              sourceFile: uploadFile[0],
 	              maxWidth: 1280,
-	              maxHeight:800,
-	              quality: 0.7
+	              maxHeight:1000,
+	              quality: 0.8
 	          }).then(function(compressedBlob) {
 	        	  console.log('compressed image by ahdin.');
 	              uploadImageFile(compressedBlob);
 	          });
         };
         
-//        $scope.justPostIt = function (product) {
-//
-//            var successCallback = function(productId) {
-//
-//                angular.forEach($scope.files, function(file) {
-//
-//                    var uploadImageFile = function(compressedBlob) {
-//
-//                        Upload.upload({
-//
-//                            url: '/api/postImage',
-//                            fields: { productId: productId },
-//                            file: compressedBlob,
-//                            method: 'POST'
-//
-//                        }).progress(function (evt) {
-//
-//                            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-//                            console.log('progress: ' + progressPercentage + '% ');
-//
-//                        }).success(function (data, status, headers, config) {
-//
-//                            $rootScope.$emit('image-upload-success', {productId: productId, src: data.image});
-//
-//                        }).error(function (data, status, headers, config) {
-//
-//                            console.log('error status: ' + status);
-//                        });
-//                    };
-//
-//                    //TODO gif no compress
-//                    Ahdin.compress({
-//                        sourceFile: file,
-//                        maxWidth: 800,
-//                        maxHeight:800,
-//                        quality: 0.5
-//                    }).then(function(compressedBlob) {
-//
-//                        uploadImageFile(compressedBlob);
-//                    });
-//
-////                    $state.go('products');
-//                });
-//
-//            };
-//            Product.save($scope.product, successCallback);
-//        };
 }]);

@@ -29,9 +29,9 @@
             <tbody>
                 <tr ng-repeat="info in infos track by info.id">
                     <td><a ui-sref="info.detail({id:info.id})">{{info.id}}</a></td>
-                    <td><img ng-show="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:80px;width:80px" alt="qr code"></td>
-                    <td><img ng-show="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:80px;width:80px" alt="qr code"></td>
-                    <td><img ng-show="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:80px;width:80px" alt="qr code"></td>
+                    <td><img ng-if="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:80px;width:80px" alt="qr code"></td>
+                    <td><img ng-if="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:80px;width:80px" alt="qr code"></td>
+                    <td><img ng-if="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:80px;width:80px" alt="qr code"></td>
                     <td>{{info.weiboUrl}}</td>
                     <td>{{info.qqUrl}}</td>
                     <td>{{info.placeholder1}}</td>

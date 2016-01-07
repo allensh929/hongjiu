@@ -74,8 +74,8 @@ angular.module('hongjieApp').controller('InfoDialogController',
         	 Ahdin.compress({
 	              sourceFile: uploadFile[0],
 	              maxWidth: 1280,
-	              maxHeight:800,
-	              quality: 0.7
+	              maxHeight:1000,
+	              quality: 0.8
 	          }).then(function(compressedBlob) {
 	        	  console.log('compressed image by ahdin.');
 	              uploadImageFile(compressedBlob);

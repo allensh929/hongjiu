@@ -35,7 +35,7 @@
                     <td>{{product.price}}</td>
                         <td>{{product.produceDate | date:'mediumDate'}}</td>
                     <td>{{product.producer}}</td>
-                    <td> <img ng-show="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:80px;width:80px" alt="wine"></td>
+                    <td> <img ng-if="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:80px;width:80px" alt="wine"></td>
                     <td>{{product.favo}}</td>
                     <td>{{product.news}}</td>
                     <td>

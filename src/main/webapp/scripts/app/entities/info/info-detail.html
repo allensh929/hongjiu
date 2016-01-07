@@ -15,7 +15,7 @@
                     <span>QrCode</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                    <span class="form-control-static"><img ng-if="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:100px;width:100px" alt="qr code"></span>
                 </td>
             </tr>
             <tr>
@@ -23,7 +23,7 @@
                     <span>WechatSubscribeCode</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                    <span class="form-control-static"><img ng-if="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:100px;width:100px" alt="qr code"></span>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <span>WechatServiceCode</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-show="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:100px;width:100px" alt="qr code"></span>
+                    <span class="form-control-static"><img ng-if="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:100px;width:100px" alt="qr code"></span>
                 </td>
             </tr>
             <tr>
