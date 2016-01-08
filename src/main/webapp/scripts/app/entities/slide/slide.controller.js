@@ -27,6 +27,7 @@ angular.module('hongjieApp')
             $scope.slide = {
                 name: null,
                 url: null,
+                link: null,
                 description: null,
                 id: null
             };

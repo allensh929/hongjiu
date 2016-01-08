@@ -23,6 +23,9 @@ angular.module('hongjieApp')
     		
     	});
     	
+    	$scope.jump = function(link){
+    		window.location.href = link;
+    	}
         console.debug('FrontMainController end');
     }]);
 
@@ -60,15 +63,47 @@ angular.module('hongjieApp')
 		
 		var regions = [[]];
 		var index = 0;
+		var others =[];
 		for (var key in result){
+			if (key =="其他"){
+				others = result[key];
+				continue;
+			}
 			regions[index] = result[key];
 			index ++;
 			console.log("key" + key + ",value"+ result[key]); 
 		}
+		regions[index] = others;//其他放在最后显示
 		$scope.byregionsProducts = regions;
 	});
 	
     console.debug('FrontProductByRegionsController end');
+}]);
+
+angular.module('hongjieApp')
+.controller('FrontProductByVarietyController', ["$scope", "wineService", "Product", function ($scope, wineService, Product) {
+  
+	console.debug('FrontProductByVarietyController start');
+	
+	wineService.findByVarietyWines(function(result){
+		
+		var varietys = [[]];
+		var index = 0;
+		var others =[];
+		for (var key in result){
+			if (key =="其他"){
+				others = result[key];
+				continue;
+			}
+			varietys[index] = result[key];
+			index ++;
+			console.log("key" + key + ",value"+ result[key]); 
+		}
+		varietys[index] = others;//其他放在最后显示
+		$scope.byvarietyProducts = varietys;
+	});
+	
+    console.debug('FrontProductByVarietyController end');
 }]);
 
 angular.module('hongjieApp')
@@ -98,6 +133,63 @@ angular.module('hongjieApp')
     console.debug('FrontMenuPageController end');
 }]);
 
+angular.module('hongjieApp')
+.controller('FrontGiftController', ["$scope", "$stateParams", "Gift", function ($scope, $stateParams, Gift) {
+	
+	console.debug('FrontGiftController start');
+	Gift.get({id: $stateParams.id}, function(result) {
+         $scope.gift = result;
+     });    
+        
+    console.debug('FrontGiftController end');
+}]);
+
+angular.module('hongjieApp')
+.controller('FrontBrandStoryController', ["$scope", "$stateParams", "BrandStory", function ($scope, $stateParams, BrandStory) {
+	
+	console.debug('FrontBrandStoryController start');
+	BrandStory.get({id: $stateParams.id}, function(result) {
+         $scope.story = result;
+     });    
+        
+    console.debug('FrontBrandStoryController end');
+}]);
+
+angular.module('hongjieApp')
+.controller('FrontWineSideController', function ($scope, $state, $modal, WineSide) {
+	
+	console.debug('FrontWineSideController start');
+    $scope.sides = [];
+    $scope.page = 0;
+    $scope.loadAll = function() {
+    	WineSide.query(function(result, headers) {
+            $scope.sides = result;
+        });
+    };
+    $scope.loadPage = function(page) {
+        $scope.page = page;
+        $scope.loadAll();
+    };
+    $scope.loadAll();
+
+
+    $scope.refresh = function () {
+        $scope.loadAll();
+        $scope.clear();
+    };
+    console.debug('FrontWineSideController end');
+});
+
+angular.module('hongjieApp')
+.controller('FrontWineSideDetailController', ["$scope", "$stateParams", "WineSide", function ($scope, $stateParams, WineSide) {
+	
+	console.debug('FrontWineSideDetailController start');
+	WineSide.get({id: $stateParams.id}, function(result) {
+         $scope.side = result;
+     });    
+        
+    console.debug('FrontWineSideDetailController end');
+}]);
 
 angular.module('ui.bootstrap.carousel', [ 'ui.bootstrap.transition' ])
 		.controller(

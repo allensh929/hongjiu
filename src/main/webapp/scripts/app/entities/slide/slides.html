@@ -17,9 +17,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Url</th>
-                    <th>Description</th>
-                    <th>menuPage</th>
+                    <th>Link</th>
+                    <th>Url</th>                 
                     <th></th>
                 </tr>
             </thead>
@@ -27,11 +26,8 @@
                 <tr ng-repeat="slide in slides track by slide.id">
                     <td><a ui-sref="slide.detail({id:slide.id})">{{slide.id}}</a></td>
                     <td>{{slide.name}}</td>
-                    <td>{{slide.url}}</td>
-                    <td>{{slide.description}}</td>
-                    <td>
-                        <a ui-sref="menuPage.detail({id:slide.menuPage.id})">{{slide.menuPage.name}}</a>
-                    </td>
+                    <td>{{slide.link}}</td>
+                    <td>{{slide.url}}</td>                  
                     <td>
                         <button type="submit"
                                 ui-sref="slide.detail({id:slide.id})"

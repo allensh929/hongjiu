@@ -20,4 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	@Query("select p from Product AS p order by p.originCountry desc ")
 	public List<Product> findByRegionsProducts();
+	
+	@Query("select p from Product AS p order by p.variety desc ")
+	public List<Product> findByVarietyProducts();
 }

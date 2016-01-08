@@ -125,7 +125,7 @@ public class MenuPageResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<MenuPage>> getAllFavoProducts()
+    public ResponseEntity<List<MenuPage>> getAllActiveMenuPages()
         throws URISyntaxException {
         List<MenuPage> news = menuPageRepository.findAllActiveMenuPages();
         return new ResponseEntity<>(news, HttpStatus.OK);

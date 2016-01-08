@@ -1,0 +1,44 @@
+
+<div class="container">
+	<div ng-cloak>
+		
+		<BR>
+		<div class="row">
+	        <div class="col-md-4">
+	            <div class="hj-h1"> 礼品  Gift</div>
+	        </div>
+	        <div class="col-md-8">
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-md-6">
+	            <div class="hj-p-d-container"> 
+	            	<img class="hj-wine-img1" ng-if="gift.image !=''" ng-src="/assets/images/upload/{{gift.image}}" style="maxWidth:470px;MaxHeiht:640px"  alt="wine">
+	            </div>
+	        </div>
+	        <div class="col-md-6">
+	        	<div class="hj-p-d-container">
+	        		<div class="hj-p-d-margin-5 hj-h2">{{gift.name}}</div>
+	        		<div class="hj-p-d-margin-5 hj-h2">RMB: {{gift.price}}</div>
+	        		<div class="" ng-bind-html="gift.description|trustHtml"></div>
+	        	</div>
+	        </div>
+	    </div>
+	    
+	    
+	    
+	    <div class="row">
+	       	<div class="col-md-4">
+	            <div class="hj-h2"> 礼品详情</div>
+	        </div>
+	        <div class="col-md-8">
+	        </div>
+	    </div>
+	    <div class="row">
+	       	<div class="col-md-12">
+	         	<div class="" ng-bind-html="gift.detailInfo|trustHtml"></div>
+	        </div>
+	    </div>
+	    
+	</div>
+</div>

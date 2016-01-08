@@ -97,21 +97,28 @@
 
 .hj-h1{
   margin-top:25px;
+  margin-bottom:20px;
   font-weight: bold;
   font-size:18px;
+}
+
+.hj-bread{
+  margin-top:25px;
+  margin-bottom:20px;
+  font-size:12px;
 }
 
 .hj-h2{
   margin-top:15px;
   font-weight: bold;
   font-size:16px;
-  font-family:"������ͤ�к�";
+  font-family:"SimSun";
 }
 
 .hj-h3{
   font-weight: normal;
   font-size:16px;
-  font-family:"������ͤ�к�";
+  font-family:"SimSun";
 }
 
 .hj-wine-img1{

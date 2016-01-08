@@ -48,22 +48,20 @@
 								<li><a ui-sref="product.all">所有商品 ALL WINE</a></li>
 								<li><a ui-sref="product.byRegions">按地域 BY REGIONS</a></li>
 								<li>		按场合 BY OCCASION		</li>
-								<li>		按品种 BY SPECIES		</li>
+								<li><a ui-sref="product.byVariety">按品种 BY SPECIES</a></li>
 							</ul>
 						</li>
                         <li ui-sref-active="active">
 							精美礼品 GIFT
 							<ul>
-								<li>		定制礼袋 CUSTOM BAGS		</li>
-								<li>		定制礼盒 CUSTOM BOXES		</li>
-								<li>		定制礼品卡 CUSTOM CARDS		</li>
-								<li>		葡萄酒周边配件 PERIPHERAL PRODUCTS		</li>
+								<li ng-repeat="gift in GIFTS"><a ui-sref="gift.fdetail({id:gift.id})">{{gift.name}}</a></li>								
+								<li><a ui-sref="wineSide.all">葡萄酒周边配件 PERIPHERAL PRODUCTS</a></li>
 							</ul>
 						</li>
                         <li ui-sref-active="active">
 							品牌故事 BRAND STORY
 							<ul>
-								<li>		努力鸿杰人		</li>
+								<li ng-repeat="story in STORYS"><a ui-sref="brandStory.fdetail({id:story.id})">{{story.name}}</a></li>
 							</ul>
 						</li>
                     </ul>

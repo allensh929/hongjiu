@@ -14,3 +14,16 @@ angular.module('hongjieApp')
             'update': { method:'PUT' }
         });
     });
+
+angular.module('hongjieApp')
+.factory('BrandStoryExt', function ($http) {
+	console.debug('load BrandStoryExt service');
+	  return {
+          findAllActiveStorys: function (done) {
+          	console.debug('findAllActiveStorys');
+              return $http.get('api/brandStorys/active').then(function (response) {
+                  return done(response.data);
+              });
+          }
+      };
+});

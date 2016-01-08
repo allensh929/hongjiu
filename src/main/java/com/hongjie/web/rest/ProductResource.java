@@ -149,7 +149,7 @@ public class ProductResource {
     }
     
     /**
-     * GET  /products -> get all the products.
+     * GET  /products -> get all the products by regions.
      */
     @RequestMapping(value = "/products/byregions",
         method = RequestMethod.GET,
@@ -163,7 +163,7 @@ public class ProductResource {
         if(products!= null && products.size() > 0){
         	for(Product p : products){
         		if (StringUtils.isEmpty(p.getOriginCountry())){
-    				p.setOriginCountry("others");
+    				p.setOriginCountry("其他");
     			}
         		if (!result.containsKey(p.getOriginCountry())){
         			List<Product> list = new ArrayList<Product>();
@@ -171,6 +171,37 @@ public class ProductResource {
         			result.put(p.getOriginCountry(), list);
         		}else{
         			List<Product> list = result.get(p.getOriginCountry());
+        			list.add(p);
+        		}
+        	}
+        }
+        
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    
+    /**
+     * GET  /products -> get all the products by variety.
+     */
+    @RequestMapping(value = "/products/byvariety",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Map<String,List<Product>>> getByVarietyProducts()
+        throws URISyntaxException {
+        List<Product> products = productRepository.findByVarietyProducts();
+        Map<String,List<Product>> result = new HashMap<String,List<Product>>();
+        
+        if(products!= null && products.size() > 0){
+        	for(Product p : products){
+        		if (StringUtils.isEmpty(p.getVariety())){
+    				p.setVariety("其他");
+    			}
+        		if (!result.containsKey(p.getVariety())){
+        			List<Product> list = new ArrayList<Product>();
+        			list.add(p);
+        			result.put(p.getVariety(), list);
+        		}else{
+        			List<Product> list = result.get(p.getVariety());
         			list.add(p);
         		}
         	}

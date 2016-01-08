@@ -3,7 +3,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
@@ -12,30 +12,54 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.slideStyle1 = '';
         $rootScope.slideStyle2 = '';
         $rootScope.slideStyle3 = '';
+        $rootScope.slideLink1 = '#';
+        $rootScope.slideLink2 = '#';
+        $rootScope.slideLink3 = '#';
         
         MenuPageExt.findAllActiveMenuPage(function(result){
         	
         	$rootScope.MENUS = result;
         	console.debug('menus:' + $rootScope.MENUS.length);
-        	
-            Slide.query(function(result){
-    	    	$rootScope.HOME_SLIDES = result;
-    	    	if (result.length > 0){
-    	    		$rootScope.slideStyle1= {'background': 'url(/assets/images/upload/'+result[0].url+') center'};
-    	    	}
-    	    	if (result.length > 1){
-    	    		$rootScope.slideStyle2= {'background': 'url(/assets/images/upload/'+result[1].url+') center'};
-    	    	}
-    	    	if (result.length > 2){
-    	    		$rootScope.slideStyle3= {'background': 'url(/assets/images/upload/'+result[2].url+') center'};
-    	    	}
-    	    	
-    	    	console.debug('home slides:' + $rootScope.HOME_SLIDES.length);
-    	    });
     	});
         
+        Slide.query(function(result){
+	    	$rootScope.HOME_SLIDES = result;
+	    	if (result.length > 0){
+	    		$rootScope.slideStyle1= {'background': 'url(/assets/images/upload/'+result[0].url+') center'};
+	    		if (result[0].link != null){
+	    			$rootScope.slideLink1 = result[0].link;
+	    		}
+	    		
+	    	}
+	    	if (result.length > 1){
+	    		$rootScope.slideStyle2= {'background': 'url(/assets/images/upload/'+result[1].url+') center'};
+	    		if (result[1].link != null){
+	    			$rootScope.slideLink2 = result[1].link;
+	    		}
+	    	}
+	    	if (result.length > 2){
+	    		if (result[2].url == null){
+	    			result[2].url = result[0].url;
+	    		}
+	    		$rootScope.slideStyle3= {'background': 'url(/assets/images/upload/'+result[2].url+') center'};
+	    		if (result[2].link != null){
+	    			$rootScope.slideLink3 = result[2].link;
+	    		}
+	    	}
+	    	
+	    	console.debug('home slides:' + $rootScope.HOME_SLIDES.length);
+	    });
         
+        GiftExt.findAllActiveGifts(function(result){
+        	$rootScope.GIFTS = result;
+        	console.debug('gifts:' + $rootScope.GIFTS.length);
+        });
         
+        BrandStoryExt.findAllActiveStorys(function(result){
+        	
+        	$rootScope.STORYS = result;
+        	console.debug('storys:' + $rootScope.STORYS.length);
+    	});
 //        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
 //            $rootScope.toState = toState;
 //            $rootScope.toStateParams = toStateParams;

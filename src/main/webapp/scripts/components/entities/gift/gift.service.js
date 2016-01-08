@@ -14,3 +14,16 @@ angular.module('hongjieApp')
             'update': { method:'PUT' }
         });
     });
+
+angular.module('hongjieApp')
+.factory('GiftExt', function ($http) {
+	console.debug('load GiftExt service');
+	  return {
+          findAllActiveGifts: function (done) {
+          	console.debug('findAllActiveGifts');
+              return $http.get('api/gifts/active').then(function (response) {
+                  return done(response.data);
+              });
+          }
+      };
+})

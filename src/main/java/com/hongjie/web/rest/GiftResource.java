@@ -2,6 +2,7 @@ package com.hongjie.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.hongjie.domain.Gift;
+import com.hongjie.domain.MenuPage;
 import com.hongjie.repository.GiftRepository;
 import com.hongjie.web.rest.util.HeaderUtil;
 import com.hongjie.web.rest.util.PaginationUtil;
@@ -110,5 +111,18 @@ public class GiftResource {
         log.debug("REST request to delete Gift : {}", id);
         giftRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("gift", id.toString())).build();
+    }
+    
+    /**
+     * GET  /gifts/active -> get all the active gifts.
+     */
+    @RequestMapping(value = "/gifts/active",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Gift>> getAllActiveGifts()
+        throws URISyntaxException {
+        List<Gift> news = giftRepository.findAllActiveGifts();
+        return new ResponseEntity<>(news, HttpStatus.OK);
     }
 }

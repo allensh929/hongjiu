@@ -26,6 +26,9 @@ public class Slide implements Serializable {
 
     @Column(name = "url")
     private String url;
+    
+    @Column(name = "link")
+    private String link;
 
     @Column(name = "description")
     private String description;
@@ -54,7 +57,15 @@ public class Slide implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
+    
+    public void setLink(String link) {
+        this.link = link;
+    }
 
+    public String getLink() {
+        return link;
+    }
+    
     public String getDescription() {
         return description;
     }
