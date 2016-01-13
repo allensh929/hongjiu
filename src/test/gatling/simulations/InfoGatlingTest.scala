@@ -67,7 +67,7 @@ class InfoGatlingTest extends Simulation {
             .exec(http("Create new info")
             .post("/api/infos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "qrCode":"SAMPLE_TEXT", "wechatSubscribeCode":"SAMPLE_TEXT", "wechatServiceCode":"SAMPLE_TEXT", "weboUrl":"SAMPLE_TEXT", "qqUrl":"SAMPLE_TEXT", "placeholder1":"SAMPLE_TEXT", "placeholder2":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "qrCode":"SAMPLE_TEXT", "wechatSubscribeCode":"SAMPLE_TEXT", "wechatServiceCode":"SAMPLE_TEXT", "weiboUrl":"SAMPLE_TEXT", "qqUrl":"SAMPLE_TEXT", "placeholder1":"SAMPLE_TEXT", "placeholder2":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_info_url")))
             .pause(10)

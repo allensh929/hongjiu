@@ -6,7 +6,7 @@
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4 hj-footer-2code">
-				<a class="" href="#/"><img ng-src="/assets/images/2code.png"></a>
+				<a class="" href="#/"><img ng-if="info.qrCode!=null" ng-src="/assets/images/upload/{{info.qrCode}}"></a>
 				<img ng-src="/assets/images/line.png">
 				<a class="" href="#/"><img ng-src="/assets/images/logo2.png"></a>
 			</div>
@@ -18,7 +18,7 @@
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4 footer-a">
-				<a href="/">网站首页 </a>&nbsp;|&nbsp;<a href="/">关于我们</a>&nbsp;|&nbsp;<a href="/">联系我们</a>
+				<a href="/">网站首页 </a>|<ul style="display:inline;padding-left:5px;"><li ng-repeat="story in STORYS" style="display:inline;"><a ui-sref="brandStory.fdetail({id:story.id})">{{story.name}}</a>&nbsp;|&nbsp;</li></ul>
 				<br><br>
 				©2015 HONGJIE, ALL RIGHTS RESERVED | 0411-84782267
 			</div>

@@ -72,12 +72,12 @@ public class Info implements Serializable {
         this.wechatServiceCode = wechatServiceCode;
     }
 
-    public String getWeboUrl() {
+    public String getWeiboUrl() {
         return weiboUrl;
     }
 
-    public void setWeboUrl(String weboUrl) {
-        this.weiboUrl = weboUrl;
+    public void setWeiboUrl(String weiboUrl) {
+        this.weiboUrl = weiboUrl;
     }
 
     public String getQqUrl() {
@@ -132,7 +132,7 @@ public class Info implements Serializable {
             ", qrCode='" + qrCode + "'" +
             ", wechatSubscribeCode='" + wechatSubscribeCode + "'" +
             ", wechatServiceCode='" + wechatServiceCode + "'" +
-            ", weboUrl='" + weiboUrl + "'" +
+            ", weiboUrl='" + weiboUrl + "'" +
             ", qqUrl='" + qqUrl + "'" +
             ", placeholder1='" + placeholder1 + "'" +
             ", placeholder2='" + placeholder2 + "'" +

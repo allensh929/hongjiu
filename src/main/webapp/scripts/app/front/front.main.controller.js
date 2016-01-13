@@ -107,16 +107,19 @@ angular.module('hongjieApp')
 }]);
 
 angular.module('hongjieApp')
-.controller('FrontProductDetailController', ["$scope", "$rootScope", "$stateParams", "entity", "Product", "Xref", "wineService", function ($scope, $rootScope, $stateParams, entity, Product, Xref, wineService) {
+.controller('FrontProductDetailController', ["$scope", "$rootScope", "$stateParams", "Product", "Xref", "wineService", function ($scope, $rootScope, $stateParams, Product, Xref, wineService) {
 	
 	console.debug('FrontProductDetailController start');
-    $scope.product = entity;
+    Product.get({id: $stateParams.id}, function(result) {
+        $scope.product = result;
+        if ($scope.product != null){
+        	jiathis_config.title = $scope.product.title;
+        	jiathis_config.summary = $scope.product.descriptionTitle;
+        	jiathis_config.pic = $rootScope.PHOTOBASEURL + $scope.product.image1;
+        	
+        } 
+    });    
     
-    if ($scope.product.image1 != null){
-    	window._bd_share_config.common.bdText = $scope.product.title;
-    	window._bd_share_config.common.bdDesc = $scope.product.description;
-    	window._bd_share_config.common.bdPic = $rootScope.PHOTOBASEURL + $scope.product.image1;
-    }
     wineService.getProductRelatesByProductId($stateParams.id, function (result){
     	$scope.relates = result;
     	console.debug('relates size:'+result.length);

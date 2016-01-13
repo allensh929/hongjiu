@@ -1,10 +1,10 @@
 'use strict';
-var share_image_url = "22";
+
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt, Info) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
@@ -23,6 +23,12 @@ angular.module('hongjieApp', ['LocalStorageModule',
         	console.debug('menus:' + $rootScope.MENUS.length);
     	});
         
+        Info.query(function(result){
+        	if (result.length > 0){
+        		$rootScope.info = result[0];
+        		console.debug('SINAURL:' + $rootScope.info.weiboUrl);
+        	}
+        });
         Slide.query(function(result){
 	    	$rootScope.HOME_SLIDES = result;
 	    	if (result.length > 0){

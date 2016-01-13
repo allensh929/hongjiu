@@ -85,7 +85,7 @@ public class InfoResourceIntTest {
         info.setQrCode(DEFAULT_QR_CODE);
         info.setWechatSubscribeCode(DEFAULT_WECHAT_SUBSCRIBE_CODE);
         info.setWechatServiceCode(DEFAULT_WECHAT_SERVICE_CODE);
-        info.setWeboUrl(DEFAULT_WEBO_URL);
+        info.setWeiboUrl(DEFAULT_WEBO_URL);
         info.setQqUrl(DEFAULT_QQ_URL);
         info.setPlaceholder1(DEFAULT_PLACEHOLDER1);
         info.setPlaceholder2(DEFAULT_PLACEHOLDER2);
@@ -110,7 +110,7 @@ public class InfoResourceIntTest {
         assertThat(testInfo.getQrCode()).isEqualTo(DEFAULT_QR_CODE);
         assertThat(testInfo.getWechatSubscribeCode()).isEqualTo(DEFAULT_WECHAT_SUBSCRIBE_CODE);
         assertThat(testInfo.getWechatServiceCode()).isEqualTo(DEFAULT_WECHAT_SERVICE_CODE);
-        assertThat(testInfo.getWeboUrl()).isEqualTo(DEFAULT_WEBO_URL);
+        assertThat(testInfo.getWeiboUrl()).isEqualTo(DEFAULT_WEBO_URL);
         assertThat(testInfo.getQqUrl()).isEqualTo(DEFAULT_QQ_URL);
         assertThat(testInfo.getPlaceholder1()).isEqualTo(DEFAULT_PLACEHOLDER1);
         assertThat(testInfo.getPlaceholder2()).isEqualTo(DEFAULT_PLACEHOLDER2);
@@ -130,7 +130,7 @@ public class InfoResourceIntTest {
                 .andExpect(jsonPath("$.[*].qrCode").value(hasItem(DEFAULT_QR_CODE.toString())))
                 .andExpect(jsonPath("$.[*].wechatSubscribeCode").value(hasItem(DEFAULT_WECHAT_SUBSCRIBE_CODE.toString())))
                 .andExpect(jsonPath("$.[*].wechatServiceCode").value(hasItem(DEFAULT_WECHAT_SERVICE_CODE.toString())))
-                .andExpect(jsonPath("$.[*].weboUrl").value(hasItem(DEFAULT_WEBO_URL.toString())))
+                .andExpect(jsonPath("$.[*].weiboUrl").value(hasItem(DEFAULT_WEBO_URL.toString())))
                 .andExpect(jsonPath("$.[*].qqUrl").value(hasItem(DEFAULT_QQ_URL.toString())))
                 .andExpect(jsonPath("$.[*].placeholder1").value(hasItem(DEFAULT_PLACEHOLDER1.toString())))
                 .andExpect(jsonPath("$.[*].placeholder2").value(hasItem(DEFAULT_PLACEHOLDER2.toString())));
@@ -150,7 +150,7 @@ public class InfoResourceIntTest {
             .andExpect(jsonPath("$.qrCode").value(DEFAULT_QR_CODE.toString()))
             .andExpect(jsonPath("$.wechatSubscribeCode").value(DEFAULT_WECHAT_SUBSCRIBE_CODE.toString()))
             .andExpect(jsonPath("$.wechatServiceCode").value(DEFAULT_WECHAT_SERVICE_CODE.toString()))
-            .andExpect(jsonPath("$.weboUrl").value(DEFAULT_WEBO_URL.toString()))
+            .andExpect(jsonPath("$.weiboUrl").value(DEFAULT_WEBO_URL.toString()))
             .andExpect(jsonPath("$.qqUrl").value(DEFAULT_QQ_URL.toString()))
             .andExpect(jsonPath("$.placeholder1").value(DEFAULT_PLACEHOLDER1.toString()))
             .andExpect(jsonPath("$.placeholder2").value(DEFAULT_PLACEHOLDER2.toString()));
@@ -176,7 +176,7 @@ public class InfoResourceIntTest {
         info.setQrCode(UPDATED_QR_CODE);
         info.setWechatSubscribeCode(UPDATED_WECHAT_SUBSCRIBE_CODE);
         info.setWechatServiceCode(UPDATED_WECHAT_SERVICE_CODE);
-        info.setWeboUrl(UPDATED_WEBO_URL);
+        info.setWeiboUrl(UPDATED_WEBO_URL);
         info.setQqUrl(UPDATED_QQ_URL);
         info.setPlaceholder1(UPDATED_PLACEHOLDER1);
         info.setPlaceholder2(UPDATED_PLACEHOLDER2);
@@ -193,7 +193,7 @@ public class InfoResourceIntTest {
         assertThat(testInfo.getQrCode()).isEqualTo(UPDATED_QR_CODE);
         assertThat(testInfo.getWechatSubscribeCode()).isEqualTo(UPDATED_WECHAT_SUBSCRIBE_CODE);
         assertThat(testInfo.getWechatServiceCode()).isEqualTo(UPDATED_WECHAT_SERVICE_CODE);
-        assertThat(testInfo.getWeboUrl()).isEqualTo(UPDATED_WEBO_URL);
+        assertThat(testInfo.getWeiboUrl()).isEqualTo(UPDATED_WEBO_URL);
         assertThat(testInfo.getQqUrl()).isEqualTo(UPDATED_QQ_URL);
         assertThat(testInfo.getPlaceholder1()).isEqualTo(UPDATED_PLACEHOLDER1);
         assertThat(testInfo.getPlaceholder2()).isEqualTo(UPDATED_PLACEHOLDER2);

@@ -1,20 +1,23 @@
 
+<div class=" hj-container_boder">
+	<div class="container ">
+		<div class="row">
+		        <div class="col-md-4">
+		            <div class="hj-h1"> 所有商品</div>
+		        </div>
+		        <div class="col-md-4"></div>
+		        <div class="col-md-4 hj-bread">
+		        	<a ui-sref="product.byRegions">按地域 BY REGIONS</a> &nbsp;>&nbsp;
+	        		<a ui-sref="product.byVariety">按品种 BY SPECIES</a>
+		        </div>
+		    </div>
+	</div>
+</div>
+
 <div class="container">
 	<div ng-cloak>
 		
 		<BR>
-		<div class="row">
-	        <div class="col-md-4">
-	            <div class="hj-h1"> 所有商品</div>
-	        </div>
-	        <div class="col-md-4">
-	            <div class="hj-h1"></div>
-	        </div>
-	        <div class="col-md-4 hj-bread">
-	        	<a ui-sref="product.byRegions">按地域 BY REGIONS</a> &nbsp;>&nbsp;
-	        	<a ui-sref="product.byVariety">按品种 BY SPECIES</a>
-	        </div>
-	    </div>
 	    <div class="row">
 	        <div class="col-md-12" >
 	            <div class="col-md-3" ng-repeat="product in products">
