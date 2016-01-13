@@ -111,8 +111,15 @@ angular.module('hongjieApp')
 	
 	console.debug('FrontProductDetailController start');
     $scope.product = entity;
+    
+    if ($scope.product.image1 != null){
+    	window._bd_share_config.common.bdText = $scope.product.title;
+    	window._bd_share_config.common.bdDesc = $scope.product.description;
+    	window._bd_share_config.common.bdPic = $rootScope.PHOTOBASEURL + $scope.product.image1;
+    }
     wineService.getProductRelatesByProductId($stateParams.id, function (result){
     	$scope.relates = result;
+    	console.debug('relates size:'+result.length);
     });
         
     console.debug('FrontProductDetailController end');

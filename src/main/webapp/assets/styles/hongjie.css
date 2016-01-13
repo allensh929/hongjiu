@@ -4,6 +4,11 @@
     border: 1px solid transparent;
     background-color:#303030;
 }
+
+.hj-container_boder {
+    border-bottom: 1px solid #e7e7e7;
+}
+
 .hj-container {
 	background-color:#FFFFFF;
 	margin-bottom:0;
@@ -17,19 +22,20 @@
 	margin:10px 10px 10px 10px;
 }
 
-.hj-p-d-margin-15{
-	margin-left: 15px;
-	margin-top:15px;
+.hj-tb-margin-20{
+	margin-top:20px;
+	margin-bottom:20px;
 }
-.hj-p-d-margin-10{
-	margin-left: 10px;
-	margin-top:10px;
-}
-.hj-p-d-margin-5{
+
+
+.hj-tl-margin-5{
 	margin-left: 5px;
 	margin-top:5px;
 }
 
+.hj-t-margin-10{
+	margin-top:10px;
+}
 
 .hj-slide1 {
     background: url("../images/carousel-001.png") center;
@@ -206,4 +212,70 @@
 	background-color:#3B3B3B;
 	color:white;
 	display:inline-block;
+}
+
+
+.hj-p-title{
+  margin-top:15px;
+  font-weight: bold;
+  font-size:16px;
+  font-family: "方正兰亭中黑", SimHei;
+}
+
+.hj-p-name{
+  margin-top:5px;
+  font-weight: regular;
+  font-size:16px;
+  font-family:Microsoft YaHei;
+}
+.hj-p-price{
+  margin-top:15px;
+  font-weight: bold;
+  font-size:28px;
+  color:#d33618;
+  font-family:Microsoft YaHei;
+}
+
+.hj-p-dt{
+  margin-top:15px;
+  font-weight: bold;
+  font-size:14px;
+  color:#828282;
+  font-family:Microsoft YaHei;
+}
+
+.hj-p-d{
+  margin-top:10px;
+  font-weight: regular;
+  font-size:14px;
+  color:#828282;
+  font-family:Microsoft YaHei;
+}
+
+.hj-p-t1{
+  margin-top:5px;
+  margin-bottom:5px;
+  font-weight: regular;
+  font-size:16px;
+  color:#5a5a5a;
+  font-family:Microsoft YaHei;
+}
+
+.hj-p-rleate-t1{
+  margin-top:5px;
+  margin-bottom:5px;
+  font-weight: bold;
+  font-size:20px;
+  color:#000000;
+  font-family:Microsoft YaHei;
+}
+
+.hj-p-border{
+  border-style:solid; 
+  border-width:1px; 
+  border-color:#EDEDED;
+}
+
+.hj-p-b-border{
+  border-bottom:1px solid #EDEDED;
 }

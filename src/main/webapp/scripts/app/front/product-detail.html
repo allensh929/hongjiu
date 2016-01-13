@@ -1,100 +1,134 @@
 
+<div class=" hj-container_boder">
 <div class="container">
-	<div ng-cloak>
-		
-		<BR>
-		<div class="row">
+	<div class="row">
 	        <div class="col-md-4">
 	            <div class="hj-h1"> 商店 SHOP</div>
 	        </div>
 	        <div class="col-md-8">
 	        </div>
 	    </div>
+</div>
+</div>
+
+<div class="container">
+	<div ng-cloak>
+		
+		<BR>
+		
 	    <div class="row">
 	        <div class="col-md-6">
 	            <div class="hj-p-d-container"> 
-	            	<img class="hj-wine-img1" ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="width:470px;heiht:640px"  alt="wine">
+	            	<img id ="product_image1" class="hj-wine-img1" ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="width:470px;heiht:640px"  alt="wine">
 	            </div>
 	        </div>
 	        <div class="col-md-6">
 	        	<div class="hj-p-d-container">
-	        		<div class="hj-p-d-margin-5 hj-h2">{{product.title}}</div>
-	        		<div class="hj-p-d-margin-5 hj-h3">{{product.fullName}}</div>
-	        		<div class="hj-p-d-margin-5 hj-h2">RMB: {{product.price}}</div>
-	        		<div class="">
+	        		<div class="hj-tl-margin-5 hj-p-title">{{product.title}}</div>
+	        		<div class="hj-tl-margin-5 hj-p-name">{{product.fullName}}</div>
+	        		<div class="hj-tl-margin-5 hj-p-price">RMB: {{product.price}}</div>
+	        		<div class="hj-p-border">
 						<img class="hj-wine-img1" ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="width:115px;heiht:115px"  alt="wine">
 						<img class="hj-wine-img1" ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="width:115px;heiht:115px"  alt="wine">
 						<img class="hj-wine-img1" ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="width:115px;heiht:115px"  alt="wine">
 					</div>
+					<br>
+					<div class="hj-p-border">
+						<div class="hj-tl-margin-5 hj-p-dt">{{product.descriptionTitle}}</div>
+						<div class="hj-tl-margin-5 hj-p-d" ng-bind-html="product.description|trustHtml"></div>
+					</div>
 					
-					<div class="hj-p-d-margin-5 hj-h2">{{product.descriptionTitle}}</div>
-					<div class="hj-p-d-margin-5 hj-h3">{{product.description}}</div>
 					
 					<hr>
-					<div class="hj-p-d-margin-5 hj-h3">{{product.jdurl}}</div>
-					<div class="hj-p-d-margin-5 hj-h3"><a href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=895033136',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','图片链接|默认为空','标题|默认当前页标题','内容链接|默认当前页location','页面编码gb2312|utf-8默认gb2312'));">分享至微博</a></div>
+					<div class="hj-tl-margin-5 hj-p-d">京东商城购买地址:&nbsp;<a ng-href="{{product.jdurl}}">{{product.jdurl}}</a></div>
+					<hr>
+					<div class="hj-tl-margin-5 hj-h3">
+					
+						<div class="bdsharebuttonbox" data-tag="share_1">
+							<a class="bds_weixin" data-cmd="weixin"></a>
+							<a class="bds_tsina" data-cmd="tsina"></a>
+							<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+							<a class="bds_tqq" data-cmd="tqq"></a>
+							<a class="bds_mshare" data-cmd="mshare"></a>
+							<a class="bds_more" data-cmd="more">更多</a>
+							<a class="bds_count" data-cmd="count"></a>
+						</div>
+					</div>
 	        	</div>
 	        </div>
 	    </div>
 	    
-	    <div class="row">
+	    <div class="row hj-p-border">
+	    	<div class="col-md-12">
+	    		<div class="row hj-p-b-border">
+			       	<div class="col-md-4">
+			            <div class="hj-p-t1"> 商品参数</div>
+			        </div>
+			        <div class="col-md-8">
+			        </div>
+			    </div>
+	    	
+	    		<div class="hj-tb-margin-15 hj-tb-margin-20">
+		    		<div class="row hj-t-margin-10">
+				       	<div class="col-md-4">
+				         	<span>商品名称:</span>{{product.fullName}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>类型:</span>{{product.types}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>葡萄品种:</span>{{product.variety}}
+				        </div>
+				    </div>
+				    <div class="row hj-t-margin-10">
+				       	<div class="col-md-4">
+				         	<span>商品毛重:</span>{{product.weight}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>葡萄采摘年份:</span>{{product.pickYear}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>产区:</span>{{product.zone}}
+				        </div>
+				    </div>
+				    <div class="row hj-t-margin-10">
+				       	<div class="col-md-4">
+				         	<span>生产商:</span>{{product.producer}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>酒精度:</span>{{product.alcohol}}
+				        </div>
+				        <div class="col-md-4">
+				         	<span>醒酒时间:</span>{{product.wakeupTime}}
+				        </div>
+				    </div>
+				 </div>
+	    	</div>
+	    
+	    </div>
+	    
+	    
+	    <br>
+	    <br>
+	    
+	    <div class="row hj-p-border">
 	       	<div class="col-md-4">
-	            <div class="hj-h2"> 商品参数</div>
+	            <div class="hj-p-t1"> 商品详情</div>
 	        </div>
 	        <div class="col-md-8">
 	        </div>
 	    </div>
-	    <div class="row">
-	       	<div class="col-md-4">
-	         	<span>商品名称:</span>{{product.fullName}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>类型:</span>{{product.types}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>葡萄品种:</span>{{product.variety}}
-	        </div>
-	    </div>
-	    <div class="row">
-	       	<div class="col-md-4">
-	         	<span>商品毛重:</span>{{product.weight}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>葡萄采摘年份:</span>{{product.pickYear}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>产区:</span>{{product.zone}}
-	        </div>
-	    </div>
-	    <div class="row">
-	       	<div class="col-md-4">
-	         	<span>生产商:</span>{{product.producer}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>酒精度:</span>{{product.alcohol}}
-	        </div>
-	        <div class="col-md-4">
-	         	<span>醒酒时间:</span>{{product.wakeupTime}}
-	        </div>
-	    </div>
-	    
-	    
-	    <div class="row">
-	       	<div class="col-md-4">
-	            <div class="hj-h2"> 商品详情</div>
-	        </div>
-	        <div class="col-md-8">
-	        </div>
-	    </div>
-	    <div class="row">
+	    <div class="row hj-p-border">
 	       	<div class="col-md-12">
 	         	<div class="" ng-bind-html="product.detailInfo|trustHtml"></div>
 	        </div>
 	    </div>
 	    
+	    <br>
+	    <br>
 	    <div class="row">
 	       	<div class="col-md-4">
-	            <div class="hj-h2"> 相关产品推荐</div>
+	            <div class="hj-p-rleate-t1"> 相关产品推荐</div>
 	        </div>
 	        <div class="col-md-8">
 	        </div>
@@ -113,3 +147,37 @@
 	    </div>
 	</div>
 </div>
+
+<script>
+	
+	window._bd_share_config = {
+			common : {
+				bdText : '自定义分享内容',	
+				bdDesc : '自定义分享摘要',	
+				bdUrl : window.location.href, 	
+				bdPic : '自定义分享图片'
+			},
+			share : [{
+				"bdSize" : 16
+			}],
+			slide : [{	   
+				bdImg : 0,
+				bdPos : "right",
+				bdTop : 100
+			}],
+			image : [{
+				viewType : 'list',
+				viewPos : 'top',
+				viewColor : 'black',
+				viewSize : '16',
+				viewList : ['qzone','tsina','huaban','tqq','renren']
+			}],
+			selectShare : [{
+				"bdselectMiniList" : ['qzone','tqq','kaixin001','bdxc','tqf']
+			}]
+		}
+		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+	
+
+	
+</script>

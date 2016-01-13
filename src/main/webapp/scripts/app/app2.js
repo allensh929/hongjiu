@@ -1,4 +1,5 @@
 'use strict';
+var share_image_url = "22";
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
