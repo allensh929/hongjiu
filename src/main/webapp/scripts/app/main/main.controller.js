@@ -6,8 +6,11 @@ angular.module('hongjieApp')
         	console.debug("come to main controller");
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
+            
         });
     });
+
+
 
 angular.module('hongjieApp')
 .filter('trustHtml', function ($sce) {

@@ -287,6 +287,7 @@
 }
 
 .hj-p-border{
+  
   border-style:solid; 
   border-width:1px; 
   border-color:#EDEDED;
@@ -294,4 +295,13 @@
 
 .hj-p-b-border{
   border-bottom:1px solid #EDEDED;
+}
+.hj-qrcode{
+	width:500px;
+}
+.hj-qrcode > tooltip-inner{
+	max-width:500px !important;
+}
+.hj-p-active{
+	background-color:red;
 }

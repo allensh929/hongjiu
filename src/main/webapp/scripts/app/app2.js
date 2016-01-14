@@ -23,12 +23,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
         	console.debug('menus:' + $rootScope.MENUS.length);
     	});
         
-        Info.query(function(result){
-        	if (result.length > 0){
-        		$rootScope.info = result[0];
-        		console.debug('SINAURL:' + $rootScope.info.weiboUrl);
-        	}
-        });
+        
         Slide.query(function(result){
 	    	$rootScope.HOME_SLIDES = result;
 	    	if (result.length > 0){
