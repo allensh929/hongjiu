@@ -64,16 +64,22 @@ angular.module('hongjieApp')
 		var regions = [[]];
 		var index = 0;
 		var others =[];
+		$scope.showFlag = [];
+		$scope.toggleShowFlag = function(index){
+			$scope.showFlag[index] = !$scope.showFlag[index];
+		}
 		for (var key in result){
 			if (key =="其他"){
 				others = result[key];
 				continue;
 			}
 			regions[index] = result[key];
+			$scope.showFlag[index] = true;
 			index ++;
 			console.log("key" + key + ",value"+ result[key]); 
 		}
 		regions[index] = others;//其他放在最后显示
+		$scope.showFlag[index] = true;
 		$scope.byregionsProducts = regions;
 	});
 	
@@ -85,21 +91,29 @@ angular.module('hongjieApp')
   
 	console.debug('FrontProductByVarietyController start');
 	
+	$scope.toggleShowFlag = function(index){
+		$scope.showFlag[index] = !$scope.showFlag[index];
+	}
+	
 	wineService.findByVarietyWines(function(result){
 		
 		var varietys = [[]];
 		var index = 0;
 		var others =[];
+		$scope.showFlag = [];
 		for (var key in result){
 			if (key =="其他"){
 				others = result[key];
 				continue;
 			}
 			varietys[index] = result[key];
+			$scope.showFlag[index] = true;
 			index ++;
+			
 			console.log("key" + key + ",value"+ result[key]); 
 		}
 		varietys[index] = others;//其他放在最后显示
+		$scope.showFlag[index] = true;
 		$scope.byvarietyProducts = varietys;
 	});
 	
@@ -129,12 +143,13 @@ angular.module('hongjieApp')
 }]);
 
 angular.module('hongjieApp')
-.controller('FrontMenuPageController', ["$scope", "$rootScope", "$stateParams", function ($scope, $rootScope, $stateParams) {
+.controller('FrontMenuPageController', ["$scope", "$rootScope", "$state", "$stateParams", function ($scope, $rootScope, $state, $stateParams) {
 	
 	console.debug('FrontMenuPageController start');
 	for (var index in $rootScope.MENUS){
 		if ($stateParams.id == $rootScope.MENUS[index].id){
 			$scope.menuPage = $rootScope.MENUS[index];
+			$state.current.data.pageTitle = $scope.menuPage.name;
 			console.debug('the menu:' + $scope.menuPage.name);
 			break;
 		}

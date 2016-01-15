@@ -7,7 +7,8 @@ angular.module('hongjieApp')
                 parent: 'site',
                 url: '/',
                 data: {
-                    authorities: []
+                    authorities: [],
+            		pageTitle: '鸿杰酒业'
                 },
                 views: {
                     'front-content@': {
@@ -28,7 +29,7 @@ angular.module('hongjieApp')
                 url: 'front/product/{id}',
                 data: {
                    
-                    pageTitle: 'Product'
+                    pageTitle: '酒品详情'
                 },
                 views: {
                     'front-content@': {
@@ -37,9 +38,6 @@ angular.module('hongjieApp')
                     }
                 },
                 resolve: {
-                    entity: ['$stateParams', 'Product', function($stateParams, Product) {
-                        return Product.get({id : $stateParams.id});
-                    }]
                 }
             })
             .state('product.all', {
@@ -47,7 +45,7 @@ angular.module('hongjieApp')
                 url: 'front/products',
                 data: {
                    
-                    pageTitle: 'All Product'
+                    pageTitle: '所有商品'
                 },
                 views: {
                     'front-content@': {
@@ -64,7 +62,7 @@ angular.module('hongjieApp')
                 url: 'front/products/byregions',
                 data: {
                    
-                    pageTitle: 'All Product'
+                    pageTitle: '按地域'
                 },
                 views: {
                     'front-content@': {
@@ -81,7 +79,7 @@ angular.module('hongjieApp')
                 url: 'front/products/byvariety',
                 data: {
                    
-                    pageTitle: 'All Product'
+                    pageTitle: '按品种'
                 },
                 views: {
                     'front-content@': {
@@ -95,10 +93,9 @@ angular.module('hongjieApp')
             
             .state('menuPage.fdetail', {
                 parent: 'front-home',
-                url: 'front/menuPage/{id}',
-                data: {
-                   
-                    pageTitle: 'Menu page'
+                url: 'front/menuPage/:id',
+                data: {                   
+                    pageTitle: '鸿杰酒业'
                 },
                 views: {
                     'front-content@': {
@@ -115,7 +112,7 @@ angular.module('hongjieApp')
                 url: 'front/gift/{id}',
                 data: {
                    
-                    pageTitle: 'Gift page'
+                    pageTitle: '礼品'
                 },
                 views: {
                     'front-content@': {
@@ -132,7 +129,7 @@ angular.module('hongjieApp')
                 url: 'front/brandStroy/{id}',
                 data: {
                    
-                    pageTitle: 'Brand story page'
+                    pageTitle: '品牌故事'
                 },
                 views: {
                     'front-content@': {
@@ -149,7 +146,7 @@ angular.module('hongjieApp')
                 url: 'front/wineSides',
                 data: {
                    
-                    pageTitle: 'All wine side'
+                    pageTitle: '红酒周边'
                 },
                 views: {
                     'front-content@': {
@@ -166,7 +163,7 @@ angular.module('hongjieApp')
                 url: 'front/wineSide/{id}',
                 data: {
                    
-                    pageTitle: 'Wine side page'
+                    pageTitle: '周边产品'
                 },
                 views: {
                     'front-content@': {
