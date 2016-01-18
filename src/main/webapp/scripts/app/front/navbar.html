@@ -76,7 +76,10 @@
                     </a>
                 </li>
                 <li ng-class="active">
-                	<a href="#">         <span class="glyphicon glyphicon-search"></span>       </a>
+                	<div class="hj-t-margin-25">
+                		<input type="text" class="hj-search" id="searchInput" ng-model="searchInput" style="width:150px;" placeholder="搜索.." ng-hide="search" ng-keydown="enter($event);">
+                		<a href="#"  ng-click="search=!search">         <span class="glyphicon glyphicon-search"></span>       </a>
+                	</div>
                 </li>
             </ul>
         </div>

@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>名称</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{gift.name}}</span>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Title</span>
+                    <span>标题</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{gift.title}}</span>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Price</span>
+                    <span>价格</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{gift.price}}</span>
@@ -36,31 +36,35 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image</span>
+                    <span>图片</span>
                 </td>
                 <td>
                     <span class="form-control-static" ><img ng-if="gift.image != null" ng-src="/assets/images/upload/{{gift.image}}" style="height:100px;width:100px" alt="gift"></span>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span>Description</span>
+                <td colspan="2">
+                    <span>产品描述</span>
                 </td>
-                <td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <span class="form-control-static" ng-bind-html="gift.description|trustHtml"></span>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span>DetailInfo</span>
+                <td colspan="2">
+                    <span>详情描述</span>
                 </td>
-                <td>
+            </tr>
+             <tr>
+                <td colspan="2">
                     <span class="form-control-static" ng-bind-html="gift.detailInfo|trustHtml"></span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>Active</span>
+                    <span>启用</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{gift.active}}</span>
@@ -68,7 +72,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>OrderTag</span>
+                    <span>排序</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{gift.orderTag}}</span>
@@ -97,6 +101,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> 返回</span>
     </button>
 </div>

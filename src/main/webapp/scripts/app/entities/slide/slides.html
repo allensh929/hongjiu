@@ -1,11 +1,11 @@
 <div>
-    <h2>Slides</h2>
+    <h2>滚动播放图片</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="slide.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Slide</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>新建滚动播放图片</span>
                 </button>
             </div>
         </div>
@@ -16,9 +16,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Link</th>
-                    <th>Url</th>                 
+                    <th>名称</th>
+                    <th>超链接</th>
+                    <th>图片</th>                 
                     <th></th>
                 </tr>
             </thead>
@@ -27,22 +27,22 @@
                     <td><a ui-sref="slide.detail({id:slide.id})">{{slide.id}}</a></td>
                     <td>{{slide.name}}</td>
                     <td>{{slide.link}}</td>
-                    <td>{{slide.url}}</td>                  
+                    <td><img ng-if="slide.url !=null" ng-src="/assets/images/upload/{{slide.url}}" style="height:80px;width:120px" alt=""></td>               
                     <td>
                         <button type="submit"
                                 ui-sref="slide.detail({id:slide.id})"
                                 class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> 查看</span>
                         </button>
                         <button type="submit"
                                 ui-sref="slide.edit({id:slide.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> 编辑</span>
                         </button>
                         <button type="submit"
                                 ui-sref="slide.delete({id:slide.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> 删除</span>
                         </button>
                     </td>
                 </tr>

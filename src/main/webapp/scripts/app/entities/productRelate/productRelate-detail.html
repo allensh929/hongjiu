@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span>ProductRelate</span> {{productRelate.id}}</h2>
+    <h2><span>关联的红酒</span> </h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -12,15 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{productRelate.name}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>product</span>
+                    <span>红酒名称</span>
                 </td>
                 <td>
                     <a class="form-control-static" ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.name}}</a>
@@ -28,7 +20,7 @@
             </tr>
               <tr>
                 <td>
-                    <span>relate product</span>
+                    <span>关联红酒名称</span>
                 </td>
                 <td>
                     <a class="form-control-static" ui-sref="product.detail({id:productRelate.relateProduct.id})">{{productRelate.relateProduct.name}}</a>
@@ -41,6 +33,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> 返回</span>
     </button>
 </div>

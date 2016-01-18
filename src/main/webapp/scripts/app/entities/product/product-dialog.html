@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myProductLabel">Create or edit a Product</h4>
+        <h4 class="modal-title" id="myProductLabel">新建或编辑</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -14,154 +14,139 @@
                     ng-model="product.id" readonly />
         </div>
         <div class="form-group">
-            <label for="field_number">Number</label>
+            <label for="field_number">编号</label>
             <input type="text" class="form-control" name="number" id="field_number"
                     ng-model="product.number"
                      />
         </div>
         <div class="form-group">
-            <label for="field_title">Title</label>
+            <label for="field_title">产品标题</label>
             <input type="text" class="form-control" name="title" id="field_title"
                     ng-model="product.title"
                      />
         </div>
         <div class="form-group">
-            <label for="field_name">Name</label>
+            <label for="field_name">名称</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="product.name"
                      />
         </div>
         <div class="form-group">
-            <label for="field_full_name">Full Name</label>
+            <label for="field_full_name">全称</label>
             <input type="text" class="form-control" name="fullName" id="field_full_name"
                     ng-model="product.fullName"
                      />
         </div>
         <div class="form-group">
-            <label for="field_tag">Tag</label>
+            <label for="field_price">价格</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="product.price"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_tag">特色（比如：巧克力香气）</label>
             <input type="text" class="form-control" name="tag" id="field_tag"
                     ng-model="product.tag"
                      />
         </div>
         
         <div class="form-group">
-            <label for="field_types">types</label>
+            <label for="field_types">类型</label>
             <input type="text" class="form-control" name="types" id="field_types"
                     ng-model="product.types"
                      />
         </div>
         <div class="form-group">
-            <label for="field_variety">variety</label>
+            <label for="field_variety">葡萄品种</label>
             <input type="text" class="form-control" name="variety" id="field_variety"
                     ng-model="product.variety"
                      />
         </div>
         <div class="form-group">
-            <label for="field_level">level</label>
+            <label for="field_level">等级</label>
             <input type="text" class="form-control" name="level" id="field_level"
                     ng-model="product.level"
                      />
         </div>
         
         <div class="form-group">
-            <label for="field_origin_country">origin Country</label>
+            <label for="field_origin_country">原产国</label>
             <input type="text" class="form-control" name="origin_country" id="field_origin_country"
                     ng-model="product.originCountry"
                      />
         </div>
          <div class="form-group">
-            <label for="field_zone">zone</label>
+            <label for="field_zone">产区</label>
             <input type="text" class="form-control" name="zone" id="field_zone"
                     ng-model="product.zone"
                      />
         </div>
         <div class="form-group">
-            <label for="field_pick_year">pick year</label>
+            <label for="field_pick_year">采摘年份</label>
             <input type="text" class="form-control" name="pick_year" id="field_pick_year"
                     ng-model="product.pickYear"
                      />
         </div>
         <div class="form-group">
-            <label for="field_alcohol">alcohol</label>
+            <label for="field_alcohol">酒精度</label>
             <input type="text" class="form-control" name="alcohol" id="field_alcohol"
                     ng-model="product.alcohol"
                      />
         </div>
         <div class="form-group">
-            <label for="field_wakeup_time">wakeup Time</label>
+            <label for="field_wakeup_time">醒酒时间</label>
             <input type="text" class="form-control" name="wakeup_time" id="field_wakeup_time"
                     ng-model="product.wakeupTime"
                      />
         </div>        
         
+        
         <div class="form-group">
-            <label for="field_price">Price</label>
-            <input type="number" class="form-control" name="price" id="field_price"
-                    ng-model="product.price"
-                     />
-        </div>
-        <div class="form-group">
-            <label for="field_weight">weight</label>
+            <label for="field_weight">毛重</label>
             <input type="number" class="form-control" name="weight" id="field_weight"
                     ng-model="product.weight"
                      />
         </div>
+        
         <div class="form-group">
-            <label for="field_description_title">Description title</label>
-            <input type="text" class="form-control" name="description_title" id="field_description_title"
-                    ng-model="product.descriptionTitle"
-                     />
-        </div>
-        <div class="form-group">
-            <label for="field_description">Description</label><br>
-            <textarea name="description" id="field_description" rows="15" cols="100" ng-model="product.description" ckeditor>
-            </textarea>
-        </div>
-        <div class="form-group">
-            <label for="field_jdurl">JD url</label>
+            <label for="field_jdurl">京东链接</label>
             <input type="text" class="form-control" name="jdurl" id="field_jdurl"
                     ng-model="product.jdurl"
                      />
         </div>
         <div class="form-group">
-            <label for="field_produceDate">ProduceDate</label>
+            <label for="field_produceDate">生成日期</label>
             <input type="date" class="form-control" name="produceDate" id="field_produceDate"
                     ng-model="product.produceDate"
                      />
         </div>
         <div class="form-group">
-            <label for="field_producer">Producer</label>
+            <label for="field_producer">生产商</label>
             <input type="text" class="form-control" name="producer" id="field_producer"
                     ng-model="product.producer"
                      />
         </div>
- <!--        <div class="form-group">
-            <label for="field_image">Image</label>
-            <input type="text" class="form-control" name="image" id="field_image"
-                    ng-model="product.image" readonly = "true"
-                     />
-        </div>  -->
         
         <div class="form-group">
-            <label for="field_favorate">Favorate</label>
+            <label for="field_favorate">点赞 数量</label>
             <input type="text" class="form-control" name="favorate" id="field_favorate"
                     ng-model="product.favorate"
                      />
         </div>
         <div class="form-group">
-            <label for="field_favo">Favorate or not</label>
+            <label for="field_favo">赞不赞</label>
             <input type="checkbox" name="favo" ng-model="product.favo" ng-checked="product.favo" ng-disabled="false" id="field_favo"> 
         </div>
         <div class="form-group">
-            <label for="field_news">News</label>
+            <label for="field_news">是否新品</label>
             <input type="checkbox" name="news" ng-model="product.news" ng-checked="product.news" ng-disabled="false" id="field_news"> 
         </div>
         
         <div class="form-group">
 
-            <label for="field_upload">Upload image</label>
-			<input type="text" class="form-control" name="image" id="field_image"
-                    ng-model="product.image" />
+            <label for="field_upload">小图</label>
+			<!-- <input type="text" class="form-control" name="image" id="field_image"  ng-model="product.image" /> -->
+            <img ng-if="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:80px;width:80px" alt="wine">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(images, 'image')" ng-model="images" ngf-multiple="true">
                         <button >选择图片</button>
@@ -175,9 +160,9 @@
         
         <div class="form-group">
 
-            <label for="field_upload">Upload detail image</label>
-			<input type="text" class="form-control" name="image1" id="field_image1"
-                    ng-model="product.image1" />
+            <label for="field_upload">详情大图片</label>
+			<!--<input type="text" class="form-control" name="image1" id="field_image1" ng-model="product.image1" />-->
+			<img ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="height:80px;width:80px" alt="wine">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(image1s, 'imageDetail')" ng-model="image1s" ngf-multiple="true">
                         <button >选择图片</button>
@@ -190,9 +175,9 @@
         </div>
         <div class="form-group">
 
-            <label for="field_upload">Upload award1 image</label>
-			<input type="text" class="form-control" name="award1" id="field_award1"
-                    ng-model="product.award1" />
+            <label for="field_upload">获奖图片1</label>
+			<!--<input type="text" class="form-control" name="award1" id="field_award1" ng-model="product.award1" />-->
+			<img ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:80px;width:80px" alt="award1">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award1s, 'award1')" ng-model="award1s" ngf-multiple="true">
                         <button >选择图片</button>
@@ -205,9 +190,9 @@
         </div>
         <div class="form-group">
 
-            <label for="field_upload">Upload award2 image</label>
-			<input type="text" class="form-control" name="award2" id="field_award2"
-                    ng-model="product.award2" />
+            <label for="field_upload">获奖图片2</label>
+			<!--<input type="text" class="form-control" name="award2" id="field_award2" ng-model="product.award2" />-->
+			<img ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="height:80px;width:80px" alt="award2">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award2s, 'award2')" ng-model="award2s" ngf-multiple="true">
                         <button >选择图片</button>
@@ -220,9 +205,9 @@
         </div>
         <div class="form-group">
 
-            <label for="field_upload">Upload award3 image</label>
-			<input type="text" class="form-control" name="award3" id="field_award3"
-                    ng-model="product.award3" />
+            <label for="field_upload">获奖图片3</label>
+			<!--<input type="text" class="form-control" name="award3" id="field_award3" ng-model="product.award3" />-->
+			<img ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="height:80px;width:80px" alt="award3">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award3s, 'award3')" ng-model="award3s" ngf-multiple="true">
                         <button >选择图片</button>
@@ -233,7 +218,21 @@
             <br>
            
         </div>
+        <div class="form-group">
+            <label for="field_description_title">详情页 产品描述标题</label>
+            <input type="text" class="form-control" name="description_title" id="field_description_title"
+                    ng-model="product.descriptionTitle"
+                     />
+        </div>
+        
+        <div class="form-group">
+            <label for="field_description">详情页 产品描述 正文</label><br>
+            <textarea name="description" id="field_description" rows="15" cols="100" ng-model="product.description" ckeditor>
+            </textarea>
+        </div>
+        
 		<div class="form-group">
+			<label for="field_detail">详情内容</label>
 			<textarea name="detailInfo" id="detailInfo" rows="50" cols="100" ng-model="product.detailInfo" ckeditor>
                 This is my textarea to be replaced with CKEditor.
             </textarea>

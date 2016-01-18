@@ -56,7 +56,22 @@ angular.module('hongjieApp')
                 resolve: {
                 }
             })
-            
+            .state('product.search', {
+                parent: 'front-home',
+                url: 'front/products/search',
+                data: {
+                   
+                    pageTitle: '所有商品'
+                },
+                views: {
+                    'front-content@': {
+                        templateUrl: 'scripts/app/front/product-all.html',
+                        controller: 'FrontProductSearchController'
+                    }
+                },
+                resolve: {
+                }
+            })
             .state('product.byRegions', {
                 parent: 'front-home',
                 url: 'front/products/byregions',

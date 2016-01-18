@@ -1,11 +1,11 @@
 <div>
-    <h2>Products</h2>
+    <h2>红酒</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="product.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Product</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>新建红酒</span>
                 </button>
             </div>
         </div>
@@ -16,14 +16,13 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Number</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>ProduceDate</th>
-                    <th>Producer</th>
-                    <th>Image</th>
-                    <th>Favo</th>
-                    <th>News</th>
+                    <th>编号</th>
+                    <th>产品标题</th>
+                    <th>名称</th>
+                    <th>价格</th>
+                    <th>小图</th>
+                    <th>是否受欢迎</th>
+                    <th>是否新品</th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,10 +30,9 @@
                 <tr ng-repeat="product in products track by product.id">
                     <td><a ui-sref="product.detail({id:product.id})">{{product.id}}</a></td>
                     <td>{{product.number}}</td>
+                    <td>{{product.title}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
-                        <td>{{product.produceDate | date:'mediumDate'}}</td>
-                    <td>{{product.producer}}</td>
                     <td> <img ng-if="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:80px;width:80px" alt="wine"></td>
                     <td>{{product.favo}}</td>
                     <td>{{product.news}}</td>
@@ -42,17 +40,17 @@
                         <button type="submit"
                                 ui-sref="product.detail({id:product.id})"
                                 class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> 查看</span>
                         </button>
                         <button type="submit"
                                 ui-sref="product.edit({id:product.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> 编辑</span>
                         </button>
                         <button type="submit"
                                 ui-sref="product.delete({id:product.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> 删除</span>
                         </button>
                     </td>
                 </tr>

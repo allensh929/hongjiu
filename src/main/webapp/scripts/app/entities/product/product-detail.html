@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Number</span>
+                    <span>编号</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.number}}</span>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Title</span>
+                    <span>产品标题</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.title}}</span>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>名称</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.name}}</span>
@@ -36,95 +36,15 @@
             </tr>
             <tr>
                 <td>
-                    <span>Full Name</span>
+                    <span>全称</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.fullName}}</span>
                 </td>
             </tr>
-            <tr>
+             <tr>
                 <td>
-                    <span>Tag</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.tag}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>types</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.types}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>variety</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.variety}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>level</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.level}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>origin Country</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.originCountry}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>zone</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.zone}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>pickYear</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.pickYear}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>alcohol</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.alcohol}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>wakeupTime</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.wakeupTime}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>weight</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{product.weight}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Price</span>
+                    <span>价格</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.price}}</span>
@@ -132,23 +52,88 @@
             </tr>
             <tr>
                 <td>
-                    <span>Description title</span>
+                    <span>特色（比如：巧克力香气）</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{product.descriptionTitle}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Description</span>
-                </td>
-                <td>
-                    <span class="form-control-static" ng-bind-html="product.description|trustHtml"></span>
+                    <span class="form-control-static">{{product.tag}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>JD url</span>
+                    <span>类型</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.types}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>葡萄品种</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.variety}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>等级</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.level}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>原产国</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.originCountry}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>产区</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.zone}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>葡萄采摘年份</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.pickYear}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>酒精度</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.alcohol}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>醒酒时间</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.wakeupTime}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>毛重</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.weight}}</span>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <span>京东链接</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.jdurl}}</span>
@@ -156,7 +141,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>ProduceDate</span>
+                    <span>生产日期</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.produceDate | date:'mediumDate'}}</span>
@@ -164,7 +149,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Producer</span>
+                    <span>生产商</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.producer}}</span>
@@ -172,7 +157,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image</span>
+                    <span>小图</span>
                 </td>
                 <td>
                     <span class="form-control-static"><img ng-if="product.image != null" ng-src="/assets/images/upload/{{product.image}}" style="height:100px;width:100px" alt="wine"></span>
@@ -180,7 +165,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image Detail</span>
+                    <span>详情页 大图</span>
                 </td>
                 <td>
                     <span class="form-control-static"><img ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
@@ -188,7 +173,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image award</span>
+                    <span>获奖图片</span>
                 </td>
                 <td>
                     <span class="form-control-static"><img ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
@@ -198,7 +183,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Favorate</span>
+                    <span>点赞数量</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{product.favorate}}</span>
@@ -206,7 +191,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Favor or not</span>
+                    <span>是否受欢迎</span>
                 </td>
                 <td>
                     <span class="form-control-static"><input type="checkbox" name="favo" ng-model="product.favo" ng-checked="product.favo" ng-disabled="true" id="field_favo" readonly></span>
@@ -214,7 +199,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>News</span>
+                    <span>是否新品</span>
                 </td>
                 <td>
                     <span class="form-control-static"><input type="checkbox" name="news" ng-model="product.news" ng-checked="product.news" ng-disabled="true" id="field_news" readonly></span>
@@ -222,17 +207,55 @@
             </tr>
             <tr>
                 <td>
-                    <span>relates</span>
+                    <span>相关商品</span>
+                </td>
+                <td>
+                	<div class="table-responsive">
+				        <table class="table table-striped">
+				            <thead>
+				                <tr>
+				                    <th>ID</th>
+				                    <th>相关酒品名称</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr ng-repeat="productRelate in relates track by productRelate.id">
+				                    <td><a ui-sref="productRelate.detail({id:productRelate.id})">{{productRelate.id}}</a></td>
+				                    <td>
+				                        <a ui-sref="product.detail({id:productRelate.id})">{{productRelate.name}}</a>
+				                    </td>
+				                </tr>
+				            </tbody>
+				        </table>
+				    </div>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <span>详情页  产品描述标题</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{product.descriptionTitle}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>详情页 产品描述 正文</span>
+                </td>
+                <td>
+                    <span class="form-control-static" ng-bind-html="product.description|trustHtml"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>详情页  详情</span>
                 </td>
                 <td>
                 </td>
             </tr>
-            
             <tr>
-                <td>
-                    <span>detail info</span>
-                </td>
-                <td>
+                
+                <td colspan="2">
                     <span class="form-control-static" ng-bind-html="product.detailInfo|trustHtml"></span>
                     <!--  <textarea data-ng-model="product.detailInfo" ckeditor></textarea> -->
                 </td>
@@ -244,6 +267,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> 返回</span>
     </button>
 </div>

@@ -55,6 +55,32 @@ angular.module('hongjieApp')
 });
 
 angular.module('hongjieApp')
+.controller('FrontProductSearchController', ["$scope", "$rootScope", "$state", "$stateParams","ProductExt", function ($scope, $rootScope, $state, $stateParams, ProductExt)  {
+	
+	console.debug('FrontProductSearchController start');
+    $scope.products = [];
+    $scope.page = 0;
+    $scope.loadAll = function() {
+    	console.debug("$rootScope.searchInput:"+ $rootScope.searchInput);
+        ProductExt.getSearchProducts($rootScope.searchInput, function(result) {
+        	$scope.products = result;
+		});
+    };
+    $scope.loadPage = function(page) {
+        $scope.page = page;
+        $scope.loadAll();
+    };
+    $scope.loadAll();
+
+
+    $scope.refresh = function () {
+        $scope.loadAll();
+        $scope.clear();
+    };
+    console.debug('FrontProductSearchController end');
+}]);
+
+angular.module('hongjieApp')
 .controller('FrontProductByRegionsController', ["$scope", "wineService", "Product", function ($scope, wineService, Product) {
   
 	console.debug('FrontProductByRegionsController start');

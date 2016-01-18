@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myPhotoLabel">Create or edit a Photo</h4>
+        <h4 class="modal-title" id="myPhotoLabel">新建或编辑</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -14,17 +14,15 @@
                     ng-model="photo.id" readonly />
         </div>
         <div class="form-group">
-            <label for="field_name">Name</label>
+            <label for="field_name">名称</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="photo.name"
                      />
         </div>
         <div class="form-group">
 
-            <label for="field_url">Url</label>
-            <input type="text" class="form-control" name="url" id="field_url"
-                    ng-model="photo.url" readonly="true"
-                     />
+            <label for="field_url">图片</label>
+            <img ng-if="photo.url !=null" ng-src="/assets/images/upload/{{photo.url}}" style="height:80px;width:80px" alt="{{photo.name}}">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(urls)" ng-model="urls" ngf-multiple="false">
                         <button >选择图片</button>
@@ -36,7 +34,7 @@
            
         </div>
         <div class="form-group">
-            <label for="field_note">Note</label>
+            <label for="field_note">图片描述</label>
             <input type="text" class="form-control" name="note" id="field_note"
                     ng-model="photo.note"
                      />

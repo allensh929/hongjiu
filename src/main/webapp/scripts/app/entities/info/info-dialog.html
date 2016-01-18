@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myInfoLabel">Create or edit a Info</h4>
+        <h4 class="modal-title" id="myInfoLabel">新建或编辑</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -14,11 +14,8 @@
                     ng-model="info.id" readonly />
         </div>
         <div class="form-group">
-            <label for="field_qrCode">QrCode</label>
-            <input type="text" class="form-control" name="qrCode" id="field_qrCode"
-                    ng-model="info.qrCode"
-                     />
-                     
+            <label for="field_qrCode">首页页脚二维码</label>
+            <img ng-if="info.qrCode != null" ng-src="/assets/images/upload/{{info.qrCode}}" style="height:80px;width:80px" alt="qr code">
             <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(qrCodes, 'qrCode')" ng-model="qrCodes" ngf-multiple="true">
                         <button >选择图片</button>
@@ -29,10 +26,8 @@
             <br>
         </div>
         <div class="form-group">
-            <label for="field_wechatSubscribeCode">WechatSubscribeCode</label>
-            <input type="text" class="form-control" name="wechatSubscribeCode" id="field_wechatSubscribeCode"
-                    ng-model="info.wechatSubscribeCode"
-                     />
+            <label for="field_wechatSubscribeCode">微信订阅号二维码</label>
+            <img ng-if="info.wechatSubscribeCode != null" ng-src="/assets/images/upload/{{info.wechatSubscribeCode}}" style="height:80px;width:80px" alt="code">
             <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(wechatSubscribeCodes, 'subscribeCode')" ng-model="wechatSubscribeCodes" ngf-multiple="true">
                         <button >选择图片</button>
@@ -44,9 +39,7 @@
         </div>
         <div class="form-group">
             <label for="field_wechatServiceCode">WechatServiceCode</label>
-            <input type="text" class="form-control" name="wechatServiceCode" id="field_wechatServiceCode"
-                    ng-model="info.wechatServiceCode"
-                     />
+            <img ng-if="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:80px;width:80px" alt="code">
             <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(wechatServiceCodes, 'serviceCode')" ng-model="wechatServiceCodes" ngf-multiple="true">
                         <button >选择图片</button>
@@ -57,19 +50,19 @@
             <br>
         </div>
         <div class="form-group">
-            <label for="field_weiboUrl">WeiboUrl</label>
+            <label for="field_weiboUrl">微博 url</label>
             <input type="text" class="form-control" name="weiboUrl" id="field_weiboUrl"
                     ng-model="info.weiboUrl"
                      />
         </div>
         <div class="form-group">
-            <label for="field_qqUrl">QqUrl</label>
+            <label for="field_qqUrl">QQ url</label>
             <input type="text" class="form-control" name="qqUrl" id="field_qqUrl"
                     ng-model="info.qqUrl"
                      />
         </div>
         <div class="form-group">
-            <label for="field_placeholder1">Placeholder1</label>
+            <label for="field_placeholder1">copyright</label>
             <input type="text" class="form-control" name="placeholder1" id="field_placeholder1"
                     ng-model="info.placeholder1"
                      />

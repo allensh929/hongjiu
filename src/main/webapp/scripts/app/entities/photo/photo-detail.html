@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>名称</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{photo.name}}</span>
@@ -20,15 +20,15 @@
             </tr>
             <tr>
                 <td>
-                    <span>Url</span>
+                    <span>图片url</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{photo.url}}</span>
+                    <span class="form-control-static">{{photoBaseUrl}}{{photo.url}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>photo</span>
+                    <span>图片</span>
                 </td>
                 <td>
                     <span class="form-control-static">
@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Note</span>
+                    <span>图片描述</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{photo.note}}</span>
@@ -50,6 +50,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> 返回</span>
     </button>
 </div>

@@ -12,5 +12,5 @@ angular.module('hongjieApp')
             $scope.photo = result;
         });
         $scope.$on('$destroy', unsubscribe);
-
+        $scope.photoBaseUrl = $rootScope.PHOTOBASEURL;
     });

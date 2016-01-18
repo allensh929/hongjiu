@@ -1,11 +1,11 @@
 <div>
-    <h2>ProductRelates</h2>
+    <h2>相关联的红酒</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="productRelate.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new ProductRelate</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>新建红酒关联</span>
                 </button>
             </div>
         </div>
@@ -16,37 +16,35 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>product</th>
-                    <th>relate product</th>
+                    <th>红酒</th>
+                    <th>相关联的红酒</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="productRelate in productRelates track by productRelate.id">
                     <td><a ui-sref="productRelate.detail({id:productRelate.id})">{{productRelate.id}}</a></td>
-                    <td>{{productRelate.name}}</td>
                     <td>
                         <a ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.product.name}}</a>
                     </td>
                     <td>
-                   		<a ui-sref="product.detail({id:productRelate.product.id})">{{productRelate.relateProduct.name}}</a> 
+                   		<a ui-sref="product.detail({id:productRelate.relateProduct.id})">{{productRelate.relateProduct.name}}</a> 
                     </td>
                     <td>
                         <button type="submit"
                                 ui-sref="productRelate.detail({id:productRelate.id})"
                                 class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> 查看</span>
                         </button>
                         <button type="submit"
                                 ui-sref="productRelate.edit({id:productRelate.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> 编辑</span>
                         </button>
                         <button type="submit"
                                 ui-sref="productRelate.delete({id:productRelate.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> 删除</span>
                         </button>
                     </td>
                 </tr>

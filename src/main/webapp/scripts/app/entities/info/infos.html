@@ -1,11 +1,11 @@
 <div>
-    <h2>Infos</h2>
+    <h2>公司信息</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="info.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Info</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>新建一次就好</span>
                 </button>
             </div>
         </div>
@@ -16,13 +16,12 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>QrCode</th>
-                    <th>WechatSubscribeCode</th>
-                    <th>WechatServiceCode</th>
-                    <th>WeiboUrl</th>
-                    <th>QqUrl</th>
-                    <th>Placeholder1</th>
-                    <th>Placeholder2</th>
+                    <th>首页页脚二维码</th>
+                    <th>微信订阅号二维码</th>
+                    <th>微信服务号二维码</th>
+                    <th>微博 url</th>
+                    <th>QQ url</th>
+                    <th>copyright</th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,22 +34,21 @@
                     <td>{{info.weiboUrl}}</td>
                     <td>{{info.qqUrl}}</td>
                     <td>{{info.placeholder1}}</td>
-                    <td>{{info.placeholder2}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="info.detail({id:info.id})"
                                 class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> 查看</span>
                         </button>
                         <button type="submit"
                                 ui-sref="info.edit({id:info.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> 编辑</span>
                         </button>
                         <button type="submit"
                                 ui-sref="info.delete({id:info.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> 删除</span>
                         </button>
                     </td>
                 </tr>

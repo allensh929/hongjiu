@@ -149,6 +149,20 @@ public class ProductResource {
     }
     
     /**
+     * GET  /products -> search the products.
+     */
+    @RequestMapping(value = "/products/search/{search}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Product>> getSearchProducts(@PathVariable String search)
+        throws URISyntaxException {
+        List<Product> news = productRepository.findAllSearchProducts(search);
+        return new ResponseEntity<>(news, HttpStatus.OK);
+    }
+    
+    
+    /**
      * GET  /products -> get all the products by regions.
      */
     @RequestMapping(value = "/products/byregions",

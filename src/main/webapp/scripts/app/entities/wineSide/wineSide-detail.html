@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span>WineSide</span> {{wineSide.id}}</h2>
+    <h2><span>红酒周边产品</span> </h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>名称</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.name}}</span>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Title</span>
+                    <span>标题</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.title}}</span>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Price</span>
+                    <span>价格</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.price}}</span>
@@ -36,31 +36,35 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image</span>
+                    <span>图片</span>
                 </td>
                 <td>
                      <span class="form-control-static"><img ng-if="wineSide.image != null" ng-src="/assets/images/upload/{{wineSide.image}}" style="height:100px;width:100px" alt="wine side"></span>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span>Description</span>
+                <td colspan="2">
+                    <span>产品描述</span>
                 </td>
-                <td>
+            </tr>
+             <tr>
+                <td colspan="2">
                     <span class="form-control-static" ng-bind-html="wineSide.description|trustHtml"></span>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span>DetailInfo</span>
+                <td colspan="2">
+                    <span>详情描述</span>
                 </td>
-                <td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <span class="form-control-static" ng-bind-html="wineSide.detailInfo|trustHtml"></span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>Active</span>
+                    <span>是否启用</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.active}}</span>
@@ -68,7 +72,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>OrderTag</span>
+                    <span>排序</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.orderTag}}</span>
@@ -76,7 +80,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Placeholder1</span>
+                    <span>备用1</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.placeholder1}}</span>
@@ -84,7 +88,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Placeholder2</span>
+                    <span>备用2</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{wineSide.placeholder2}}</span>
@@ -97,6 +101,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> 返回</span>
     </button>
 </div>
