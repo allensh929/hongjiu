@@ -33,10 +33,21 @@ angular.module('hongjieApp')
 	            then(function(response) {
 	              $scope.status = response.status;
 	              $scope.data = response.data;
+	              $scope.refreshFavor(response.data);
 	            }, function(response) {
 	              $scope.data = response.data || "Request failed";
 	              $scope.status = response.status;
 	        });
+    	};
+    	
+    	$scope.refreshFavor = function(data){
+    		for (var i = 0; i< $scope.news.length; i++){
+    			if ($scope.news[i].id == data.id ){
+    				console.debug("-------");
+    				$scope.news[i].favorate = data.favorate;
+    				break;
+    			}
+    		}
     	};
         console.debug('FrontMainController end');
     }]);
