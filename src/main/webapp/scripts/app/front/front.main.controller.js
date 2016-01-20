@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hongjieApp')
-    .controller('FrontMainController', ["$scope", "wineService", "Product", function ($scope, wineService, Product) {
+    .controller('FrontMainController', ["$scope", "$http", "wineService", "Product", function ($scope, $http, wineService, Product) {
       
     	console.debug('FrontMainController start');
     	
@@ -25,7 +25,19 @@ angular.module('hongjieApp')
     	
     	$scope.jump = function(link){
     		window.location.href = link;
-    	}
+    	};
+    	
+    	$scope.favor = function(data){
+    		console.debug('favo:'+data);
+    		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+	            then(function(response) {
+	              $scope.status = response.status;
+	              $scope.data = response.data;
+	            }, function(response) {
+	              $scope.data = response.data || "Request failed";
+	              $scope.status = response.status;
+	        });
+    	};
         console.debug('FrontMainController end');
     }]);
 
@@ -59,21 +71,14 @@ angular.module('hongjieApp')
 	
 	console.debug('FrontProductSearchController start');
     $scope.products = [];
-    $scope.page = 0;
-    $scope.loadAll = function() {
-    	console.debug("$rootScope.searchInput:"+ $rootScope.searchInput);
-        ProductExt.getSearchProducts($rootScope.searchInput, function(result) {
-        	$scope.products = result;
-		});
-    };
-    $scope.loadPage = function(page) {
-        $scope.page = page;
-        $scope.loadAll();
-    };
-    $scope.loadAll();
+    
+    $rootScope.$emit('please-load-product-search-event');
 
-
-    $scope.refresh = function () {
+    $rootScope.$on('load-product-search-event', function(event, data) {
+    	$scope.products = data.products;
+    });
+    
+	$scope.refresh = function () {
         $scope.loadAll();
         $scope.clear();
     };

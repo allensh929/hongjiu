@@ -16,6 +16,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.slideLink1 = '#';
         $rootScope.slideLink2 = '#';
         $rootScope.slideLink3 = '#';
+        $rootScope.searchInput = "";
         
         MenuPageExt.findAllActiveMenuPage(function(result){
         	

@@ -1,22 +1,35 @@
 'use strict';
 
 angular.module('hongjieApp')
-    .controller('FrontNavbarController', function ($scope, $rootScope, $sce, $location, $state, ENV, Info, ProductExt) {
+    .controller('FrontNavbarController', function ($scope, $rootScope, $sce, $location, $state, ENV, Info, Product, ProductExt) {
       
     	console.debug("FrontNavbarController");
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
         $scope.search = true;
-        $scope.searchInput = "";
-        
         $scope.enter = function(ev) {
-        	if (ev.keyCode !== 13) return; 
-        	if ($scope.searchInput !=""){
-        		$rootScope.searchInput = $scope.searchInput;
+        	if (ev.keyCode !== 13) return;
+        	
+        	if ($state.current.name == 'product.search') {
+        		 $rootScope.$emit('please-load-product-search-event');
+        	} else {
         		$state.go("product.search");
         	}
-        }
+        	
+        };
 
+        $rootScope.$on('please-load-product-search-event', function() {
+        	console.debug("searching....start");
+        		if ($scope.searchInput !="" && $scope.searchInput !="undefined"){
+        	        ProductExt.getSearchProducts($scope.searchInput, function(result) {
+        	        	$rootScope.$emit('load-product-search-event', {products : result});
+        			});
+        		}else{
+        			Product.query(function(result, headers) {
+        				$rootScope.$emit('load-product-search-event', {products : result});
+    		        });
+        		}
+        });
         	
         Info.query(function(result){
         	if (result.length > 0){

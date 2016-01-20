@@ -223,4 +223,26 @@ public class ProductResource {
         
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+    
+    /**
+     * PUT  /products/:id/favo -> favor the "id" product.
+     */
+    @RequestMapping(value = "/products/{id}/favo",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Product> favoProduct(@PathVariable Long id) {
+        log.debug("REST request to favo Product : {}", id);
+        
+        Product product = productRepository.findOne(id);
+        Product result = null;
+        if (product.getId() != null) {
+            product.setFavorate(product.getFavorate() == null ? 0 : product.getFavorate() + 1);
+            result = productRepository.save(product);
+        }
+       
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("product", product.getId().toString()))
+            .body(result);
+    }
 }
