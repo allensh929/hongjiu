@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hongjieApp')
-    .controller('FrontMainController', ["$scope", "$http", "wineService", "Product", function ($scope, $http, wineService, Product) {
+    .controller('FrontMainController', ["$rootScope", "$scope", "$cookies", "$http", "wineService", "Product", function ($rootScope, $scope, $cookies, $http, wineService, Product) {
       
     	console.debug('FrontMainController start');
     	
@@ -29,6 +29,10 @@ angular.module('hongjieApp')
     	
     	$scope.favor = function(data){
     		console.debug('favo:'+data);
+    		
+    		if (!$rootScope.canDoFavor()){
+    			return;
+    		}
     		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
 	            then(function(response) {
 	              $scope.status = response.status;

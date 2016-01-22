@@ -4,7 +4,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt, Info) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt, Info, $cookies) {
         
     	console.debug('run');
         $rootScope.ENV = ENV;
@@ -102,6 +102,18 @@ angular.module('hongjieApp', ['LocalStorageModule',
             }
         };
 
+        $rootScope.canDoFavor = function(){
+        	var favoriteCookie = $cookies.get('myFavorite');
+    		if (isNaN(favoriteCookie)){
+    			favoriteCookie = 1;
+    			$cookies.put('myFavorite', favoriteCookie);
+    		}else{
+    			favoriteCookie = Number(favoriteCookie) + 1;
+    			$cookies.put('myFavorite', favoriteCookie);
+    		}
+    		return Number(favoriteCookie) <= 5;
+        };
+        
     })
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
