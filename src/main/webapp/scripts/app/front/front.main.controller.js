@@ -47,8 +47,13 @@ angular.module('hongjieApp')
     	$scope.refreshFavor = function(data){
     		for (var i = 0; i< $scope.news.length; i++){
     			if ($scope.news[i].id == data.id ){
-    				console.debug("-------");
     				$scope.news[i].favorate = data.favorate;
+    				break;
+    			}
+    		}
+    		for (var i = 0; i< $scope.favos.length; i++){
+    			if ($scope.favos[i].id == data.id ){
+    				$scope.favos[i].favorate = data.favorate;
     				break;
     			}
     		}
@@ -57,7 +62,7 @@ angular.module('hongjieApp')
     }]);
 
 angular.module('hongjieApp')
-.controller('FrontProductController', function ($scope, $state, $modal, Product) {
+.controller('FrontProductController',  ["$rootScope", "$http", "$scope", "$state", "$modal","Product", function ($rootScope, $http, $scope, $state, $modal, Product) {
 	
 	console.debug('FrontProductController start');
     $scope.products = [];
@@ -78,11 +83,34 @@ angular.module('hongjieApp')
         $scope.loadAll();
         $scope.clear();
     };
+    $scope.favor = function(data){
+		if (!$rootScope.canDoFavor()){
+			return;
+		}
+		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+            then(function(response) {
+              $scope.status = response.status;
+              $scope.data = response.data;
+              $scope.refreshFavor(response.data);
+            }, function(response) {
+              $scope.data = response.data || "Request failed";
+              $scope.status = response.status;
+        });
+	};
+	
+	$scope.refreshFavor = function(data){
+		for (var i = 0; i< $scope.products.length; i++){
+			if ($scope.products[i].id == data.id ){
+				$scope.products[i].favorate = data.favorate;
+				break;
+			}
+		}
+	};
     console.debug('FrontProductController end');
-});
+}]);
 
 angular.module('hongjieApp')
-.controller('FrontProductSearchController', ["$scope", "$rootScope", "$state", "$stateParams","ProductExt", function ($scope, $rootScope, $state, $stateParams, ProductExt)  {
+.controller('FrontProductSearchController', ["$rootScope", "$http", "$scope", "$state", "$stateParams","ProductExt", function ($rootScope, $http, $scope, $state, $stateParams, ProductExt)  {
 	
 	console.debug('FrontProductSearchController start');
     $scope.products = [];
@@ -97,11 +125,35 @@ angular.module('hongjieApp')
         $scope.loadAll();
         $scope.clear();
     };
+    
+    $scope.favor = function(data){
+		if (!$rootScope.canDoFavor()){
+			return;
+		}
+		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+            then(function(response) {
+              $scope.status = response.status;
+              $scope.data = response.data;
+              $scope.refreshFavor(response.data);
+            }, function(response) {
+              $scope.data = response.data || "Request failed";
+              $scope.status = response.status;
+        });
+	};
+	
+	$scope.refreshFavor = function(data){
+		for (var i = 0; i< $scope.products.length; i++){
+			if ($scope.products[i].id == data.id ){
+				$scope.products[i].favorate = data.favorate;
+				break;
+			}
+		}
+	};
     console.debug('FrontProductSearchController end');
 }]);
 
 angular.module('hongjieApp')
-.controller('FrontProductByRegionsController', ["$scope", "wineService", "Product", function ($scope, wineService, Product) {
+.controller('FrontProductByRegionsController', ["$rootScope", "$http", "$scope", "wineService", "Product", function ($rootScope, $http, $scope, wineService, Product) {
   
 	console.debug('FrontProductByRegionsController start');
 	
@@ -129,11 +181,37 @@ angular.module('hongjieApp')
 		$scope.byregionsProducts = regions;
 	});
 	
+	$scope.favor = function(data){
+		if (!$rootScope.canDoFavor()){
+			return;
+		}
+		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+            then(function(response) {
+              $scope.status = response.status;
+              $scope.data = response.data;
+              $scope.refreshFavor(response.data);
+            }, function(response) {
+              $scope.data = response.data || "Request failed";
+              $scope.status = response.status;
+        });
+	};
+	
+	$scope.refreshFavor = function(data){
+		for (var i = 0; i< $scope.byregionsProducts.length; i++){
+			for(var j = 0; j< $scope.byregionsProducts[i].length; j++){
+				if ($scope.byregionsProducts[i][j].id == data.id ){
+					$scope.byregionsProducts[i][j].favorate = data.favorate;
+					break;
+				}
+			}
+		}
+	};
+	
     console.debug('FrontProductByRegionsController end');
 }]);
 
 angular.module('hongjieApp')
-.controller('FrontProductByVarietyController', ["$scope", "wineService", "Product", function ($scope, wineService, Product) {
+.controller('FrontProductByVarietyController', ["$rootScope", "$http", "$scope", "wineService", "Product", function ($rootScope, $http, $scope, wineService, Product) {
   
 	console.debug('FrontProductByVarietyController start');
 	
@@ -162,6 +240,32 @@ angular.module('hongjieApp')
 		$scope.showFlag[index] = true;
 		$scope.byvarietyProducts = varietys;
 	});
+	
+	$scope.favor = function(data){
+		if (!$rootScope.canDoFavor()){
+			return;
+		}
+		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+            then(function(response) {
+              $scope.status = response.status;
+              $scope.data = response.data;
+              $scope.refreshFavor(response.data);
+            }, function(response) {
+              $scope.data = response.data || "Request failed";
+              $scope.status = response.status;
+        });
+	};
+	
+	$scope.refreshFavor = function(data){
+		for (var i = 0; i< $scope.byvarietyProducts.length; i++){
+			for(var j = 0; j< $scope.byvarietyProducts[i].length; j++){
+				if ($scope.byvarietyProducts[i][j].id == data.id ){
+					$scope.byvarietyProducts[i][j].favorate = data.favorate;
+					break;
+				}
+			}
+		}
+	};
 	
     console.debug('FrontProductByVarietyController end');
 }]);

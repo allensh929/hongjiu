@@ -12,11 +12,11 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hongjie.config.Constants;
 import com.hongjie.domain.Product;
 import com.hongjie.repository.ProductRepository;
 import com.hongjie.web.rest.dto.PostImageDTO;
@@ -26,6 +26,9 @@ import com.hongjie.web.rest.dto.PostImageDTO;
 public class PostService {
 
 	private final Logger log = LoggerFactory.getLogger(PostService.class);
+	
+	@Value("${hongjie.upload.path}")
+	private String user_upload_file_root_path;
 
 	@Inject
 	private ProductRepository productRepository;
@@ -79,7 +82,7 @@ public class PostService {
 
 		String imageFileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + "_"
 				+ file.getOriginalFilename();
-		String rootPath = Constants.USER_UPLOADED_FILE_ROOT_PATH;
+		String rootPath = user_upload_file_root_path;
 
 		String fileName = rootPath;
 
@@ -105,7 +108,7 @@ public class PostService {
 
 		String imageFileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + "_"
 				+ file.getOriginalFilename();
-		String rootPath = Constants.USER_UPLOADED_FILE_ROOT_PATH;
+		String rootPath = user_upload_file_root_path;
 
 		String fileName = rootPath;
 
@@ -129,7 +132,7 @@ public class PostService {
 
 		String imageFileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + "_"
 				+ file.getOriginalFilename();
-		String rootPath = Constants.USER_UPLOADED_FILE_ROOT_PATH;
+		String rootPath = user_upload_file_root_path;
 
 		String fileName = rootPath;
 

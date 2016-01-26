@@ -2,27 +2,17 @@
 <div class="hj-footer">
 	<div class="hj-footer-2code">
 		<div class="row">
-		
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4 hj-footer-2code">
+			<div class="col-md-12 hj-footer-2code">
 				<a class="" href="#/"><img ng-if="info.qrCode!=null" ng-src="/assets/images/upload/{{info.qrCode}}"></a>
 				<img ng-src="/assets/images/line.png">
 				<a class="" href="#/"><img ng-src="/assets/images/logo2.png"></a>
 			</div>
-			<div class="col-md-4">
-			</div>
 		</div>
 		<div class="row">
-		
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4 footer-a">
+			<div class="col-md-12 footer-a">
 				<a href="#/">网站首页 </a>|<ul style="display:inline;padding-left:5px;"><li ng-repeat="story in STORYS" style="display:inline;"><a ui-sref="brandStory.fdetail({id:story.id})">{{story.name}}</a>&nbsp;|&nbsp;</li></ul>
 				<br><br>
 				{{info.placeholder1}}
-			</div>
-			<div class="col-md-4">
 			</div>
 		</div>
 	</div>

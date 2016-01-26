@@ -237,7 +237,7 @@ public class ProductResource {
         Product product = productRepository.findOne(id);
         Product result = null;
         if (product.getId() != null) {
-            product.setFavorate(product.getFavorate() == null ? 0 : product.getFavorate() + 1);
+            product.setFavorate(product.getFavorate() == null ? 1 : product.getFavorate() + 1);
             result = productRepository.save(product);
         }
        
