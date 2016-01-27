@@ -106,7 +106,9 @@
 	color: #ffffff;
     text-decoration: none;
 }
-
+.hj-footer-container{
+	background: #000000;
+}
 #footer .hj-footer {
 	min-height:250px;
 	background: #000000;
