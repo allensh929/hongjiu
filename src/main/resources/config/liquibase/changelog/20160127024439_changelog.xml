@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="ali (generated)" id="1453862705337-1">
+      <addColumn tableName="product_relate">
+         <column name="relateProduct_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-2">
+      <addForeignKeyConstraint baseColumnNames="product_id"
+                               baseTableName="xref"
+                               constraintName="FK_4mjiahumhebv4m2afggkwp4dd"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-3">
+      <addForeignKeyConstraint baseColumnNames="relateProduct_id"
+                               baseTableName="product_relate"
+                               constraintName="FK_guxuu5dkk9dx5enqj7punrvsy"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-4">
+      <dropForeignKeyConstraint baseTableName="product_relate"
+                                constraintName="fk_product_relate_relate_product_id"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-5">
+      <dropTable tableName="dictionary"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-6">
+      <dropColumn columnName="relate_product_id" tableName="product_relate"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-7">
+      <dropDefaultValue columnDataType="boolean"
+                        columnName="active"
+                        tableName="brand_story"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-8">
+      <dropDefaultValue columnDataType="boolean" columnName="active" tableName="gift"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-9">
+      <dropDefaultValue columnDataType="boolean" columnName="active" tableName="menu_page"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-10">
+      <dropDefaultValue columnDataType="boolean" columnName="active" tableName="wine_side"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-11">
+      <dropDefaultValue columnDataType="varchar(255)" columnName="active" tableName="xref"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-12">
+      <dropDefaultValue columnDataType="boolean" columnName="favo" tableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-13">
+      <dropDefaultValue columnDataType="int" columnName="favorate" tableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-14">
+      <dropDefaultValue columnDataType="boolean" columnName="news" tableName="product"/>
+   </changeSet>
+   <changeSet author="ali (generated)" id="1453862705337-15">
+      <addNotNullConstraint columnDataType="decimal(10,2)"
+                            columnName="price"
+                            tableName="wine_side"/>
+   </changeSet>
+</databaseChangeLog>
