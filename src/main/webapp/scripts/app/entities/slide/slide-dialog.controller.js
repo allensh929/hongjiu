@@ -64,7 +64,7 @@ angular.module('hongjieApp').controller('SlideDialogController',
         	//TODO gif no compress
         	 Ahdin.compress({
 	              sourceFile: uploadFile[0],
-	              maxWidth: 1280,
+	              maxWidth: 2000,
 	              maxHeight:1000,
 	              quality: 0.8
 	          }).then(function(compressedBlob) {

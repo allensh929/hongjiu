@@ -15,18 +15,21 @@
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
         <link rel="stylesheet" href="assets/styles/base.css">
-        <link rel="stylesheet" href="assets/styles/hongjie.css">
         <!-- endbuild -->
     </head>
     <body ng-app="hongjieApp">
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <!-- <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div> -->
-        <div ui-view="front-navbar" ng-cloak=""></div>
-       
-        <div class="" ui-view="front-content"></div>
-         <div class="container hj-footer-container" id="footer" ui-view="front-footer"></div>
+        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+        <div ui-view="navbar" ng-cloak=""></div>
+        <div class="container">
+            <div class="well" ui-view="content"></div>
+
+            <div class="footer">
+                <p translate="footer">This is your footer</p>
+            </div>
+        </div>
 
         <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
         <script>
@@ -41,24 +44,24 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>        
         <script src="bower_components/angular-ahdin/dist/blob-util.min.js"></script>
-        <script src="bower_components/angular-ahdin/dist/load-image.all.min.js"></script>
-        <script src="bower_components/angular-ahdin/dist/ahdin.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/json3/lib/json3.min.js"></script>
-        <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+    	<script src="bower_components/angular-ahdin/dist/load-image.all.min.js"></script>
+    	<script src="bower_components/angular-ahdin/dist/ahdin.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
         
         <!-- endbuild -->
 
@@ -66,14 +69,6 @@
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
-    
-    <script src="scripts/app/front/front.main.controller.js"></script>
-    <script src="scripts/app/front/front.main.js"></script>
-    <script src="scripts/app/front/front.main.service.js"></script>
-    <script src="scripts/app/front/front.navbar.controller.js"></script>
-    <script src="scripts/app/front/front.navbar.directive.js"></script>
-    
-    
     <script src="scripts/components/auth/auth.service.js"></script>
     <script src="scripts/components/auth/principal.service.js"></script>
     <script src="scripts/components/auth/authority.directive.js"></script>
@@ -170,6 +165,7 @@
     <script src="scripts/app/entities/productRelate/productRelate-delete-dialog.controller.js"></script>
     <script src="scripts/app/entities/productRelate/productRelate-detail.controller.js"></script>
     <script src="scripts/components/entities/productRelate/productRelate.service.js"></script>
+    
     <script src="scripts/app/entities/menuPage/menuPage.js"></script>
     <script src="scripts/app/entities/menuPage/menuPage.controller.js"></script>
     <script src="scripts/app/entities/menuPage/menuPage-dialog.controller.js"></script>
@@ -183,7 +179,6 @@
     <script src="scripts/app/entities/slide/slide-detail.controller.js"></script>
     <script src="scripts/components/entities/slide/slide.service.js"></script>
     
-    <script src="ckeditor/ckeditor.js"></script>
     <script src="scripts/app/entities/info/info.js"></script>
     <script src="scripts/app/entities/info/info.controller.js"></script>
     <script src="scripts/app/entities/info/info-dialog.controller.js"></script>
@@ -196,6 +191,7 @@
     <script src="scripts/app/entities/gift/gift-delete-dialog.controller.js"></script>
     <script src="scripts/app/entities/gift/gift-detail.controller.js"></script>
     <script src="scripts/components/entities/gift/gift.service.js"></script>
+    
     <script src="scripts/app/entities/wineSide/wineSide.js"></script>
     <script src="scripts/app/entities/wineSide/wineSide.controller.js"></script>
     <script src="scripts/app/entities/wineSide/wineSide-dialog.controller.js"></script>
@@ -208,6 +204,9 @@
     <script src="scripts/app/entities/brandStory/brandStory-delete-dialog.controller.js"></script>
     <script src="scripts/app/entities/brandStory/brandStory-detail.controller.js"></script>
     <script src="scripts/components/entities/brandStory/brandStory.service.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    
+    
     <!-- endbuild -->
 </body>
 </html>

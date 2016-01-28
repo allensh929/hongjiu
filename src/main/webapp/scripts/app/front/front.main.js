@@ -7,7 +7,6 @@ angular.module('hongjieApp')
                 parent: 'site',
                 url: '/',
                 data: {
-                    authorities: [],
             		pageTitle: '鸿杰酒业'
                 },
                 views: {
