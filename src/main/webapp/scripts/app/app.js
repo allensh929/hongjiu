@@ -4,21 +4,86 @@ angular.module('hongjieApp', ['LocalStorageModule',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar', 'ahdin'])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL) {
+    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt, Info, $cookies) {
         
+    	console.debug('run');
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
-        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
-            $rootScope.toState = toState;
-            $rootScope.toStateParams = toStateParams;
-
-            if (Principal.isIdentityResolved()) {
-                Auth.authorize();
-            }
-            
+        $rootScope.slideStyle1 = '';
+        $rootScope.slideStyle2 = '';
+        $rootScope.slideStyle3 = '';
+        $rootScope.slideSrc1 = 'carousel-001.png';
+        $rootScope.slideSrc2 = 'carousel-002.png';
+        $rootScope.slideSrc3 = 'carousel-003.png';
+        $rootScope.slideLink1 = '#';
+        $rootScope.slideLink2 = '#';
+        $rootScope.slideLink3 = '#';
+        $rootScope.searchInput = "";
+        
+        MenuPageExt.findAllActiveMenuPage(function(result){
+        	
+        	$rootScope.MENUS = result;
+        	console.debug('menus:' + $rootScope.MENUS.length);
+    	});
+        
+        
+        Slide.query(function(result){
+	    	$rootScope.HOME_SLIDES = result;
+	    	if (result.length > 0){
+	    		$rootScope.slideStyle1= {'background': 'url(/assets/images/upload/'+result[0].url+') center'};
+	    		if (result[0].link != null){
+	    			$rootScope.slideLink1 = result[0].link;
+	    		}
+	    		if (result[0].url != null){
+	    			$rootScope.slideSrc1 = result[0].url;
+	    		}
+	    		
+	    	}
+	    	if (result.length > 1){
+	    		$rootScope.slideStyle2= {'background': 'url(/assets/images/upload/'+result[1].url+') center'};
+	    		if (result[1].link != null){
+	    			$rootScope.slideLink2 = result[1].link;
+	    		}
+	    		if (result[1].url != null){
+	    			$rootScope.slideSrc2 = result[1].url;
+	    		}
+	    	}
+	    	if (result.length > 2){
+	    		
+	    		$rootScope.slideStyle3= {'background': 'url(/assets/images/upload/'+result[2].url+') center'};
+	    		if (result[2].link != null){
+	    			$rootScope.slideLink3 = result[2].link;
+	    		}
+	    		if (result[2].url != null){
+	    			$rootScope.slideSrc3 = result[2].url;
+	    		}
+	    	}
+	    	
+	    	console.debug('home slides:' + $rootScope.HOME_SLIDES.length);
+	    });
+        
+        GiftExt.findAllActiveGifts(function(result){
+        	$rootScope.GIFTS = result;
+        	console.debug('gifts:' + $rootScope.GIFTS.length);
         });
-
+        
+        BrandStoryExt.findAllActiveStorys(function(result){
+        	
+        	$rootScope.STORYS = result;
+        	console.debug('storys:' + $rootScope.STORYS.length);
+    	});
+//        $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+//            $rootScope.toState = toState;
+//            $rootScope.toStateParams = toStateParams;
+//            console.debug('run auth');
+//            if (Principal.isIdentityResolved()) {
+//            	console.debug('run authorize');
+//                Auth.authorize();
+//            }
+//            
+//        });
+        
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
             var titleKey = 'hongjie' ;
 
@@ -46,33 +111,41 @@ angular.module('hongjieApp', ['LocalStorageModule',
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+
+        $rootScope.canDoFavor = function(){
+        	var favoriteCookie = $cookies.get('myFavorite');
+    		if (isNaN(favoriteCookie)){
+    			favoriteCookie = 1;
+    			$cookies.put('myFavorite', favoriteCookie);
+    		}else{
+    			favoriteCookie = Number(favoriteCookie) + 1;
+    			$cookies.put('myFavorite', favoriteCookie);
+    		}
+    		return Number(favoriteCookie) <= 5;
+        };
+        
     })
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,  httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
         //AlertServiceProvider.showAsToast(true);
-
+    	
         //enable CSRF
-//        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
-//        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
-
+        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
+        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
+        console.debug('config state');
         //Cache everything except rest api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
-
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
             views: {
-                'navbar@': {
-                    templateUrl: 'scripts/components/navbar/navbar.html',
-                    controller: 'NavbarController'
+                'front-navbar@': {
+                    templateUrl: 'scripts/app/front/navbar.html',
+                    controller: 'FrontNavbarController'
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ]
+            
             }
         });
 
@@ -91,5 +164,4 @@ angular.module('hongjieApp', ['LocalStorageModule',
             pattern: /bool|true|0|1/
         });
     }]);;
-
-
+    

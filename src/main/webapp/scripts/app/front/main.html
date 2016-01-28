@@ -7,9 +7,15 @@
 	</ol>
 	<!--Carousel -->
 	<div class="carousel-inner">
-		<div class="item hj-slide1 active" ng-style="slideStyle1" ng-click="jump(slideLink1)"></div>
-		<div class="item hj-slide2" ng-style="slideStyle2" ng-click="jump(slideLink2)"></div>
-		<div class="item hj-slide3" ng-style="slideStyle3" ng-click="jump(slideLink3)"></div>
+		<div class="item active" ng-click="jump(slideLink1)" style="text-align:center">
+		  <img alt="" ng-src="/assets/images/upload/{{slideSrc1}}">  
+		</div>
+		<div class="item" ng-click="jump(slideLink2)" style="text-align:center">
+		<img alt="" ng-src="/assets/images/upload/{{slideSrc2}}">  
+		</div>
+		<div class="item" ng-click="jump(slideLink3)" style="text-align:center">
+		<img alt="" ng-src="/assets/images/upload/{{slideSrc3}}">  
+		</div>
 	</div>
 	<!--Carousel-->
 	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
@@ -17,7 +23,7 @@
 </div>
 <script>
 	$('#myCarousel').carousel({
-		interval : 3000
+		interval : 300000
 	})
 	
 	
