@@ -31,7 +31,7 @@ security:
         
 hongjie:
     upload:
-        path: D:\\applications\\apache-tomcat-8.0.30\\webapps\hongjie
+        path: E:\\hongjie\\src\\main\\webapp\\assets\\images\\upload
 
 # ===================================================================
 # JHipster specific properties

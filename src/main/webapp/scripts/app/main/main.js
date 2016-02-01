@@ -28,7 +28,7 @@ angular.module('hongjieApp')
         require : '?ngModel',
         link : function(scope, element, attrs, ngModel) {
             var ckeditor = CKEDITOR.replace(element[0], {
-                
+            	customConfig: '/ckeditor_settings/config.js'
             });
             if (!ngModel) {
                 return;
