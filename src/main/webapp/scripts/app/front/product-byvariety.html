@@ -32,10 +32,10 @@
 	            
 	            <div class="row" ng-show="showFlag[$index]" >
 	            	 <div class="col-md-3" ng-repeat="product in key" ng-hide="$index >= 4">
- 						<a ui-sref="product.fdetail({id:product.id})" class="">
+ 						<a ui-sref="product.fdetail({id:product.id})" class="thumbnail">
 			            <img class="hj-wine-img1" ng-if="product.image !=''" ng-src="/assets/images/upload/{{product.image}}" style="width:245px;heiht:350px" alt="wine"></a>
 			            <br>
-			            <div class="hj-wine1">{{product.title}} &nbsp;
+			            <div class="hj-wine1 love">{{product.title}} &nbsp;
 		            	  <span style="float: right;">&nbsp;&nbsp;{{product.favorate}}&nbsp;&nbsp;</span>
 		            	  <a ng-click="favor(product.id)"><span class="glyphicon glyphicon-heart" style="float: right;"> </span>  </a>
 		            	  </div>
@@ -47,10 +47,10 @@
 	            </div>
 	            <div class="row" ng-show="!showFlag[$index]">
 	            	 <div class="col-md-3" ng-repeat="product in key">
- 						<a ui-sref="product.fdetail({id:product.id})" class="">
+ 						<a ui-sref="product.fdetail({id:product.id})" class="thumbnail">
 			            <img class="hj-wine-img1" ng-if="product.image !=''" ng-src="/assets/images/upload/{{product.image}}" style="width:245px;heiht:350px" alt="wine"></a>
 			            <br>
-			            <div class="hj-wine1">{{product.title}} &nbsp;
+			            <div class="hj-wine1 love">{{product.title}} &nbsp;
 		            	  <span style="float: right;">&nbsp;&nbsp;{{product.favorate}}&nbsp;&nbsp;</span>
 		            	  <a ng-click="favor(product.id)"><span class="glyphicon glyphicon-heart" style="float: right;"> </span>  </a>
 		            	  </div>

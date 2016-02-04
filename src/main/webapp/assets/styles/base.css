@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #ffffff;
     font-family: Microsoft YaHei, SimSun, SimHei, "方正兰亭中黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -197,4 +197,7 @@ ul#strengthBar {
 .readonly {
     background-color: #eee;
     opacity: 1;
+}
+.love a {
+	color:red;
 }
