@@ -39,12 +39,12 @@ var jiathis_config = {
 
 <div class="container">
 	<div ng-cloak>
-		
+
 		<BR>
-		
+
 	    <div class="row">
 	        <div class="col-md-6">
-	            <div class="hj-p-d-container"> 
+	            <div class="hj-p-d-container">
 	            	<a ng-href="{{product.jdurl}}" class="thumbnail">
 	            	<img id ="product_image1" class="hj-wine-img1" ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="width:470px;heiht:640px"  alt="wine">
 	            	</a>
@@ -65,15 +65,15 @@ var jiathis_config = {
 						<div class="hj-tl-margin-5 hj-p-dt">{{product.descriptionTitle}}</div>
 						<div class="hj-tl-margin-5 hj-p-d" ng-bind-html="product.description|trustHtml"></div>
 					</div>
-					
-					
+
+
 					<hr>
 					<div class="hj-tl-margin-5 hj-p-d">京东商城购买地址:&nbsp;<a ng-href="{{product.jdurl}}">{{product.jdurl}}</a></div>
 					<hr>
-					<div class="hj-tl-margin-5">
-					
+					<div class="hj-tl-margin-5" style="min-height:50px;">
+
 					<!-- JiaThis Button BEGIN -->
-					<div class="jiathis_style">
+					<div class="jiathis_style" style="height:50px;">
 						<span class="jiathis_txt">分享到：</span>
 						<a class="jiathis_button_qzone">QQ空间</a>
 						<a class="jiathis_button_tsina">新浪微博</a>
@@ -87,7 +87,7 @@ var jiathis_config = {
 	        	</div>
 	        </div>
 	    </div>
-	    
+
 	    <div class="row hj-p-border">
 	    	<div class="col-md-12">
 	    		<div class="row hj-p-b-border">
@@ -97,56 +97,56 @@ var jiathis_config = {
 			        <div class="col-md-8">
 			        </div>
 			    </div>
-	    	
+
 	    		<div class="hj-tb-margin-15 hj-tb-margin-20">
-		    		<div class="row hj-t-margin-10">
-				       	<div class="col-md-3">
-				         	<span>商品名称:</span>{{product.name}}
+		    		<div class="row">
+				       	<div class="col-md-3 hj-t-margin-10">
+				         	<span>商品名称:</span>&nbsp;&nbsp;{{product.name}}
 				        </div>
-				        <div class="col-md-3">
-				         	<span>类型:</span>{{product.types}}
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>类型:</span>&nbsp;{{product.types}}
 				        </div>
-				        <div class="col-md-3">
-				         	<span>葡萄品种:</span>{{product.variety}}
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>葡萄品种:</span>&nbsp;{{product.variety}}
 				        </div>
-				        <div class="col-md-3">
-				         	<span>原产国:</span>{{product.originCountry}}
-				        </div>
-				    </div>
-				    <div class="row hj-t-margin-10">
-				       	<div class="col-md-3">
-				         	<span>商品毛重:</span>{{product.weight}}
-				        </div>
-				        <div class="col-md-3">
-				         	<span>等级:</span>{{product.level}}
-				        </div>
-				        <div class="col-md-3">
-				         	<span>葡萄采摘年份:</span>{{product.pickYear}}
-				        </div>
-				        <div class="col-md-3">
-				         	<span>产区:</span>{{product.zone}}
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>原产国:</span>&nbsp;{{product.originCountry}}
 				        </div>
 				    </div>
-				    <div class="row hj-t-margin-10">
-				       	<div class="col-md-3">
-				         	<span>生产商:</span>{{product.producer}}
+				    <div class="row">
+				       	<div class="col-md-3 hj-t-margin-10">
+				         	<span>商品毛重:</span>&nbsp;{{product.weight}}
 				        </div>
-				        <div class="col-md-3">
-				         	<span>酒精度:</span>{{product.alcohol}}
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>等级:</span>&nbsp;{{product.level}}
 				        </div>
-				        <div class="col-md-3">
-				         	<span>醒酒时间:</span>{{product.wakeupTime}}
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>葡萄采摘年份:</span>&nbsp;{{product.pickYear}}
+				        </div>
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>产区:</span>&nbsp;{{product.zone}}
+				        </div>
+				    </div>
+				    <div class="row">
+				       	<div class="col-md-3 hj-t-margin-10">
+				         	<span>生产商:</span>&nbsp;{{product.producer}}
+				        </div>
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>酒精度:</span>&nbsp;{{product.alcohol}}
+				        </div>
+				        <div class="col-md-3 hj-t-margin-10">
+				         	<span>醒酒时间:</span>&nbsp;{{product.wakeupTime}}
 				        </div>
 				    </div>
 				 </div>
 	    	</div>
-	    
+
 	    </div>
-	    
-	    
+
+
 	    <br>
 	    <br>
-	    
+
 	    <div class="row hj-p-border">
 	       	<div class="col-md-4">
 	            <div class="hj-p-t1"> 商品详情</div>
@@ -159,7 +159,7 @@ var jiathis_config = {
 	         	<div class="" ng-bind-html="product.detailInfo|trustHtml"></div>
 	        </div>
 	    </div>
-	    
+
 	    <br>
 	    <br>
 	    <div class="row">

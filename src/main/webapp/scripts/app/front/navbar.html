@@ -1,6 +1,6 @@
-<nav class="hj-nav">
+<nav class="hj-nav hidden-xs">
 	<div class="container">
-		<div class="pull-left ">		
+		<div class="pull-left ">
 	        <a class="" href="#/" tooltip-html="qrCodeHtml" tooltip-class="hj-qrcode" tooltip-trigger="click" tooltip-animation="false" tooltip-placement="bottom-right">
 	        <img ng-src="/assets/images/wechat.png"></a>
 	        <a class="" href="{{info.weiboUrl}}"><img ng-src="/assets/images/weibo.png"></a>
@@ -12,7 +12,7 @@
                 <span class="hj-white-color hidden-xs">七天退货</span>
         </div>
 	</div>
-</nav>	
+</nav>
 
 <nav class="navbar navbar-default hj-container" role="navigation">
     <div class="container">
@@ -23,8 +23,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
-            <a class="hj-brand" href="#/"><img ng-src="/assets/images/logo.png"> </a>
+
+            <a class="hj-brand" href="#/"><img ng-if="info.placeholder2!=null" ng-src="/assets/images/upload/{{info.placeholder2}}" style="max-height:70px;"> </a>
             <span class="hj-brand-title">H&J WINE SHOP <br>鸿杰获奖红酒专营店</span>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -51,7 +51,7 @@
                         <li ui-sref-active="active">
 							精美礼品 GIFT
 							<ul>
-								<li ng-repeat="gift in GIFTS"><a ui-sref="gift.fdetail({id:gift.id})">{{gift.name}}</a></li>								
+								<li ng-repeat="gift in GIFTS"><a ui-sref="gift.fdetail({id:gift.id})">{{gift.name}}</a></li>
 								<li><a ui-sref="wineSide.all">葡萄酒周边配件 PERIPHERAL PRODUCTS</a></li>
 							</ul>
 						</li>
@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li ng-class="active">
-                	<div class="hj-t-margin-25">
+                	<div class="hj-search-margin">
                 		<input type="text" class="hj-search" id="searchInput" ng-model="searchInput" style="width:150px;" placeholder="搜索.." ng-hide="search" ng-keydown="enter($event);">
                 		<a href="#"  ng-click="search=!search">         <span class="glyphicon glyphicon-search"></span>       </a>
                 	</div>

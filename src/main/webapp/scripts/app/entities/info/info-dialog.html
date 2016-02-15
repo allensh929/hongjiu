@@ -38,7 +38,7 @@
             <br>
         </div>
         <div class="form-group">
-            <label for="field_wechatServiceCode">WechatServiceCode</label>
+            <label for="field_wechatServiceCode">微信服务号二维码</label>
             <img ng-if="info.wechatServiceCode != null" ng-src="/assets/images/upload/{{info.wechatServiceCode}}" style="height:80px;width:80px" alt="code">
             <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(wechatServiceCodes, 'serviceCode')" ng-model="wechatServiceCodes" ngf-multiple="true">
@@ -46,6 +46,18 @@
                     </div>
                     
             <img ng-repeat="file in wechatServiceCodes" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_wechatServiceCode">Logo</label>
+            <img ng-if="info.placeholder2 != null" ng-src="/assets/images/upload/{{info.placeholder2}}" style="height:80px;width:80px" alt="code">
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(placeholder2s, 'logo')" ng-model="placeholder2s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in placeholder2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>
         </div>
@@ -67,12 +79,7 @@
                     ng-model="info.placeholder1"
                      />
         </div>
-        <div class="form-group">
-            <label for="field_placeholder2">Placeholder2</label>
-            <input type="text" class="form-control" name="placeholder2" id="field_placeholder2"
-                    ng-model="info.placeholder2"
-                     />
-        </div>
+     
 
     </div>
     <div class="modal-footer">

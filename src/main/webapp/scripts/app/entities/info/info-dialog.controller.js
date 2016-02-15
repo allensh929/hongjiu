@@ -62,6 +62,9 @@ angular.module('hongjieApp').controller('InfoDialogController',
                 	 if (name == "serviceCode"){
                 		$scope.info.wechatServiceCode = data.image;
                 	 }
+                	 if (name == "logo"){
+                 		$scope.info.placeholder2 = data.image;
+                 	 }
                	
                 }).error(function (data, status, headers, config) {
 
