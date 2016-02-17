@@ -177,6 +177,9 @@ angular.module('hongjieApp')
 			console.log("key" + key + ",value"+ result[key]); 
 		}
 		regions[index] = others;//其他放在最后显示
+		if (others.length == 0){
+			regions.splice(index,index);
+		}
 		$scope.showFlag[index] = true;
 		$scope.byregionsProducts = regions;
 	});
@@ -237,6 +240,9 @@ angular.module('hongjieApp')
 			console.log("key" + key + ",value"+ result[key]); 
 		}
 		varietys[index] = others;//其他放在最后显示
+		if (others.length == 0){
+			varietys.splice(index,index);
+		}
 		$scope.showFlag[index] = true;
 		$scope.byvarietyProducts = varietys;
 	});

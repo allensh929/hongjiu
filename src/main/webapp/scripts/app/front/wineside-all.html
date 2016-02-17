@@ -14,11 +14,10 @@
 	        <div class="col-md-12" >
 	            <div class="col-md-3" ng-repeat="side in sides">
 		            <a ui-sref="wineSide.fdetail({id:side.id})" class="thumbnail">
-		            <img class="hj-wine-img1" ng-if="side.image !=''" ng-src="/assets/images/upload/{{side.image}}" style="width:245px;heiht:350px" alt="wine"></a>
-		            <br>
+		            <img class="hj-wine-img1" ng-if="side.image !=''" ng-src="/assets/images/upload/{{side.image}}" style="width:245px;height:350px" alt="wine"></a>
 		            <div class="hj-wine1">{{side.title}}</div>
 		            <div class="hj-wine2">{{side.name}}</div>
-		            <div class="hj-wine1">RMB: {{side.price}}</div>
+		            <div class="hj-p-price1">RMB: {{side.price}}</div>
 	            </div>
 	        </div>
 	    </div>
