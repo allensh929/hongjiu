@@ -38,6 +38,13 @@ angular.module('hongjieApp')
                     return done(response.data);
                 });
             },
+            
+            findByOccasionWines: function (done) {
+            	console.debug('find by occasion wines');
+                return $http.get('api/products/byoccasion').then(function (response) {
+                    return done(response.data);
+                });
+            },
                      
             getProductRelatesByProductId: function (product_id, done) {
             	console.debug('getProductRelatesByProductId:'+product_id);

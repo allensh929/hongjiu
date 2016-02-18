@@ -25,6 +25,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query("select p from Product AS p order by p.variety desc ")
 	public List<Product> findByVarietyProducts();
 
-	@Query(value = "select * from product where concat(ifnull(name,''), ifnull(title,''), ifnull(origin_country,''), ifnull(types,''), ifnull(variety,''), ifnull(zone,''), ifnull(tag,'')) like %:search% order by number desc ", nativeQuery = true)
+	@Query("select p from Product AS p order by p.occasion desc ")
+    public List<Product> findByOccasionProducts();
+	
+	@Query(value = "select * from product where concat(ifnull(name,''), ifnull(title,''), ifnull(origin_country,''), ifnull(types,''), ifnull(variety,''), ifnull(zone,''), ifnull(occasion,''), ifnull(tag,'')) like %:search% order by number desc ", nativeQuery = true)
 	public List<Product> findAllSearchProducts(@Param("search") String search);
 }

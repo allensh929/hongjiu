@@ -65,6 +65,12 @@ angular.module('hongjieApp').controller('InfoDialogController',
                 	 if (name == "logo"){
                  		$scope.info.placeholder2 = data.image;
                  	 }
+                	 if (name == "logo2"){
+                  		$scope.info.placeholder3 = data.image;
+                  	 }
+                	 if (name == "bg"){
+                   		$scope.info.placeholder4 = data.image;
+                   	 }
                	
                 }).error(function (data, status, headers, config) {
 

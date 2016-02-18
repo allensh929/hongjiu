@@ -104,6 +104,22 @@ angular.module('hongjieApp')
                 resolve: {
                 }
             })
+            .state('product.byOccasion', {
+                parent: 'front-home',
+                url: 'front/products/byoccasion',
+                data: {
+                   
+                    pageTitle: '按场合'
+                },
+                views: {
+                    'front-content@': {
+                        templateUrl: 'scripts/app/front/product-byoccasion.html',
+                        controller: 'FrontProductByOccasionController'
+                    }
+                },
+                resolve: {
+                }
+            })
             
             .state('menuPage.fdetail', {
                 parent: 'front-home',

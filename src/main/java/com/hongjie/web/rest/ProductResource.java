@@ -225,6 +225,37 @@ public class ProductResource {
     }
     
     /**
+     * GET  /products -> get all the products by occasion.
+     */
+    @RequestMapping(value = "/products/byoccasion",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Map<String,List<Product>>> getByOccasionProducts()
+        throws URISyntaxException {
+        List<Product> products = productRepository.findByOccasionProducts();
+        Map<String,List<Product>> result = new HashMap<String,List<Product>>();
+        
+        if(products!= null && products.size() > 0){
+            for(Product p : products){
+                if (StringUtils.isEmpty(p.getOccasion())){
+                    p.setOccasion("其他");
+                }
+                if (!result.containsKey(p.getOccasion())){
+                    List<Product> list = new ArrayList<Product>();
+                    list.add(p);
+                    result.put(p.getOccasion(), list);
+                }else{
+                    List<Product> list = result.get(p.getOccasion());
+                    list.add(p);
+                }
+            }
+        }
+        
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    
+    /**
      * PUT  /products/:id/favo -> favor the "id" product.
      */
     @RequestMapping(value = "/products/{id}/favo",

@@ -50,7 +50,7 @@
             <br>
         </div>
         <div class="form-group">
-            <label for="field_wechatServiceCode">Logo</label>
+            <label for="field_logo1">Logo 1</label>
             <img ng-if="info.placeholder2 != null" ng-src="/assets/images/upload/{{info.placeholder2}}" style="height:80px;width:80px" alt="code">
             <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(placeholder2s, 'logo')" ng-model="placeholder2s" ngf-multiple="true">
@@ -58,6 +58,30 @@
                     </div>
                     
             <img ng-repeat="file in placeholder2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_logo2">Logo 2</label>
+            <img ng-if="info.placeholder3 != null" ng-src="/assets/images/upload/{{info.placeholder3}}" style="height:80px;width:80px" alt="code">
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(placeholder3s, 'logo2')" ng-model="placeholder3s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in placeholder3s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
+
+            <br>
+        </div>
+        <div class="form-group">
+            <label for="field_bg">逛逛商店背景图</label>
+            <img ng-if="info.placeholder4 != null" ng-src="/assets/images/upload/{{info.placeholder4}}" style="height:80px;width:80px" alt="code">
+            <div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
+                         ngf-keep-distinct="true" ngf-select="onFileSelect(placeholder4s, 'bg')" ng-model="placeholder4s" ngf-multiple="true">
+                        <button >选择图片</button>
+                    </div>
+                    
+            <img ng-repeat="file in placeholder4s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>
         </div>

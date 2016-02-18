@@ -10,6 +10,7 @@ angular.module('hongjieApp', ['LocalStorageModule',
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.PHOTOBASEURL = PHOTOBASEURL;
+        $rootScope.dropdownBgStyle = '';
         $rootScope.slideStyle1 = '';
         $rootScope.slideStyle2 = '';
         $rootScope.slideStyle3 = '';

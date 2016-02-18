@@ -8,9 +8,10 @@
 		        <div class="col-md-3"></div>
 		       	<div class="col-md-5">
 		        	<div class="hj-bread">
-		        		<a ui-sref="product.byRegions"><span class="hj-bread-active">按地域 BY REGIONS</span></a> &nbsp;>&nbsp;
-		        		<a ui-sref="product.byOccasion">按场合BY Occasion</a> &nbsp;>&nbsp;
+		        		<a ui-sref="product.byOccasion"><span class="hj-bread-active">按场合 BY Occasion</span></a> &nbsp;>&nbsp;
+		        		<a ui-sref="product.byRegions">按地域 BY REGIONS</a>&nbsp;>&nbsp;
 	        			<a ui-sref="product.byVariety">按品种 BY SPECIES</a>
+	        			
 		        	</div>
 		        </div>
 		    </div>
@@ -22,10 +23,10 @@
 		
 		<BR>
 	    
-	    <div class="row" ng-repeat="key in byregionsProducts">
+	    <div class="row" ng-repeat="key in byoccasionProducts">
 	        <div class="col-md-12">
 	        	<div class="row" >
-	        		<div class="col-md-11"><div class="hj-h1"> {{key[0].originCountry}}专区 </div>
+	        		<div class="col-md-11"><div class="hj-h1"> {{key[0].occasion}}专区 </div>
 	        		</div>
 	        		<div class="col-md-1"><div ng-if="key.length > 4" ng-click="toggleShowFlag($index)" class="hj-more"> MORE> </div>
 	        		</div>

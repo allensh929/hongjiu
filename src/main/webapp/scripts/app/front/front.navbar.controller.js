@@ -34,6 +34,10 @@ angular.module('hongjieApp')
         Info.query(function(result){
         	if (result.length > 0){
         		$rootScope.info = result[0];
+        		if (result[0].placeholder4 != null){
+        			$rootScope.dropdownBgStyle = {'background': 'url(/assets/images/upload/'+result[0].placeholder4+') center', 'background-size': 'cover', 'background-repeat': 'no-repeat'};
+        			console.debug($rootScope.dropdownBgStyle);
+        		}
         		
         		$scope.qrCodeHtml = $sce.trustAsHtml('扫一扫关注官方微信订阅 / 微信服务号!<br> <img src=\'/assets/images/upload/'+ $rootScope.info.wechatSubscribeCode +'\'> <img src=\'/assets/images/upload/'+ $rootScope.info.wechatServiceCode +'\'>');
         	}

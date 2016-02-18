@@ -67,6 +67,15 @@ public class Product implements Serializable {
 	@Column(name = "tag")
 	private String tag;
 
+	@Column(name = "occasion")
+    private String occasion;
+	
+	@Column(name = "placeholder1")
+    private String placeholder1;
+	
+	@Column(name = "placeholder2")
+    private String placeholder2;
+	
 	@Column(name = "full_name")
 	private String fullName;
 
@@ -242,6 +251,30 @@ public class Product implements Serializable {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	
+	public String getOccasion() {
+        return occasion;
+    }
+
+    public void setOccasion(String occasion) {
+        this.occasion = occasion;
+    }
+    
+    public String getPlaceholder1() {
+        return placeholder1;
+    }
+
+    public void setPlaceholder1(String placeholder1) {
+        this.placeholder1 = placeholder1;
+    }
+    
+    public String getPlaceholder2() {
+        return placeholder2;
+    }
+
+    public void setPlaceholder2(String placeholder2) {
+        this.placeholder2 = placeholder2;
+    }    
 
 	public String getFullName() {
 		return fullName;

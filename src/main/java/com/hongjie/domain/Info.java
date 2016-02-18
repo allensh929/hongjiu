@@ -39,7 +39,19 @@ public class Info implements Serializable {
 
     @Column(name = "placeholder2")
     private String placeholder2;
+    
+    @Column(name = "placeholder3")
+    private String placeholder3;
+    
+    @Column(name = "placeholder4")
+    private String placeholder4;
+    
+    @Column(name = "placeholder5")
+    private String placeholder5;
 
+    @Column(name = "placeholder6")
+    private String placeholder6;
+    
     public Long getId() {
         return id;
     }
@@ -102,6 +114,38 @@ public class Info implements Serializable {
 
     public void setPlaceholder2(String placeholder2) {
         this.placeholder2 = placeholder2;
+    }
+    
+    public String getPlaceholder3() {
+        return placeholder3;
+    }
+
+    public void setPlaceholder3(String placeholder3) {
+        this.placeholder3 = placeholder3;
+    }
+    
+    public String getPlaceholder4() {
+        return placeholder4;
+    }
+
+    public void setPlaceholder4(String placeholder4) {
+        this.placeholder4 = placeholder4;
+    }
+    
+    public String getPlaceholder5() {
+        return placeholder5;
+    }
+
+    public void setPlaceholder5(String placeholder5) {
+        this.placeholder5 = placeholder5;
+    }
+    
+    public String getPlaceholder6() {
+        return placeholder6;
+    }
+
+    public void setPlaceholder6(String placeholder6) {
+        this.placeholder6 = placeholder6;
     }
 
     @Override

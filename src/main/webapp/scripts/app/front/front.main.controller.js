@@ -277,6 +277,69 @@ angular.module('hongjieApp')
 }]);
 
 angular.module('hongjieApp')
+.controller('FrontProductByOccasionController', ["$rootScope", "$http", "$scope", "wineService", "Product", function ($rootScope, $http, $scope, wineService, Product) {
+  
+	console.debug('FrontProductByOccasionController start');
+	
+	$scope.toggleShowFlag = function(index){
+		$scope.showFlag[index] = !$scope.showFlag[index];
+	}
+	
+	wineService.findByOccasionWines(function(result){
+		
+		var occasions = [[]];
+		var index = 0;
+		var others =[];
+		$scope.showFlag = [];
+		for (var key in result){
+			if (key =="其他"){
+				others = result[key];
+				continue;
+			}
+			occasions[index] = result[key];
+			$scope.showFlag[index] = true;
+			index ++;
+			
+			console.log("key" + key + ",value"+ result[key]); 
+		}
+		occasions[index] = others;//其他放在最后显示
+		if (others.length == 0){
+			occasions.splice(index,index);
+		}
+		$scope.showFlag[index] = true;
+		$scope.byoccasionProducts = occasions;
+	});
+	
+	$scope.favor = function(data){
+		if (!$rootScope.canDoFavor()){
+			return;
+		}
+		$http({method: 'PUT', url: '/api/products/'+data+'/favo'}).
+            then(function(response) {
+              $scope.status = response.status;
+              $scope.data = response.data;
+              $scope.refreshFavor(response.data);
+            }, function(response) {
+              $scope.data = response.data || "Request failed";
+              $scope.status = response.status;
+        });
+	};
+	
+	$scope.refreshFavor = function(data){
+		for (var i = 0; i< $scope.byoccasionProducts.length; i++){
+			for(var j = 0; j< $scope.byoccasionProducts[i].length; j++){
+				if ($scope.byoccasionProducts[i][j].id == data.id ){
+					$scope.byoccasionProducts[i][j].favorate = data.favorate;
+					break;
+				}
+			}
+		}
+	};
+	
+    console.debug('FrontProductByOccasionController end');
+}]);
+
+angular.module('hongjieApp')
 .controller('FrontProductDetailController', ["$scope", "$rootScope", "$stateParams", "Product", "Xref", "wineService", function ($scope, $rootScope, $stateParams, Product, Xref, wineService) {
 	
 	console.debug('FrontProductDetailController start');
