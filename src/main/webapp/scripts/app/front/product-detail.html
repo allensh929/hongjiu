@@ -56,9 +56,9 @@ var jiathis_config = {
 	        		<div class="hj-tl-margin-5 hj-p-name">{{product.fullName}}</div>
 	        		<div class="hj-tl-margin-5 hj-p-price">RMB: {{product.price}}</div>
 	        		<div class="hj-p-border">
-						<img class="hj-wine-img1" ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="width:115px;heiht:115px"  alt="wine">
-						<img class="hj-wine-img1" ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="width:115px;heiht:115px"  alt="wine">
-						<img class="hj-wine-img1" ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="width:115px;heiht:115px"  alt="wine">
+						<img class="hj-wine-img1" ng-if="product.award1 != null && product.award1 != ''" ng-src="/assets/images/upload/{{product.award1}}" style="width:115px;heiht:115px"  alt="wine">
+						<img class="hj-wine-img1" ng-if="product.award2 != null && product.award2 != ''" ng-src="/assets/images/upload/{{product.award2}}" style="width:115px;heiht:115px"  alt="wine">
+						<img class="hj-wine-img1" ng-if="product.award3 != null && product.award3 != ''" ng-src="/assets/images/upload/{{product.award3}}" style="width:115px;heiht:115px"  alt="wine">
 					</div>
 					<br>
 					<div class="hj-p-border">

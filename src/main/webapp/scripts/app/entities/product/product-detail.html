@@ -176,7 +176,7 @@
                     <span>详情页 大图</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.image1 != null " ng-src="/assets/images/upload/{{product.image1}}" style="height:100px;width:100px" alt="wine"></span>
                 </td>
             </tr>
             <tr>
@@ -184,9 +184,9 @@
                     <span>获奖图片</span>
                 </td>
                 <td>
-                    <span class="form-control-static"><img ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
-                    <span class="form-control-static"><img ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="height:100px;width:100px" alt="wine"></span>
-                    <span class="form-control-static"><img ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award1 != null && product.award1 != ''" ng-src="/assets/images/upload/{{product.award1}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award2 != null && product.award2 != ''" ng-src="/assets/images/upload/{{product.award2}}" style="height:100px;width:100px" alt="wine"></span>
+                    <span class="form-control-static"><img ng-if="product.award3 != null && product.award3 != ''" ng-src="/assets/images/upload/{{product.award3}}" style="height:100px;width:100px" alt="wine"></span>
                 </td>
             </tr>
             <tr>

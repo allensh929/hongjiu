@@ -182,12 +182,14 @@
 
             <label for="field_upload">获奖图片1</label>
 			<!--<input type="text" class="form-control" name="award1" id="field_award1" ng-model="product.award1" />-->
-			<img ng-if="product.award1 != null" ng-src="/assets/images/upload/{{product.award1}}" style="height:80px;width:80px" alt="award1">
+			<img ng-if="product.award1 != null && product.award1 != ''" ng-src="/assets/images/upload/{{product.award1}}" style="height:80px;width:80px" alt="award1">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award1s, 'award1')" ng-model="award1s" ngf-multiple="true">
                         <button >选择图片</button>
                     </div>
-                    
+            <div class="button select-picture-button padding" >
+                        <button type="button"  ng-click="onFileDelete('award1')">删除</button>
+                    </div>    
             <img ng-repeat="file in award1s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>
@@ -197,12 +199,14 @@
 
             <label for="field_upload">获奖图片2</label>
 			<!--<input type="text" class="form-control" name="award2" id="field_award2" ng-model="product.award2" />-->
-			<img ng-if="product.award2 != null" ng-src="/assets/images/upload/{{product.award2}}" style="height:80px;width:80px" alt="award2">
+			<img ng-if="product.award2 != null && product.award2 != ''" ng-src="/assets/images/upload/{{product.award2}}" style="height:80px;width:80px" alt="award2">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award2s, 'award2')" ng-model="award2s" ngf-multiple="true">
                         <button >选择图片</button>
                     </div>
-                    
+            <div class="button select-picture-button padding" >
+                        <button type="button"  ng-click="onFileDelete('award2')">删除</button>
+                    </div>          
             <img ng-repeat="file in award2s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>
@@ -212,12 +216,14 @@
 
             <label for="field_upload">获奖图片3</label>
 			<!--<input type="text" class="form-control" name="award3" id="field_award3" ng-model="product.award3" />-->
-			<img ng-if="product.award3 != null" ng-src="/assets/images/upload/{{product.award3}}" style="height:80px;width:80px" alt="award3">
+			<img ng-if="product.award3 != null && product.award3 != ''" ng-src="/assets/images/upload/{{product.award3}}" style="height:80px;width:80px" alt="award3">
 			<div class="button select-picture-button padding" accept="image/*" ngf-keep="true"
                          ngf-keep-distinct="true" ngf-select="onFileSelect(award3s, 'award3')" ng-model="award3s" ngf-multiple="true">
                         <button >选择图片</button>
                     </div>
-                    
+             <div class="button select-picture-button padding" >
+                        <button type="button"  ng-click="onFileDelete('award3')">删除</button>
+                    </div>         
             <img ng-repeat="file in award3s" ngf-src="file" class="padding" style="max-height: 10rem; max-width: 10rem; border-radius: 5px">
 
             <br>

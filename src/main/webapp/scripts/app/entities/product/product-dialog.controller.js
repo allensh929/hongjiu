@@ -91,4 +91,22 @@ angular.module('hongjieApp').controller('ProductDialogController',
 	          });
         };
         
+        $scope.onFileDelete = function(name){
+        	if (name == "image"){
+           		$scope.product.image = "";
+           	 }
+           	 if (name == "imageDetail"){
+           		$scope.product.image1 = "";
+           	 }
+           	 if (name == "award1"){
+           		$scope.product.award1 = "";
+           	 }
+           	if (name == "award2"){
+           		$scope.product.award2 = "";
+           	 }
+           	if (name == "award3"){
+           		$scope.product.award3 = "";
+           	 }
+        };
+        
 }]);
