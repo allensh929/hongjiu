@@ -21,7 +21,7 @@
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+        <div ng-show="{{ENV === 'dev'}}" class="" ng-cloak=""></div>
         <div ui-view="navbar" ng-cloak=""></div>
         <div class="container">
             <div class="well" ui-view="content"></div>
@@ -43,23 +43,36 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>        
+		<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/angular.js/1.4.5/angular.min.js"></script>
+		<script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>	
+		<script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>		
+		<script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> 		
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="//cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
+		<script src="//cdn.bootcss.com/ionic/1.2.4/js/angular/angular-resource.min.js"></script>
+		
+		
+		<!-- 
+		<script src="bower_components/modernizr/modernizr.js"></script>
+		<script src="bower_components/jquery/dist/jquery.js"></script>		
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script> 
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="bower_components/json3/lib/json3.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
+		-->
+        <script src="bower_components/angular-aria/angular-aria.js"></script>        
         <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>        
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>        
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>       
         <script src="bower_components/angular-ahdin/dist/blob-util.min.js"></script>
     	<script src="bower_components/angular-ahdin/dist/load-image.all.min.js"></script>
-    	<script src="bower_components/angular-ahdin/dist/ahdin.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/json3/lib/json3.js"></script>
+    	<script src="bower_components/angular-ahdin/dist/ahdin.js"></script>       
         <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
         
@@ -204,9 +217,12 @@
     <script src="scripts/app/entities/brandStory/brandStory-delete-dialog.controller.js"></script>
     <script src="scripts/app/entities/brandStory/brandStory-detail.controller.js"></script>
     <script src="scripts/components/entities/brandStory/brandStory.service.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
     
     
-    <!-- endbuild -->
+    
+    <!--<script src="ckeditor/ckeditor.js"></script> endbuild -->
 </body>
+<script>
+
+</script>
 </html>

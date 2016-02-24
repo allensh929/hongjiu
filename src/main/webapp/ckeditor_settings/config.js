@@ -7,6 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	 config.language = 'zh-CN';
 //	 config.uiColor = '#AADC6E';
+//	 config.line_height="1em;1.1em;1.2em;1.3em;1.4em;1.5em";
 	 
 	 
 	 config.font_defaultLabel = 'Microsoft YaHei';
@@ -15,4 +16,19 @@ CKEDITOR.editorConfig = function( config ) {
 	 
 	 config.image_previewText=' '; //预览区域显示内容
 	 config.filebrowserImageUploadUrl= "api/ckuploadImage"; //待会要上传的action或servlet
+	 
+	 CKEDITOR.on('instanceReady', function (ev) {
+	    ev.editor.dataProcessor.writer.setRules('br',
+	     {
+	         indent: false,
+	         breakBeforeOpen: false,
+	         breakAfterOpen: false,
+	         breakBeforeClose: false,
+	         breakAfterClose: false
+	     });
+	});
+
+	config.enterMode = CKEDITOR.ENTER_BR;
+	config.shiftEnterMode = CKEDITOR.ENTER_BR;
 };
+
