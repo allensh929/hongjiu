@@ -60,8 +60,17 @@ angular.module('hongjieApp').controller('ProductDialogController',
                	 if (name == "image"){
                		$scope.product.image = data.image;
                	 }
-               	 if (name == "imageDetail"){
+               	 if (name == "imageDetail1"){
                		$scope.product.image1 = data.image;
+               	 }
+               	if (name == "imageDetail2"){
+               		$scope.product.image2 = data.image;
+               	 }
+               	if (name == "imageDetail3"){
+               		$scope.product.image3 = data.image;
+               	 }
+               	if (name == "imageDetail4"){
+               		$scope.product.image4 = data.image;
                	 }
                	 if (name == "award1"){
                		$scope.product.award1 = data.image;
@@ -95,8 +104,17 @@ angular.module('hongjieApp').controller('ProductDialogController',
         	if (name == "image"){
            		$scope.product.image = "";
            	 }
-           	 if (name == "imageDetail"){
+           	 if (name == "imageDetail1"){
            		$scope.product.image1 = "";
+           	 }
+           	if (name == "imageDetail2"){
+           		$scope.product.image2 = "";
+           	 }
+           	if (name == "imageDetail3"){
+           		$scope.product.image3 = "";
+           	 }
+           	if (name == "imageDetail4"){
+           		$scope.product.image4 = "";
            	 }
            	 if (name == "award1"){
            		$scope.product.award1 = "";

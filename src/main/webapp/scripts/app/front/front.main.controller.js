@@ -349,7 +349,9 @@ angular.module('hongjieApp')
         	jiathis_config.title = $scope.product.title;
         	jiathis_config.summary = $scope.product.descriptionTitle;
         	jiathis_config.pic = $rootScope.PHOTOBASEURL + $scope.product.image1;
-        	
+        	console.debug('image1:' +$scope.product.image1);
+        	console.debug('image2:' +$scope.product.image2);
+        	console.debug('image3:' +$scope.product.image3);
         } 
     });    
     
