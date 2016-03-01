@@ -343,15 +343,23 @@ angular.module('hongjieApp')
 .controller('FrontProductDetailController', ["$scope", "$rootScope", "$stateParams", "Product", "Xref", "wineService", function ($scope, $rootScope, $stateParams, Product, Xref, wineService) {
 	
 	console.debug('FrontProductDetailController start');
+	$scope.images = [];
+	
     Product.get({id: $stateParams.id}, function(result) {
         $scope.product = result;
         if ($scope.product != null){
         	jiathis_config.title = $scope.product.title;
         	jiathis_config.summary = $scope.product.descriptionTitle;
         	jiathis_config.pic = $rootScope.PHOTOBASEURL + $scope.product.image1;
-        	console.debug('image1:' +$scope.product.image1);
-        	console.debug('image2:' +$scope.product.image2);
-        	console.debug('image3:' +$scope.product.image3);
+        	if ($scope.product.image1!= null && $scope.product.image1!=''){
+        		$scope.images[0] = {thumb: '/assets/images/upload/'+$scope.product.image1, img: '/assets/images/upload/'+$scope.product.image1, description: 'Image 1'};
+        	}
+			if ($scope.product.image2!= null && $scope.product.image2!=''){
+				$scope.images[1] = {thumb: '/assets/images/upload/'+$scope.product.image2, img: '/assets/images/upload/'+$scope.product.image2, description: 'Image 2'};	
+			}
+			if ($scope.product.image3!= null && $scope.product.image3!=''){
+				$scope.images[2] = {thumb: '/assets/images/upload/'+$scope.product.image3, img: '/assets/images/upload/'+$scope.product.image3, description: 'Image 3'};
+			}
         } 
     });    
     

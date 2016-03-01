@@ -26,10 +26,11 @@ var jiathis_config = {
 		        <div class="col-md-4">
 		            <div class="hj-nav-h1"> 商店 SHOP</div>
 		        </div>
-		        <div class="col-md-4"></div>
-		        <div class="col-md-4">
+		        <div class="col-md-3"></div>
+		        <div class="col-md-5">
 		        	<div class="hj-bread">
 		        		<a ui-sref="product.byRegions">按地域 BY REGIONS</a> &nbsp;>&nbsp;
+		        		<a ui-sref="product.byOccasion">按场合BY Occasion</a> &nbsp;>&nbsp;
 	        			<a ui-sref="product.byVariety">按品种 BY SPECIES</a>
 		        	</div>
 		        </div>
@@ -43,11 +44,10 @@ var jiathis_config = {
 		<BR>
 
 	    <div class="row">
-	        <div class="col-md-6">
+	        <div class="col-md-6 thumbnail">
 	            <div class="hj-p-d-container">
-	            	<a ng-href="{{product.jdurl}}" class="thumbnail">
-	            	<img id ="product_image1" class="hj-wine-img1" ng-if="product.image1 != null" ng-src="/assets/images/upload/{{product.image1}}" style="width:470px;heiht:640px"  alt="wine">
-	            	</a>
+                    <ng-gallery images="images">
+                    </ng-gallery>
 	            </div>
 	        </div>
 	        <div class="col-md-6">

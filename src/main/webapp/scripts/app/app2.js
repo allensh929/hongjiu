@@ -2,7 +2,7 @@
 
 angular.module('hongjieApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'infinite-scroll', 'angular-loading-bar'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'infinite-scroll', 'angular-loading-bar', 'jkuri.gallery'])
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION, PHOTOBASEURL, MenuPageExt, Slide, GiftExt, BrandStoryExt, Info, $cookies) {
         
