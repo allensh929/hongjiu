@@ -428,3 +428,11 @@
     bottom: 18px; /* height of link element */
     right: 10px; /* padding from the left side of the window */
 }
+a.carousel-control.left {
+    background-image:none!important;
+}
+a.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image:none!important;
+}
